@@ -9,7 +9,7 @@
 
 // レイヤー定義
 #define QWE 0
-#define AST 1
+#define ONI 1
 #define NAG 2
 #define MOU 3
 #define MOV 4
@@ -63,27 +63,27 @@
 
         // 薙刀式
         combo_ng_on {
-            timeout-ms = <300>;
+            timeout-ms = <30>;
             key-positions = <17 18>;
             bindings = <&ng_on>;
             layers = <0>;
         };
         combo_ng_off {
-            timeout-ms = <300>;
+            timeout-ms = <30>;
             key-positions = <13 14>;
             bindings = <&ng_off>;
             layers = <0 2>;
         };
 
-        // Astarte
-        combo_astarte_on {
-            timeout-ms = <300>;
+        // OONISHI
+        combo_oonishi_on {
+            timeout-ms = <30>;
             key-positions = <29 30>;
             bindings = <&to 1>;
             layers = <0>;
         };
-        combo_astarte_off {
-            timeout-ms = <300>;
+        combo_oonishi_off {
+            timeout-ms = <30>;
             key-positions = <25 26>;
             bindings = <&to 0>;
             layers = <0 1>;
@@ -91,19 +91,19 @@
 
         // ショートカット
         combo_esc {
-            timeout-ms = <300>;
+            timeout-ms = <30>;
             key-positions = <0 1>;
             bindings = <&kp ESC>;
             layers = <0 1>;
         };
         combo_bspc {
-            timeout-ms = <300>;
+            timeout-ms = <30>;
             key-positions = <8 9>;
             bindings = <&kp BSPC>;
             layers = <0 1>;
         };
         combo_del {
-            timeout-ms = <300>;
+            timeout-ms = <30>;
             key-positions = <7 8>;
             bindings = <&kp DEL>;
             layers = <0 1>;
@@ -111,14 +111,14 @@
 
         // 入力切替
         combo_eisu {
-            timeout-ms = <300>;
-            key-positions = <11 12 13>;
+            timeout-ms = <30>;
+            key-positions = <24 25>;
             bindings = <&kp LANG2>;
             layers = <0 1>;
         };
         combo_kana {
-            timeout-ms = <300>;
-            key-positions = <18 19 20>;
+            timeout-ms = <30>;
+            key-positions = <30 31>;
             bindings = <&kp LANG1>;
             layers = <0 1>;
         };
@@ -219,6 +219,20 @@
                        <&macro_tap &kp LEFT>;
         };
 
+        LAW: left_arrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LS(COMM)>,
+                       <&macro_tap &kp MINS>;
+        }
+
+        RAW: right_arrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp MINS>,
+                       <&macro_tap &kp LS(DOT)>;
+        }
+
         // naginata
         ng_on: ng_on {
             compatible = "zmk,behavior-macro";
@@ -298,6 +312,48 @@
             flavor = "tap-preferred";
             bindings = <&mo>, <&kp>;
         };
+
+        tdrpn: tap_dance_rpn2 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <150>;
+            bindings = <&kp LS(N8)>, <&JPRN2>;
+        };
+
+        tdbrc: tap_dance_brc2 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <150>;
+            bindings = <&kp RBKT>, <&JBRC2>;
+        };
+
+        tdcbr: tap_dance_cbr2 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <150>;
+            bindings = <&kp LS(RBKT)>, <&JCBR2>;
+        };
+
+        tdlaw: tap_dance_left_arrow {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <150>;
+            bindings = <&kp COMM>, <&LAW>;
+        }
+
+        tdraw: tap_dance_reft_arrow {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <150>;
+            bindings = <&kp DOT>, <&RAW>;
+        }
+
+        tdmisl: tap_dance_mins_slsh {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <150>;
+            bindings = <&kp MINS>, <&kp SLSH>;
+        }
 
         // JIS用文字入力([/?]はJISでも入力が同じ)
         jeqpl: jis_equal_plus {
@@ -379,18 +435,18 @@
             bindings = <
 &kp Q        &kp W        &kp E         &kp R         &kp T                                                  &kp Y        &kp U         &kp I         &kp O        &kp P
 &hrm LGUI A  &hrm LALT S  &hrm LSHFT D  &hrm LCTRL F  &kp G             &kp LCTRL             &kp RALT       &kp H        &hrm RCTRL J  &hrm RSHFT K  &hrm RALT L  &hjseco
-&klt MOU Z   &kp X        &kp C         &kp V         &kp B             &kp LSHFT             &kp RGUI       &kp N        &kp M         &kp COMMA     &kp DOT      &klt MOU SLASH
+&klt MOU Z   &kp X        &kp C         &kp V         &kp B             &kp LSHFT             &kp RGUI       &kp N        &kp M         &tdlaw        &tdraw       &klt MOU SLASH
 &kp LALT     &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE     &mlt MAR MB2          &lt LOW BSPC   &lt RAI RET                                           &mo MOU
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
         };
 /*
-        ASTARTE {
+        OONISHI {
             bindings = <
-&kp Q        &kp P        &kp U         &kp Y         &kp COMMA                                            &kp J        &kp D         &kp H         &kp G        &kp W
-&hrm LGUI I  &hrm LALT O  &hrm LSHFT E  &hrm LCTRL A  &kp DOT         &kp LCTRL             &kp RALT       &kp K        &hrm RCTRL T  &hrm RSHFT N  &hrm RALT S  &hrm RGUI R
-&klt MOU Z   &kp X        &kp SLASH     &kp C         &jseco          &kp LSHFT             &kp RGUI       &kp M        &kp L         &kp F         &kp B        &klt MOU V
+&kp Q        &kp L        &kp U         &tdlaw        &tdraw                                               &kp F        &kp W         &kp R         &kp Y        &kp P
+&hrm LGUI E  &hrm LALT I  &hrm LSHFT A  &hrm LCTRL O  &tdmisl         &kp LCTRL             &kp RALT       &kp K        &hrm RCTRL T  &hrm RSHFT N  &hrm RALT S  &hrm RGUI H
+&klt MOU Z   &kp X        &kp C         &kp V         &jseco          &kp LSHFT             &kp RGUI       &kp G        &kp D         &kp M         &kp J        &klt MOU B
 &kp LALT     &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE   &mlt MAR MB2          &lt LOW BSPC   &lt RAI RET                                           &mo MOU
             >;
 
@@ -436,8 +492,8 @@
         LOWER {
             bindings = <
 &kp LS(N1) &kp LBKT   &kp LS(N3)    &kp LS(N4)    &kp LS(N5)                               &kp EQUAL   &kp LS(N6)  &kp LS(SQT)  &kp LS(N8)    &kp LS(N9)
-&jgrti     &jeqpl     &jmiun        &jbspi        &none        &kp LCTRL         &kp RALT  &none       &kp LS(N8)  &jlblb       &kp LS(RBKT)  &kp AMPS
-&kp PLUS   &kp COLON  &kp LS(INT1)  &kp LS(INT3)  &none        &kp LSHFT         &kp RGUI  &none       &kp LS(N9)  &jrbrb       &kp LS(NUHS)  &jsqdq
+&jgrti     &jeqpl     &jmiun        &jbspi        &FSLH        &kp LCTRL         &kp RALT  &none       &tdrpn      &tdbrc       &tdcbr        &kp AMPS
+&kp PLUS   &kp COLON  &kp LS(INT1)  &kp LS(INT3)  &QMARK       &kp LSHFT         &kp RGUI  &none       &kp LS(N9)  &jrbrb       &kp LS(NUHS)  &jsqdq
 &none      &none      &none         &kp DEL       &kp RET      &kp BSPC          &none     &none                                              &none
             >;
         };
