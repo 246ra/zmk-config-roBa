@@ -224,14 +224,14 @@
             #binding-cells = <0>;
             bindings = <&macro_tap &kp LS(COMM)>,
                        <&macro_tap &kp MINS>;
-        }
+        };
 
         RAW: right_arrow {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp MINS>,
                        <&macro_tap &kp LS(DOT)>;
-        }
+        };
 
         // naginata
         ng_on: ng_on {
@@ -294,6 +294,7 @@
             flavor = "tap-preferred";
             bindings = <&nscrl>, <&ng>;
         };
+
         nlt: nagi_layer_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -339,21 +340,21 @@
             #binding-cells = <0>;
             tapping-term-ms = <150>;
             bindings = <&kp COMM>, <&LAW>;
-        }
+        };
 
         tdraw: tap_dance_reft_arrow {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <150>;
             bindings = <&kp DOT>, <&RAW>;
-        }
+        };
 
         tdmisl: tap_dance_mins_slsh {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <150>;
             bindings = <&kp MINS>, <&kp SLSH>;
-        }
+        };
 
         // JIS用文字入力([/?]はJISでも入力が同じ)
         jeqpl: jis_equal_plus {
