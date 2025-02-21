@@ -314,26 +314,6 @@
             bindings = <&mo>, <&kp>;
         };
 
-        // wakasagi用layer設定
-/*
-        ｗltl: wakasagi_layer_tap_left {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
-            tapping-term-ms = <230>;
-            quick-tap-ms = <150>;
-            flavor = "tap-preferred";
-            bindings = <&mo>, <&tdmifs>;
-        };
-  */
-        wltr: wakasagi_layer_tap_right {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
-            tapping-term-ms = <230>;
-            quick-tap-ms = <150>;
-            flavor = "tap-preferred";
-            bindings = <&mo>, <&tdraw>;
-        };
-
         tdrpn: tap_dance_rpn2 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -362,18 +342,18 @@
             bindings = <&kp COMMA>, <&LAW>;
         };
 
-        tdraw: tap_dance_reft_arrow {
+        // wakasagi用layer設定
+        tdraw: tap_dance_right_arrow {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <150>;
-            bindings = <&kp DOT>, <&RAW>;
+            bindings = <&klt MOU DOT>, <&RAW>;
         };
-
         tdmifs: tap_dance_minus_fslh {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <150>;
-            bindings = <&kp MINUS>, <&kp FSLH>;
+            bindings = <&klt MOU MINUS>, <&kp FSLH>;
         };
 
         // JIS用文字入力([/?]はJISでも入力が同じ)
