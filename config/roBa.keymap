@@ -222,7 +222,7 @@
         LAW: left_arrow {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LS(COMM)>,
+            bindings = <&macro_tap &kp LS(COMMA)>,
                        <&macro_tap &kp MINS>;
         };
 
@@ -339,7 +339,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <150>;
-            bindings = <&kp COMM>, <&LAW>;
+            bindings = <&kp COMMA>, <&LAW>;
         };
 
         tdraw: tap_dance_reft_arrow {
