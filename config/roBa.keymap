@@ -317,11 +317,11 @@
         // wakasagi用layer設定
         ｗltl: wakasagi_layer_tap_left {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <1>;
+            #binding-cells = <2>;
             tapping-term-ms = <230>;
             quick-tap-ms = <150>;
             flavor = "tap-preferred";
-            bindings = <&mo>, <&tdmifs>;
+            bindings = <&mo>, <&kp>;
         };
         ｗltr: wakasagi_layer_tap_right {
             compatible = "zmk,behavior-hold-tap";
@@ -465,7 +465,7 @@
             bindings = <
 &kp Q        &kp P        &kp R         &kp D         &kp C                                                &kp B        &kp K         &kp U         &kp Y        &kp X
 &hrm LGUI A  &hrm LALT T  &hrm LSHFT N  &hrm LCTRL S  &kp W           &kp LCTRL             &kp RALT       &kp M        &hrm RCTRL H  &hrm RSHFT E  &hrm RALT I  &hrm RGUI O
-&ｗltl MOU   &tdlaw       &kp L         &kp G         &kp J           &kp LSHFT             &kp RGUI       &kp F        &kp V         &&jseco       &kp Z        &ｗltr MOU
+&ｗltl MOU A   &tdlaw       &kp L         &kp G         &kp J           &kp LSHFT             &kp RGUI       &kp F        &kp V         &&jseco       &kp Z        &ｗltr MOU
 &kp LALT     &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE   &mlt MAR MB2          &lt LOW BSPC   &lt RAI RET                                           &mo MOU
             >;
 
