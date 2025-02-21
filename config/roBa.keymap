@@ -329,7 +329,7 @@
             tapping-term-ms = <230>;
             quick-tap-ms = <150>;
             flavor = "tap-preferred";
-            bindings = <&mo>, <&tdraw>;
+            bindings = <&mo>, <&kp>;
         };
 
         tdrpn: tap_dance_rpn2 {
@@ -465,7 +465,7 @@
             bindings = <
 &kp Q        &kp P        &kp R         &kp D         &kp C                                                &kp B        &kp K         &kp U         &kp Y        &kp X
 &hrm LGUI A  &hrm LALT T  &hrm LSHFT N  &hrm LCTRL S  &kp W           &kp LCTRL             &kp RALT       &kp M        &hrm RCTRL H  &hrm RSHFT E  &hrm RALT I  &hrm RGUI O
-&ｗltl MOU A   &tdlaw       &kp L         &kp G         &kp J           &kp LSHFT             &kp RGUI       &kp F        &kp V         &&jseco       &kp Z        &ｗltr MOU
+&ｗltl MOU A   &tdlaw       &kp L         &kp G         &kp J           &kp LSHFT             &kp RGUI       &kp F        &kp V         &&jseco       &kp Z        &ｗltr MOU B
 &kp LALT     &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE   &mlt MAR MB2          &lt LOW BSPC   &lt RAI RET                                           &mo MOU
             >;
 
