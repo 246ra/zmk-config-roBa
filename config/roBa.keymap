@@ -325,7 +325,7 @@
             bindings = <&mo>, <&tdmifs>;
         };
   */
-        ｗltr: wakasagi_layer_tap_right {
+        wltr: key_layer_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <230>;
