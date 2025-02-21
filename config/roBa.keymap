@@ -223,13 +223,13 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp LS(COMMA)>,
-                       <&macro_tap &kp MINS>;
+                       <&macro_tap &kp MINUS>;
         };
 
         RAW: right_arrow {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp MINS>,
+            bindings = <&macro_tap &kp MINUS>,
                        <&macro_tap &kp LS(DOT)>;
         };
 
@@ -349,11 +349,11 @@
             bindings = <&kp DOT>, <&RAW>;
         };
 
-        tdmisl: tap_dance_mins_slsh {
+        tdmifs: tap_dance_minus_fslh {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <150>;
-            bindings = <&kp MINS>, <&kp SLSH>;
+            bindings = <&kp MINUS>, <&kp FSLH>;
         };
 
         // JIS用文字入力([/?]はJISでも入力が同じ)
@@ -446,7 +446,7 @@
         OONISHI {
             bindings = <
 &kp Q        &kp L        &kp U         &tdlaw        &tdraw                                               &kp F        &kp W         &kp R         &kp Y        &kp P
-&hrm LGUI E  &hrm LALT I  &hrm LSHFT A  &hrm LCTRL O  &tdmisl         &kp LCTRL             &kp RALT       &kp K        &hrm RCTRL T  &hrm RSHFT N  &hrm RALT S  &hrm RGUI H
+&hrm LGUI E  &hrm LALT I  &hrm LSHFT A  &hrm LCTRL O  &tdmifs         &kp LCTRL             &kp RALT       &kp K        &hrm RCTRL T  &hrm RSHFT N  &hrm RALT S  &hrm RGUI H
 &klt MOU Z   &kp X        &kp C         &kp V         &jseco          &kp LSHFT             &kp RGUI       &kp G        &kp D         &kp M         &kp J        &klt MOU B
 &kp LALT     &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE   &mlt MAR MB2          &lt LOW BSPC   &lt RAI RET                                           &mo MOU
             >;
