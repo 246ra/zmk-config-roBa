@@ -465,7 +465,7 @@
             bindings = <
 &kp Q        &kp P        &kp R         &kp D         &kp C                                                &kp B        &kp K         &kp U         &kp Y        &kp X
 &hrm LGUI A  &hrm LALT T  &hrm LSHFT N  &hrm LCTRL S  &kp W           &kp LCTRL             &kp RALT       &kp M        &hrm RCTRL H  &hrm RSHFT E  &hrm RALT I  &hrm RGUI O
-&klt MOU A   &tdlaw       &kp L         &kp G         &kp J           &kp LSHFT             &kp RGUI       &kp F        &kp V         &&jseco       &kp Z        &klt MOU B
+&klt MOU A   &tdlaw       &kp L         &kp G         &kp J           &kp LSHFT             &kp RGUI       &kp F        &kp V         &jseco        &kp Z        &klt MOU B
 &kp LALT     &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE   &mlt MAR MB2          &lt LOW BSPC   &lt RAI RET                                           &mo MOU
             >;
 
