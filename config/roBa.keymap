@@ -317,7 +317,7 @@
         // wakasagi用layer設定
         ｗltl: wakasagi_layer_tap_left {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <1>;
             tapping-term-ms = <230>;
             quick-tap-ms = <150>;
             flavor = "tap-preferred";
@@ -325,7 +325,7 @@
         };
         ｗltr: wakasagi_layer_tap_right {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <1>;
             tapping-term-ms = <230>;
             quick-tap-ms = <150>;
             flavor = "tap-preferred";
