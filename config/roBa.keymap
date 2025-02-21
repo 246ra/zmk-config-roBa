@@ -493,8 +493,8 @@
         LOWER {
             bindings = <
 &kp LS(N1) &kp LBKT   &kp LS(N3)    &kp LS(N4)    &kp LS(N5)                               &kp EQUAL   &kp LS(N6)  &kp LS(SQT)  &kp LS(N8)    &kp LS(N9)
-&jgrti     &jeqpl     &jmiun        &jbspi        &FSLH        &kp LCTRL         &kp RALT  &none       &tdrpn      &tdbrc       &tdcbr        &kp AMPS
-&kp PLUS   &kp COLON  &kp LS(INT1)  &kp LS(INT3)  &QMARK       &kp LSHFT         &kp RGUI  &none       &kp LS(N9)  &jrbrb       &kp LS(NUHS)  &jsqdq
+&jgrti     &jeqpl     &jmiun        &jbspi        &kp FSLH     &kp LCTRL         &kp RALT  &none       &tdrpn      &tdbrc       &tdcbr        &kp AMPS
+&kp PLUS   &kp COLON  &kp LS(INT1)  &kp LS(INT3)  &kp QMARK    &kp LSHFT         &kp RGUI  &none       &kp LS(N9)  &jrbrb       &kp LS(NUHS)  &jsqdq
 &none      &none      &none         &kp DEL       &kp RET      &kp BSPC          &none     &none                                              &none
             >;
         };
