@@ -442,7 +442,7 @@
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
         };
-/*
+
         OONISHI {
             bindings = <
 &kp Q        &kp L        &kp U         &tdlaw        &tdraw                                               &kp F        &kp W         &kp R         &kp Y        &kp P
@@ -453,7 +453,7 @@
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
         };
-*/
+
         NAGINATA {
             bindings = <
 &ng Q      &ng W      &ng E      &ng R         &ng T                                        &ng Y      &ng U      &ng I      &ng O      &ng P
