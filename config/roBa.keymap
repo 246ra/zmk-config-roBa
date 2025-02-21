@@ -327,11 +327,11 @@
   */
         wltr: wakasagi_layer_tap_right {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <1>;
             tapping-term-ms = <230>;
             quick-tap-ms = <150>;
             flavor = "tap-preferred";
-            bindings = <&mo>, <&kp>;
+            bindings = <&mo>, <&tdraw>;
         };
 
         tdrpn: tap_dance_rpn2 {
@@ -467,7 +467,7 @@
             bindings = <
 &kp Q        &kp P        &kp R         &kp D         &kp C                                                &kp B        &kp K         &kp U         &kp Y        &kp X
 &hrm LGUI A  &hrm LALT T  &hrm LSHFT N  &hrm LCTRL S  &kp W           &kp LCTRL             &kp RALT       &kp M        &hrm RCTRL H  &hrm RSHFT E  &hrm RALT I  &hrm RGUI O
-&klt MOU  A  &tdlaw       &kp L         &kp G         &kp J           &kp LSHFT             &kp RGUI       &kp F        &kp V         &jseco        &kp Z        &wltr MOU B
+&klt MOU  A  &tdlaw       &kp L         &kp G         &kp J           &kp LSHFT             &kp RGUI       &kp F        &kp V         &jseco        &kp Z        &wltr MOU
 &kp LALT     &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE   &mlt MAR MB2          &lt LOW BSPC   &lt RAI RET                                           &mo MOU
             >;
 
