@@ -153,16 +153,16 @@
             bindings = <&JCBR2>;
             layers = <7>;
         };
-        combo_raw {
-            timeout-ms = <30>;
-            key-positions = <30 31>;
-            bindings = <&RAW>;
-            layers = <7>;
-        };
         combo_law {
             timeout-ms = <30>;
-            key-positions = <31 32>;
+            key-positions = <30 31>;
             bindings = <&LAW>;
+            layers = <7>;
+        };
+        combo_raw {
+            timeout-ms = <30>;
+            key-positions = <31 32>;
+            bindings = <&RAW>;
             layers = <7>;
         };
 
