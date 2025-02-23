@@ -93,13 +93,13 @@
         // oonishi
         combo_oonishi_on {
             timeout-ms = <30>;
-            key-positions = <5 6>;
-            bindings = <&to 1>;
+            key-positions = <30 31>;
+            bindings = <&to 2>;
             layers = <0>;
         };
         combo_oonishi_off {
             timeout-ms = <30>;
-            key-positions = <3 4>;
+            key-positions = <24 25>;
             bindings = <&to 0>;
             layers = <0 2>;
         };
@@ -123,17 +123,47 @@
             bindings = <&kp DEL>;
             layers = <0 1 2>;
         };
+        combo_prn {
+            timeout-ms = <30>;
+            key-positions = <18 19>;
+            bindings = <&JPRN2>;
+            layers = <7>;
+        };
+        combo_brc {
+            timeout-ms = <30>;
+            key-positions = <19 20>;
+            bindings = <&JBRC2>;
+            layers = <7>;
+        };
+        combo_cbr {
+            timeout-ms = <30>;
+            key-positions = <20 21>;
+            bindings = <&JCBR2>;
+            layers = <7>;
+        };
+        combo_raw {
+            timeout-ms = <30>;
+            key-positions = <30 31>;
+            bindings = <&RAW>;
+            layers = <7>;
+        };
+        combo_law {
+            timeout-ms = <30>;
+            key-positions = <31 32>;
+            bindings = <&LAW>;
+            layers = <7>;
+        };
 
         // 入力切替
         combo_eisu {
             timeout-ms = <30>;
-            key-positions = <18 19 20>;
+            key-positions = <11 12 13>;
             bindings = <&kp LANG2>;
             layers = <0 1 2>;
         };
         combo_kana {
             timeout-ms = <30>;
-            key-positions = <11 12 13>;
+            key-positions = <18 19 20>;
             bindings = <&kp LANG1>;
             layers = <0 1 2>;
         };
@@ -253,14 +283,14 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_tap &kp LANGUAGE_1 &kp INTERNATIONAL_4 &to 1>
+                = <&macro_tap &kp LANGUAGE_1 &kp INTERNATIONAL_4 &to NAG>
                 ;
         };
         ng_off: ng_off {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
-                = <&macro_tap &kp LANGUAGE_2 &kp INTERNATIONAL_5 &to 0>
+                = <&macro_tap &kp LANGUAGE_2 &kp INTERNATIONAL_5 &to QWE>
                 ;
         };
         nscrl: ng_shift_scroll {
@@ -327,48 +357,6 @@
             quick-tap-ms = <150>;
             flavor = "tap-preferred";
             bindings = <&mo>, <&kp>;
-        };
-
-        tdrpn: tap_dance_rpn2 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <150>;
-            bindings = <&kp LS(N8)>, <&JPRN2>;
-        };
-
-        tdbrc: tap_dance_brc2 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <150>;
-            bindings = <&kp RBKT>, <&JBRC2>;
-        };
-
-        tdcbr: tap_dance_cbr2 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <150>;
-            bindings = <&kp LS(RBKT)>, <&JCBR2>;
-        };
-
-        tdlaw: tap_dance_left_arrow {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <150>;
-            bindings = <&kp COMMA>, <&LAW>;
-        };
-
-        // wakasagi用layer設定
-        tdraw: tap_dance_right_arrow {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <150>;
-            bindings = <&klt MOU DOT>, <&RAW>;
-        };
-        tdmifs: tap_dance_minus_fslh {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <150>;
-            bindings = <&klt MOU MINUS>, <&kp FSLH>;
         };
 
         // JIS用文字入力([/?]はJISでも入力が同じ)
@@ -451,7 +439,7 @@
             bindings = <
 &kp Q        &kp W        &kp E         &kp R         &kp T                                                  &kp Y        &kp U         &kp I         &kp O        &kp P
 &hrm LGUI A  &hrm LALT S  &hrm LSHFT D  &hrm LCTRL F  &kp G             &kp LCTRL             &kp RALT       &kp H        &hrm RCTRL J  &hrm RSHFT K  &hrm RALT L  &hjseco
-&klt MOU Z   &kp X        &kp C         &kp V         &kp B             &kp LSHFT             &kp RGUI       &kp N        &kp M         &tdlaw        &tdraw       &klt MOU SLASH
+&klt MOU Z   &kp X        &kp C         &kp V         &kp B             &kp LSHFT             &kp RGUI       &kp N        &kp M         &kp COMMA     &kp DOT      &klt MOU FSLH
 &kp LALT     &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE     &mlt MAR MB2          &lt LOW BSPC   &lt RAI RET                                           &mo MOU
             >;
 
@@ -460,10 +448,10 @@
 
         WAKASAGI {
             bindings = <
-&kp Q        &kp P        &kp R         &kp D         &kp C                                                &kp B        &kp K         &kp U         &kp Y        &kp X
-&hrm LGUI A  &hrm LALT T  &hrm LSHFT N  &hrm LCTRL S  &kp W           &kp LCTRL             &kp RALT       &kp M        &hrm RCTRL H  &hrm RSHFT E  &hrm RALT I  &hrm RGUI O
-&tdmifs      &tdlaw       &kp L         &kp G         &kp J           &kp LSHFT             &kp RGUI       &kp F        &kp V         &jseco        &kp Z        &tdraw
-&kp LALT     &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE   &mlt MAR MB2          &lt LOW BSPC   &lt RAI RET                                           &mo MOU
+&kp Q          &kp P        &kp R         &kp D         &kp C                                                &kp B        &kp K         &kp U         &kp Y        &kp X
+&hrm LGUI A    &hrm LALT T  &hrm LSHFT N  &hrm LCTRL S  &kp W           &kp LCTRL             &kp RALT       &kp M        &hrm RCTRL H  &hrm RSHFT E  &hrm RALT I  &hrm RGUI O
+&klt MOU FSLH &kp COMMA    &kp L         &kp G         &kp J           &kp LSHFT             &kp RGUI       &kp F        &kp V         &jseco        &kp Z        &klt MOU DOT
+&kp LALT       &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE   &mlt MAR MB2          &lt LOW BSPC   &lt RAI RET                                           &mo MOU
             >;
 
             sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
@@ -471,8 +459,8 @@
 
         OONISHI {
             bindings = <
-&kp Q        &kp L        &kp U         &tdlaw        &tdraw                                               &kp F        &kp W         &kp R         &kp Y        &kp P
-&hrm LGUI E  &hrm LALT I  &hrm LSHFT A  &hrm LCTRL O  &tdmifs         &kp LCTRL             &kp RALT       &kp K        &hrm RCTRL T  &hrm RSHFT N  &hrm RALT S  &hrm RGUI H
+&kp Q        &kp L        &kp U         &kp COMMA     &kp DOT                                              &kp F        &kp W         &kp R         &kp Y        &kp P
+&hrm LGUI E  &hrm LALT I  &hrm LSHFT A  &hrm LCTRL O  &kp MINUS       &kp LCTRL             &kp RALT       &kp K        &hrm RCTRL T  &hrm RSHFT N  &hrm RALT S  &hrm RGUI H
 &klt MOU Z   &kp X        &kp C         &kp V         &jseco          &kp LSHFT             &kp RGUI       &kp G        &kp D         &kp M         &kp J        &klt MOU B
 &kp LALT     &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE   &mlt MAR MB2          &lt LOW BSPC   &lt RAI RET                                           &mo MOU
             >;
@@ -484,7 +472,7 @@
             bindings = <
 &ng Q      &ng W      &ng E      &ng R         &ng T                                        &ng Y      &ng U      &ng I      &ng O      &ng P
 &ng A      &ng S      &ng D      &ng F         &ng G           &kp LCTRL      &kp RALT      &ng H      &ng J      &ng K      &ng L      &ng SEMI
-&nlt MOU Z &ng X      &ng C      &ng V         &ng B           &kp LSHFT      &kp RGUI      &ng N      &ng M      &ng COMMA  &ng DOT    &nlt MOU SLASH
+&nlt MOU Z &ng X      &ng C      &ng V         &ng B           &kp LSHFT      &kp RGUI      &ng N      &ng M      &ng COMMA  &ng DOT    &nlt MOU FSLH
 &none      &none      &none      &mlt MO2 MB1  &mns SCR SPACE  &mlt RAI MB2   &lt LOW BSPC  &ng ENTER                                   &mo MOU
             >;
         };
@@ -519,7 +507,7 @@
         LOWER {
             bindings = <
 &kp LS(N1) &kp LBKT   &kp LS(N3)    &kp LS(N4)    &kp LS(N5)                               &kp EQUAL   &kp LS(N6)  &kp LS(SQT)  &kp LS(N8)    &kp LS(N9)
-&jgrti     &jeqpl     &jmiun        &jbspi        &kp FSLH     &kp LCTRL         &kp RALT  &none       &tdrpn      &tdbrc       &tdcbr        &kp AMPS
+&jgrti     &jeqpl     &jmiun        &jbspi        &kp FSLH     &kp LCTRL         &kp RALT  &none       &kp LS(N8)  &jlblb       &kp LS(RBKT)  &kp AMPS
 &kp PLUS   &kp COLON  &kp LS(INT1)  &kp LS(INT3)  &kp QMARK    &kp LSHFT         &kp RGUI  &none       &kp LS(N9)  &jrbrb       &kp LS(NUHS)  &jsqdq
 &none      &none      &none         &kp DEL       &kp RET      &kp BSPC          &none     &none                                              &none
             >;
