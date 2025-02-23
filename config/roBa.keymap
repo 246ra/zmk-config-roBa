@@ -123,6 +123,18 @@
             bindings = <&kp DEL>;
             layers = <0 1 2>;
         };
+        combo_minus {
+            timeout-ms = <30>;
+            key-positions = <1 2>;
+            bindings = <&kp MINUS>;
+            layers = <0 1 2>;
+        };
+        combo_fslh {
+            timeout-ms = <30>;
+            key-positions = <2 3>;
+            bindings = <&kp FSLH>;
+            layers = <0 1 2>;
+        };
         combo_prn {
             timeout-ms = <30>;
             key-positions = <18 19>;
