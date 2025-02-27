@@ -14,12 +14,11 @@
 #define NAG 3
 #define MOU 4
 #define MOV 5
-#define MO2 6
-#define LOW 7
-#define RAI 8
-#define MAR 9
-#define SET 10
-#define SCR 11
+#define LOW 6
+#define RAI 7
+#define MAR 8
+#define SET 9
+#define SCR 10
 
 // keycodeを置き換えるとkeymap editorが利用できないため、基本的に実施しない。
 //#define XXX &none
@@ -49,6 +48,7 @@
 //#define LC_T       &kp LC(T)             // 半角英数字
 //#define LC_I       &kp LC(I)             // 全角カタカナ
 //#define LC_O       &kp LC(O)             // 半角カタカナ
+#define ZMK_MOUSE_DEFAULT_SCRL_VAL 100
 
 // layerの設定
 &lt {
@@ -83,12 +83,6 @@
             bindings = <&to 1>;
             layers = <0>;
         };
-        combo_wakasagi_off {
-            timeout-ms = <30>;
-            key-positions = <25 26>;
-            bindings = <&to 0>;
-            layers = <0 1>;
-        };
 
         // oonishi
         combo_oonishi_on {
@@ -97,7 +91,9 @@
             bindings = <&to 2>;
             layers = <0>;
         };
-        combo_oonishi_off {
+
+        // デフォルトに移動
+        combo_qwerty_on {
             timeout-ms = <30>;
             key-positions = <24 25>;
             bindings = <&to 0>;
@@ -105,35 +101,17 @@
         };
 
         // ショートカット
-        combo_esc {
+        combo_left_scroll {
             timeout-ms = <30>;
-            key-positions = <0 1>;
-            bindings = <&kp ESC>;
-            layers = <0 1 2>;
+            key-positions = <32 33>;
+            bindings = <&mo SCR>;
+            layers = <0 1 2 3>;
         };
-        combo_bspc {
+        combo_right_scroll {
             timeout-ms = <30>;
-            key-positions = <7 8>;
-            bindings = <&kp BSPC>;
-            layers = <0 1 2>;
-        };
-        combo_del {
-            timeout-ms = <30>;
-            key-positions = <6 7>;
-            bindings = <&kp DEL>;
-            layers = <0 1 2>;
-        };
-        combo_minus {
-            timeout-ms = <30>;
-            key-positions = <1 2>;
-            bindings = <&kp MINUS>;
-            layers = <0 1 2>;
-        };
-        combo_fslh {
-            timeout-ms = <30>;
-            key-positions = <2 3>;
-            bindings = <&kp FSLH>;
-            layers = <0 1 2>;
+            key-positions = <22 23>;
+            bindings = <&mo SCR>;
+            layers = <0 1 2 3>;
         };
         combo_prn {
             timeout-ms = <30>;
@@ -305,19 +283,6 @@
                 = <&macro_tap &kp LANGUAGE_2 &kp INTERNATIONAL_5 &to QWE>
                 ;
         };
-        nscrl: ng_shift_scroll {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings = 
-                       <&macro_param_1to1>,
-                       <&macro_press &mo MACRO_PLACEHOLDER>,
-                       <&macro_press &ng SPACE>,
-                       <&macro_pause_for_release>,
-                       <&macro_release &ng SPACE>,
-                       <&macro_param_1to1>,
-                       <&macro_release &mo MACRO_PLACEHOLDER>;
-        };
-
     };
 
     behaviors {
@@ -342,16 +307,7 @@
             bindings = <&mo>, <&mkp>;
         };
 
-        //薙刀式のスクロール
-        mns: mo_ng_shift_scroll {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            quick-tap-ms = <150>;
-            flavor = "tap-preferred";
-            bindings = <&nscrl>, <&ng>;
-        };
-
+        //mod-tap(薙刀式)の設定
         nlt: nagi_layer_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -369,6 +325,33 @@
             quick-tap-ms = <150>;
             flavor = "tap-preferred";
             bindings = <&mo>, <&kp>;
+        };
+
+        // スクロール動作の追加
+        scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+            // 追加: スクロールのタップ時間を設定 (20ms)
+            tap-ms = <20>;
+        };
+
+        // 仮想デスクトップ移動
+        move_vdesktop_lr : behavior_sensor_rotate_move_virtual_desktop_left_right  {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&LCG_L>, <&LCG_R>;
+            // 追加: スクロールのタップ時間を設定 (20ms)
+            tap-ms = <20>;
+        };
+
+        // タブ移動
+        move_tab_lr : behavior_sensor_rotate_move_tab_left_right  {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&kp LS(LC(TAB))>, <&kp LC(TAB)>;
+            // 追加: スクロールのタップ時間を設定 (20ms)
+            tap-ms = <20>;
         };
 
         // JIS用文字入力([/?]はJISでも入力が同じ)
@@ -450,34 +433,34 @@
         DEFAULT {
             bindings = <
 &kp Q        &kp W        &kp E         &kp R         &kp T                                                  &kp Y        &kp U         &kp I         &kp O        &kp P
-&hrm LGUI A  &hrm LALT S  &hrm LSHFT D  &hrm LCTRL F  &kp G             &kp LCTRL             &kp RALT       &kp H        &hrm RCTRL J  &hrm RSHFT K  &hrm RALT L  &hjseco
+&hrm LGUI A  &hrm LSHFT L &hrm LCTRL D  &hrm LALT F   &kp G             &kp LCTRL             &kp RALT       &kp H        &hrm RATL J   &hrm RCTRL K  &hrm RSHFT L &hjseco
 &klt MOU Z   &kp X        &kp C         &kp V         &kp B             &kp LSHFT             &kp RGUI       &kp N        &kp M         &kp COMMA     &kp DOT      &klt MOU FSLH
 &kp LALT     &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE     &mlt MAR MB2          &lt LOW BSPC   &lt RAI RET                                           &mo MOU
             >;
 
-            sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
+            sensor-bindings = <&scroll_up_down>;
         };
 
         WAKASAGI {
             bindings = <
 &kp Q          &kp P        &kp R         &kp D         &kp C                                                &kp B        &kp K         &kp U         &kp Y        &kp X
-&hrm LGUI A    &hrm LALT T  &hrm LSHFT N  &hrm LCTRL S  &kp W           &kp LCTRL             &kp RALT       &kp M        &hrm RCTRL H  &hrm RSHFT E  &hrm RALT I  &hrm RGUI O
-&klt MOU FSLH &kp COMMA    &kp L         &kp G         &kp J           &kp LSHFT             &kp RGUI       &kp F        &kp V         &jseco        &kp Z        &klt MOU DOT
+&hrm LGUI A    &hrm LSHFT T &hrm LCTRL N  &hrm LALT S   &kp W           &kp LCTRL             &kp RALT       &kp M        &hrm RALT H   &hrm RCTRL E  &hrm RSHFT I &hrm RGUI O
+&klt MOU FSLH  &kp COMMA    &kp L         &kp G         &kp J           &kp LSHFT             &kp RGUI       &kp F        &kp V         &jseco        &kp Z        &klt MOU DOT
 &kp LALT       &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE   &mlt MAR MB2          &lt LOW BSPC   &lt RAI RET                                           &mo MOU
             >;
 
-            sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
+            sensor-bindings = <&scroll_up_down>;
         };
 
         OONISHI {
             bindings = <
 &kp Q        &kp L        &kp U         &kp COMMA     &kp DOT                                              &kp F        &kp W         &kp R         &kp Y        &kp P
-&hrm LGUI E  &hrm LALT I  &hrm LSHFT A  &hrm LCTRL O  &kp MINUS       &kp LCTRL             &kp RALT       &kp K        &hrm RCTRL T  &hrm RSHFT N  &hrm RALT S  &hrm RGUI H
+&hrm LGUI E  &hrm LSHFT I &hrm LCTRL A  &hrm LALT O   &kp MINUS       &kp LCTRL             &kp RALT       &kp K        &hrm RATL T   &hrm RCTRL N  &hrm RSHFT S &hrm RGUI H
 &klt MOU Z   &kp X        &kp C         &kp V         &jseco          &kp LSHFT             &kp RGUI       &kp G        &kp D         &kp M         &kp J        &klt MOU B
 &kp LALT     &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE   &mlt MAR MB2          &lt LOW BSPC   &lt RAI RET                                           &mo MOU
             >;
 
-            sensor-bindings = <&inc_dec_kp PG_UP PAGE_DOWN>;
+            sensor-bindings = <&scroll_up_down>;
         };
 
         NAGINATA {
@@ -485,35 +468,32 @@
 &ng Q      &ng W      &ng E      &ng R         &ng T                                        &ng Y      &ng U      &ng I      &ng O      &ng P
 &ng A      &ng S      &ng D      &ng F         &ng G           &kp LCTRL      &kp RALT      &ng H      &ng J      &ng K      &ng L      &ng SEMI
 &nlt MOU Z &ng X      &ng C      &ng V         &ng B           &kp LSHFT      &kp RGUI      &ng N      &ng M      &ng COMMA  &ng DOT    &nlt MOU FSLH
-&none      &none      &none      &mlt MO2 MB1  &mns SCR SPACE  &mlt RAI MB2   &lt LOW BSPC  &ng ENTER                                   &mo MOU
+&none      &none      &none      &mlt MOU MB1  &ng SPACE       &mlt RAI MB2   &lt LOW BSPC  &ng ENTER                                   &mo MOU
             >;
+
+            sensor-bindings = <&scroll_up_down>;
         };
 
         MOUSE {
             bindings = <
 &LA_TAB        &none         &none      &none       &kp LS(LC(ESC))                                    &kp LC(V)      &kp LC(X)      &kp LC(C)      &kp LS(LC(TAB))    &kp LC(TAB)
-&kp LG(T)      &kp LEFT      &kp DOWN   &kp UP      &kp RIGHT         &kp LCTRL         &kp RALT       &mkp MB3       &mkp MB1       &mo SCR        &mkp MB2           &kp LC(W)
+&kp LG(T)      &kp LEFT      &kp DOWN   &kp UP      &kp RIGHT         &kp LG(TAB)       &kp RALT       &mkp MB3       &mkp MB1       &mo SCR        &mkp MB2           &kp LC(W)
 &none          &LCG_D        &LCG_L     &LCG_R      &kp LG(TAB)       &kp LSHFT         &kp RGUI       &kp LS(HOME)   &kp LC(HOME)   &kp LC(END)    &kp LS(END)        &none
-&none          &none         &none      &mkp MB4    &mkp MB3          &mkp MB5          &mlt MAR MB4   &mlt MO2 MB5                                                    &none
+&none          &none         &none      &mkp MB4    &mkp MB3          &mkp MB5          &mlt MAR MB4   &mlt MOU MB5                                                    &none
             >;
+
+            sensor-bindings = <&move_vdesktop_lr>;
         };
 
         MOVE {
             bindings = <
 &kp ESC         &kp INS    &kp INT5           &kp INT4          &kp CAPS                                   &none           &kp BSPC     &kp DEL    &kp LC(BSPC)   &kp TAB
-&hrm LGUI TAB   &kp LALT   &hrm LSHFT LANG2   &hrm LCTRL LANG1  &caps_word    &kp LCTRL      &kp RALT      &kp LEFT        &kp DOWN     &kp UP     &kp RIGHT      &kp RET
+&hrm LGUI TAB   &kp LSHFT  &hrm LCTRL LANG2   &hrm LALT LANG1   &caps_word    &kp C_MUTE     &kp RALT      &kp LEFT        &kp DOWN     &kp UP     &kp RIGHT      &kp RET
 &kp PSCRN       &none      &kp LC(T)          &kp LC(I)         &kp LC(O)     &kp LSHFT      &kp RGUI      &kp HOME        &kp PG_DN    &kp PG_UP  &kp END        &kp K_APP
 &none           &none      &none              &none             &none         &none          &lt SET DEL   &lt MAR SPACE                                          &none
             >;
-        };
 
-        MOVE2 {
-            bindings = <
-&kp ESC         &kp INS    &kp LANG5          &kp LANG4         &kp CAPS                                   &none           &kp BSPC     &kp DEL    &kp LC(BSPC)   &kp TAB
-&hrm LGUI TAB   &kp LALT   &hrm LSHFT LANG2   &hrm LCTRL LANG1  &caps_word    &kp LCTRL      &kp RALT      &kp LEFT        &kp DOWN     &kp UP     &kp RIGHT      &kp RET
-&kp PSCRN       &none      &kp LC(T)          &kp LC(I)	        &kp LC(O)     &kp LSHFT      &kp RGUI      &kp HOME        &kp PG_UP    &kp PG_DN  &kp END        &kp K_APP
-&none           &none      &none              &none             &none         &none          &lt SET DEL   &lt MAR SPACE                                          &none
-            >;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         LOWER {
@@ -523,24 +503,30 @@
 &kp PLUS   &kp COLON  &kp LS(INT1)  &kp LS(INT3)  &kp QMARK    &kp LSHFT         &kp RGUI  &none       &kp LS(N9)  &jrbrb       &kp LS(NUHS)  &jsqdq
 &none      &none      &none         &kp DEL       &kp RET      &kp BSPC          &none     &none                                              &none
             >;
+
+            sensor-bindings = <&move_tab_lr>;
         };
 
         RAISE {
             bindings = <
 &kp F1           &kp F2           &kp F3            &kp F4            &kp F5                                       &kp F6     &kp F7            &kp F8            &kp F9           &kp F10
-&hrm LGUI N1     &hrm LALT N2     &hrm LSHFT N3     &hrm LCTRL N4     &kp N5       &kp LCTRL             &kp RALT  &kp N6     &hrm RCTRL N7     &hrm RSHFT N8     &hrm RALT N9     &hrm RGUI N0
+&hrm LGUI N1     &hrm LSHFT N2    &hrm LCTRL N3     &hrm LALT N4      &kp N5       &kp LG(V)             &kp RALT  &kp N6     &hrm RALT N7      &hrm RCTRL N8     &hrm RSHFT N9    &hrm RGUI N0
 &kp KP_PLUS      &kp KP_MINUS     &kp KP_MULTIPLY   &kp KP_DIVIDE     &none        &kp LSHFT             &kp RGUI  &none      &kp KP_DOT        &kp KP_EQUAL      &kp F11          &kp F12
 &none            &none            &none             &kp DEL           &lt MAR RET  &lt SET BSPC          &none     &none                                                           &none
             >;
+
+            sensor-bindings = <&inc_dec_kp LC(Z) LC(Y)>;
         };
 
         MACRO {
             bindings = <
 &kp LA(F4)       &kp LG(S)    &mkp MB4      &mkp MB5    &kp BSPC                           &kp LS(LC(ESC))  &msc LC(SCRL_UP)  &msc LC(SCRL_DOWN)  &LCA_TAB    &LA_TAB
-&kp LC(Z)        &kp LC(X)    &kp LC(C)     &kp LC(V)   &kp LC(Y)   &kp LCTRL    &kp RALT  &kp LG(T)        &JPRN2            &JBRC2              &JCBR2      &none
+&kp LC(Z)        &kp LC(X)    &kp LC(C)     &kp LC(V)   &kp LC(Y)   &kp LA(ESC)  &kp RALT  &kp LG(T)        &JPRN2            &JBRC2              &JCBR2      &none
 &kp LS(LC(TAB))  &kp LC(TAB)  &kp LS(TAB)   &kp TAB     &kp RET     &kp LSHFT    &kp RGUI  &kp LG(TAB)      &LCG_L            &LCG_R              &LCG_D      &LCG_F4
 &none            &none        &none         &none       &none       &none        &none     &none                                                              &none
             >;
+
+            sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
         };
 
         SETUP {
@@ -550,6 +536,8 @@
 &kp C_VOL_DN  &kp C_PREV  &kp C_BRI_DN  &none  &bootloader    &none      &none   &none       &none         &none         &bt BT_CLR    &bt BT_CLR_ALL
 &none         &none       &none         &none  &none          &none      &none   &none                                                 &none
             >;
+
+            sensor-bindings = <&scroll_up_down>;
         };
 
         SCROLL {
