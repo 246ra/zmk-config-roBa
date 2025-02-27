@@ -455,7 +455,7 @@
         OONISHI {
             bindings = <
 &kp Q        &kp L        &kp U         &kp COMMA     &kp DOT                                              &kp F        &kp W         &kp R         &kp Y        &kp P
-&hrm LGUI E  &hrm LSHFT I &hrm LCTRL A  &hrm LALT O   &kp MINUS       &kp LCTRL             &kp RALT       &kp K        &hrm RALTLT T   &hrm RCTRL N  &hrm RSHFT S &hrm RGUI H
+&hrm LGUI E  &hrm LSHFT I &hrm LCTRL A  &hrm LALT O   &kp MINUS       &kp LCTRL             &kp RALT       &kp K        &hrm RALT T   &hrm RCTRL N  &hrm RSHFT S &hrm RGUI H
 &klt MOU Z   &kp X        &kp C         &kp V         &jseco          &kp LSHFT             &kp RGUI       &kp G        &kp D         &kp M         &kp J        &klt MOU B
 &kp LALT     &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE   &mlt MAR MB2          &lt LOW BSPC   &lt RAI RET                                           &mo MOU
             >;
