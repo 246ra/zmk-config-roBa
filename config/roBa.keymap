@@ -433,7 +433,8 @@
         DEFAULT {
             bindings = <
 &kp Q        &kp W        &kp E         &kp R         &kp T                                                  &kp Y        &kp U         &kp I         &kp O        &kp P
-&hrm LGUI A  &hrm LSHFT L &hrm LCTRL D  &hrm LALT F   &kp G             &kp LCTRL             &kp RALT       &kp H        &hrm RATL J   &hrm RCTRL K  &hrm RSHFT L &hjseco
+//&hrm LGUI A  &hrm LSHFT L &hrm LCTRL D  &hrm LALT F   &kp G             &kp LCTRL             &kp RALT       &kp H        &hrm RATL J   &hrm RCTRL K  &hrm RSHFT L &hjseco
+&kp A  &kpT L &kp D  &kp F   &kp G             &kp LCTRL             &kp RALT       &kp H        &kp J   &kp K  &kp L &kp A
 &klt MOU Z   &kp X        &kp C         &kp V         &kp B             &kp LSHFT             &kp RGUI       &kp N        &kp M         &kp COMMA     &kp DOT      &klt MOU FSLH
 &kp LALT     &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE     &mlt MAR MB2          &lt LOW BSPC   &lt RAI RET                                           &mo MOU
             >;
