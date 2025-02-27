@@ -50,7 +50,6 @@
 //#define LC_I       &kp LC(I)             // 全角カタカナ
 //#define LC_O       &kp LC(O)             // 半角カタカナ
 
-
 // layerの設定
 &lt {
     flavor = "tap-preferred";
@@ -329,7 +328,7 @@
         };
 
         // スクロール動作の追加
-        scroll_up_down: behavior_sensor_rotate_mouse_wheel_up_down {
+        scroll_up_down: sensor_rotate_mouse_wheel_up_down {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
@@ -338,7 +337,7 @@
         };
 
         // 仮想デスクトップ移動
-        move_vdesktop_lr: behavior_sensor_rotate_move_virtual_desktop_left_right  {
+        move_vdesktop_lr: sensor_rotate_move_vdesktop_left_right  {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&LCG_L>, <&LCG_R>;
@@ -347,7 +346,7 @@
         };
 
         // タブ移動
-        move_tab_lr: behavior_sensor_rotate_move_tab_left_right  {
+        move_tab_lr: sensor_rotate_move_tab_left_right  {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&kp LS(LC(TAB))>, <&kp LC(TAB)>;
