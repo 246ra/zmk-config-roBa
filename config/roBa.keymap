@@ -337,7 +337,7 @@
         };
 
         // 仮想デスクトップ移動
-        move_vdesktop_lr : behavior_sensor_rotate_move_virtual_desktop_left_right  {
+        move_vdesktop_lr: behavior_sensor_rotate_move_virtual_desktop_left_right  {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&LCG_L>, <&LCG_R>;
@@ -346,7 +346,7 @@
         };
 
         // タブ移動
-        move_tab_lr : behavior_sensor_rotate_move_tab_left_right  {
+        move_tab_lr: behavior_sensor_rotate_move_tab_left_right  {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&kp LS(LC(TAB))>, <&kp LC(TAB)>;
