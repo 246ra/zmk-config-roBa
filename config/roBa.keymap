@@ -102,14 +102,26 @@
 
         // ショートカット
         combo_left_scroll {
-            timeout-ms = <30>;
+            timeout-ms = <50>;
             key-positions = <32 33>;
             bindings = <&mo SCR>;
             layers = <0 1 2 3>;
         };
         combo_right_scroll {
-            timeout-ms = <30>;
+            timeout-ms = <50>;
             key-positions = <22 23>;
+            bindings = <&mo SCR>;
+            layers = <0 1 2 3>;
+        };
+        combo_left_scroll2 {
+            timeout-ms = <30>;
+            key-positions = <12 13>;
+            bindings = <&mo SCR>;
+            layers = <0 1 2 3>;
+        };
+        combo_right_scroll2 {
+            timeout-ms = <30>;
+            key-positions = <19 20>;
             bindings = <&mo SCR>;
             layers = <0 1 2 3>;
         };
@@ -154,6 +166,18 @@
         combo_kana {
             timeout-ms = <30>;
             key-positions = <18 19 20>;
+            bindings = <&kp LANG1>;
+            layers = <0 1 2>;
+        };
+        combo_eisu2 {
+            timeout-ms = <30>;
+            key-positions = < zx12 13>;
+            bindings = <&kp LANG2>;
+            layers = <0 1 2>;
+        };
+        combo_kana2 {
+            timeout-ms = <30>;
+            key-positions = <18 19>;
             bindings = <&kp LANG1>;
             layers = <0 1 2>;
         };
@@ -327,33 +351,57 @@
             bindings = <&mo>, <&kp>;
         };
 
+        // ロータリーエンコーダの設定
         // スクロール動作の追加
         scroll_up_down: sensor_rotate_mouse_wheel_up_down {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DN>;
             // 追加: スクロールのタップ時間を設定 (20ms)
             tap-ms = <20>;
         };
-
         // 仮想デスクトップ移動
         move_vdesktop_lr: sensor_rotate_move_vdesktop_left_right  {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&LCG_L>, <&LCG_R>;
+            bindings = <&LCG_R>, <&LCG_L>;
             // 追加: スクロールのタップ時間を設定 (20ms)
             tap-ms = <20>;
         };
-
+        // 音量増減
+        volume_up_down: sensor_rotate_volume_up_down  {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&kp C_VOL_UP>, <&kp C_VOL_DN>;
+            // 追加: スクロールのタップ時間を設定 (20ms)
+            tap-ms = <100>;
+        };
         // タブ移動
         move_tab_lr: sensor_rotate_move_tab_left_right  {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&kp LS(LC(TAB))>, <&kp LC(TAB)>;
+            bindings = <&kp LC(TAB)>, <&kp LS(LC(TAB))>;
             // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <20>;
+            tap-ms = <100>;
         };
-
+        // 進む/戻る
+        move_reun: sensor_rotate_move_redo_undo  {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&kp LC(Y)>, <&kp LC(Z))>;
+            // 追加: スクロールのタップ時間を設定 (20ms)
+            tap-ms = <100>;
+        };
+        // 右/左
+        move_leri: sensor_rotate_move_left_right  {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&kp RIGHT>, <&kp LEFEFT)>;
+            // 追加: スクロールのタップ時間を設定 (20ms)
+            tap-ms = <100>;
+        };
+ 
+        
         // JIS用文字入力([/?]はJISでも入力が同じ)
         jeqpl: jis_equal_plus {
             compatible = "zmk,behavior-mod-morph";
@@ -493,7 +541,7 @@
 &none           &none      &none              &none             &none         &none          &lt SET DEL   &lt MAR SPACE                                          &none
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&volume_up_down>;
         };
 
         LOWER {
@@ -515,7 +563,7 @@
 &none            &none            &none             &kp DEL           &lt MAR RET  &lt SET BSPC          &none     &none                                                           &none
             >;
 
-            sensor-bindings = <&inc_dec_kp LC(Z) LC(Y)>;
+            sensor-bindings = <&move_reun>;
         };
 
         MACRO {
@@ -526,7 +574,7 @@
 &none            &none        &none         &none       &none       &none        &none     &none                                                              &none
             >;
 
-            sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
+            sensor-bindings = <&move_leri>;
         };
 
         SETUP {
