@@ -396,7 +396,7 @@
         move_leri: sensor_rotate_move_left_right  {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
-            bindings = <&kp RIGHT>, <&kp LEFEFT)>;
+            bindings = <&kp RIGHT>, <&kp LEFT)>;
             // 追加: スクロールのタップ時間を設定 (20ms)
             tap-ms = <100>;
         };
