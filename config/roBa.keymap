@@ -170,13 +170,13 @@
             layers = <0 1 2>;
         };
         combo_eisu2 {
-            timeout-ms = <30>;
+            timeout-ms = <60>;
             key-positions = <12 13>;
             bindings = <&kp LANG2>;
             layers = <0 1 2>;
         };
         combo_kana2 {
-            timeout-ms = <30>;
+            timeout-ms = <60>;
             key-positions = <18 19>;
             bindings = <&kp LANG1>;
             layers = <0 1 2>;
