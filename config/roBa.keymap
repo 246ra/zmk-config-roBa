@@ -366,7 +366,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&LCG_R>, <&LCG_L>;
             // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <5>;
+            tap-ms = <1>;
         };
         // 音量増減
         volume_up_down: sensor_rotate_volume_up_down  {
@@ -374,7 +374,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&kp C_VOL_UP>, <&kp C_VOL_DN>;
             // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <5>;
+            tap-ms = <1>;
         };
         // タブ移動
         move_tab_lr: sensor_rotate_move_tab_left_right  {
@@ -382,7 +382,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&kp LC(TAB)>, <&kp LS(LC(TAB))>;
             // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <5>;
+            tap-ms = <1>;
         };
         // 進む/戻る
         move_reun: sensor_rotate_move_redo_undo  {
@@ -390,7 +390,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&kp LC(Y)>, <&kp LC(Z)>;
             // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <5>;
+            tap-ms = <1>;
         };
         // 右/左
         move_leri: sensor_rotate_move_left_right  {
@@ -398,13 +398,13 @@
             #sensor-binding-cells = <0>;
             bindings = <&kp RIGHT>, <&kp LEFT>;
             // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <150>;
+            tap-ms = <1>;
         };
          rot_kp: sensor_rotate_kp {
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
             bindings = <&kp>, <&kp>;
-            tap-ms = <5>;
+            tap-ms = <1>;
         };
         
         // JIS用文字入力([/?]はJISでも入力が同じ)
