@@ -115,7 +115,7 @@
         };
         combo_left_scroll2 {
             timeout-ms = <30>;
-            key-positions = <12 13>;
+            key-positions = <11 12>;
             bindings = <&mo SCR>;
             layers = <0 1 2 3>;
         };
@@ -366,7 +366,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&LCG_R>, <&LCG_L>;
             // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <20>;
+            tap-ms = <150>;
         };
         // 音量増減
         volume_up_down: sensor_rotate_volume_up_down  {
@@ -374,7 +374,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&kp C_VOL_UP>, <&kp C_VOL_DN>;
             // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <100>;
+            tap-ms = <150>;
         };
         // タブ移動
         move_tab_lr: sensor_rotate_move_tab_left_right  {
@@ -382,7 +382,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&kp LC(TAB)>, <&kp LS(LC(TAB))>;
             // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <100>;
+            tap-ms = <150>;
         };
         // 進む/戻る
         move_reun: sensor_rotate_move_redo_undo  {
@@ -390,7 +390,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&kp LC(Y)>, <&kp LC(Z)>;
             // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <100>;
+            tap-ms = <150>;
         };
         // 右/左
         move_leri: sensor_rotate_move_left_right  {
@@ -398,7 +398,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&kp RIGHT>, <&kp LEFT>;
             // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <100>;
+            tap-ms = <150>;
         };
  
         
