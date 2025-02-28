@@ -114,13 +114,13 @@
             layers = <0 1 2 3>;
         };
         combo_left_scroll2 {
-            timeout-ms = <30>;
+            timeout-ms = <60>;
             key-positions = <11 12>;
             bindings = <&mo SCR>;
             layers = <0 1 2 3>;
         };
         combo_right_scroll2 {
-            timeout-ms = <30>;
+            timeout-ms = <60>;
             key-positions = <19 20>;
             bindings = <&mo SCR>;
             layers = <0 1 2 3>;
