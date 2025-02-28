@@ -1,12 +1,12 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 #include <dt-bindings/zmk/pointing.h>
 #include <behaviors/naginata.dtsi>
 
 // 薙刀式のOS設定  (WIN 0, MAC 1, LINUX 2, IOS 3)
 #define HOST_OS 0
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 
 // レイヤー定義
 #define QWE 0
@@ -102,13 +102,13 @@
 
         // ショートカット
         combo_left_scroll {
-            timeout-ms = <50>;
+            timeout-ms = <60>;
             key-positions = <32 33>;
             bindings = <&mo SCR>;
             layers = <0 1 2 3>;
         };
         combo_right_scroll {
-            timeout-ms = <50>;
+            timeout-ms = <60>;
             key-positions = <22 23>;
             bindings = <&mo SCR>;
             layers = <0 1 2 3>;
@@ -374,7 +374,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&kp C_VOL_UP>, <&kp C_VOL_DN>;
             // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <150>;
+            tap-ms = <300>;
         };
         // タブ移動
         move_tab_lr: sensor_rotate_move_tab_left_right  {
@@ -382,7 +382,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&kp LC(TAB)>, <&kp LS(LC(TAB))>;
             // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <150>;
+            tap-ms = <300>;
         };
         // 進む/戻る
         move_reun: sensor_rotate_move_redo_undo  {
@@ -400,7 +400,12 @@
             // 追加: スクロールのタップ時間を設定 (20ms)
             tap-ms = <150>;
         };
- 
+         rot_kp: sensor_rotate_kp {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+            tap-ms = <150>;
+        };
         
         // JIS用文字入力([/?]はJISでも入力が同じ)
         jeqpl: jis_equal_plus {
@@ -552,7 +557,7 @@
 &none      &none      &none         &kp DEL       &kp RET      &kp BSPC          &none     &none                                              &none
             >;
 
-            sensor-bindings = <&move_tab_lr>;
+            sensor-bindings = <&rot_kp  LC(TAB) LS(LC(TAB))>;
         };
 
         RAISE {
