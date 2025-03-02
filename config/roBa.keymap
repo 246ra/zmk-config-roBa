@@ -202,13 +202,13 @@
             key-positions = <31 32>;
             bindings = <&mo MAR>;
             layers = <QWE WAK ONI NAG>;
-        }
+        };
         combo_SET2 {
             timeout-ms = <40>;
             key-positions = <35 36>;
             bindings = <&mo MAR>;
             layers = <QWE WAK ONI NAG>;
-        }
+        };
 
         // 入力切替
         combo_eisu {
