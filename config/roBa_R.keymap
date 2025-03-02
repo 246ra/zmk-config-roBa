@@ -24,8 +24,17 @@
             <&none>;
         tick = <10>;
     };
-    virtual_desplay {
+    virtual_desplays {
         layers = <LOW>;
+        bindings =
+            <&kp RIGHT_ARROW>,
+            <&kp LEFT_ARROW>,
+            <&kp UP_ARROW>,
+            <&kp DOWN_ARROW>;
+        tick = <10>;
+    };
+    virtual_desplay {
+        layers = <RAI>;
         bindings =
             <&LCG_R>,
             <&LCG_L>,
@@ -42,13 +51,13 @@
     //        <&kp LG(D)>;
     //    tick = <10>;
     //};
-    //volume {
-    //    layers = <SET>;
-    //    bindings =
-    //        <&kp C_VOL_UP>,
-    //        <&kp C_VOL_DN>,
-    //        <&kp C_MUTE>,
-    //        <&none>;
-    //    tick = <10>;
-    //};
+    volume {
+        layers = <SET>;
+        bindings =
+            <&kp C_VOL_UP>,
+            <&kp C_VOL_DN>,
+            <&kp C_MUTE>,
+            <&none>;
+        tick = <10>;
+    };
 };
