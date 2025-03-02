@@ -22,7 +22,7 @@
             <&mkp MB4>,
             <&mkp MB3>,
             <&none>;
-        tick = <10>;
+        tick = <80>;
     };
     virtual_desplays {
         layers = <LOW>;
@@ -31,7 +31,7 @@
             <&kp LEFT_ARROW>,
             <&kp UP_ARROW>,
             <&kp DOWN_ARROW>;
-        tick = <10>;
+        tick = <80>;
     };
     virtual_desplay {
         layers = <RAI>;
@@ -40,7 +40,7 @@
             <&LCG_L>,
             <&kp LG(TAB)>,
             <&none>;
-        tick = <10>;
+        tick = <100>;
     };
     //move_application {
     //    layers = <RAI>;
@@ -58,6 +58,6 @@
             <&kp C_VOL_DN>,
             <&kp C_MUTE>,
             <&none>;
-        tick = <10>;
+        tick = <200>;
     };
 };
