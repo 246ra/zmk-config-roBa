@@ -24,31 +24,31 @@
             <&none>;
         tick = <10>;
     };
-    virtual_desplay {
-        layers = <LOW>;
-        bindings =
-            <&LCG_R>,
-            <&LCG_L>,
-            <&kp LG(TAB)>,
-            <&none>;
-        tick = <10>;
-    };
-    move_application {
-        layers = <RAI>;
-        bindings =
-            <&kp LC(TAB)>,
-            <&kp LS(LC(TAB))>,
-            <&LCA_TAB>,
-            <&kp LG(D)>;
-        tick = <10>;
-    };
-    volume {
-        layers = <SET>;
-        bindings =
-            <&kp C_VOL_UP>,
-            <&kp C_VOL_DN>,
-            <&kp C_MUTE>,
-            <&none>;
-        tick = <10>;
-    };
+    //virtual_desplay {
+    //    layers = <LOW>;
+    //    bindings =
+    //        <&LCG_R>,
+    //        <&LCG_L>,
+    //        <&kp LG(TAB)>,
+    //        <&none>;
+    //    tick = <10>;
+    //};
+    //move_application {
+    //    layers = <RAI>;
+    //    bindings =
+    //        <&kp LC(TAB)>,
+    //        <&kp LS(LC(TAB))>,
+    //        <&LCA_TAB>,
+    //        <&kp LG(D)>;
+    //    tick = <10>;
+    //};
+    //volume {
+    //    layers = <SET>;
+    //    bindings =
+    //        <&kp C_VOL_UP>,
+    //        <&kp C_VOL_DN>,
+    //        <&kp C_MUTE>,
+    //        <&none>;
+    //    tick = <10>;
+    //};
 };
