@@ -97,7 +97,7 @@
         layers = <SET>;
         bindings =
             <&kp C_VOL_UP>,
-            <&kp C_VOL_DW>,
+            <&kp C_VOL_DOWN>,
             <&kp C_MUTE>,
             <&none>;
         tick = <10>;
