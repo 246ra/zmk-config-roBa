@@ -24,24 +24,15 @@
             <&none>;
         tick = <80>;
     };
-    arrow {
+    virtual_desplay {
         layers = <LOW>;
         bindings =
-            <&kp RIGHT_ARROW>,
-            <&kp LEFT_ARROW>,
-            <&kp UP_ARROW>,
-            <&kp DOWN_ARROW>;
+            <&LCG_R>,
+            <&LCG_L>,
+            <&kp LG(TAB)>,
+            <&none>;
         tick = <80>;
     };
-    //virtual_desplay {
-    //    layers = <LOW>;
-    //    bindings =
-    //        <&LCG_R>,
-    //        <&LCG_L>,
-    //        <&kp LG(TAB)>,
-    //        <&none>;
-    //    tick = <500>;
-    //};
     move_application {
         layers = <RAI>;
         bindings =
