@@ -24,7 +24,7 @@
             <&none>;
         tick = <80>;
     };
-    arrow
+    arrow {
         layers = <LOW>;
         bindings =
             <&kp RIGHT_ARROW>,
