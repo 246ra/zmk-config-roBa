@@ -31,7 +31,7 @@
             <&kp LEFT_ARROW>,
             <&kp UP_ARROW>,
             <&kp DOWN_ARROW>;
-        tick = <100>;
+        tick = <200>;
     };
     virtual_desplay {
         layers = <RAI>;
@@ -58,8 +58,6 @@
             <&kp C_VOL_DN>,
             <&kp C_MUTE>,
             <&none>;
-        tick = <100>;
-        wait-ms = <0>;
-        tap-ms = <0>;
+        tick = <400>;
     };
 };
