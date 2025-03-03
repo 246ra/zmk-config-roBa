@@ -53,7 +53,7 @@
 
 // layerの設定
 &lt {
-    flavor = "balanced";
+    flavor = "tap-preferred";
     tapping-term-ms = <150>;
     quick-tap-ms = <150>;
 };
@@ -152,7 +152,7 @@
         };
         combo_SET2 {
             timeout-ms = <40>;
-            key-positions = <35 36>;
+            key-positions = <23 24>;
             bindings = <&mo SET>;
             layers = <QWE WAK ONI NAG>;
         };
@@ -304,7 +304,7 @@
             #binding-cells = <2>;
             tapping-term-ms = <230>;
             quick-tap-ms = <150>;
-            flavor = "balanced";
+            flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
         // mod-tap(mouse)の設定
@@ -313,7 +313,7 @@
             #binding-cells = <2>;
             tapping-term-ms = <150>;
             quick-tap-ms = <150>;
-            flavor = "balanced";
+            flavor = "tap-preferred";
             bindings = <&mo>, <&mkp>;
         };
         //mod-tap(薙刀式)の設定
@@ -322,7 +322,7 @@
             #binding-cells = <2>;
             tapping-term-ms = <150>;
             quick-tap-ms = <150>;
-            flavor = "balanced";
+            flavor = "tap-preferred";
             bindings = <&mo>, <&ng>;
         };
         // layerの設定(文字を入力する場合)
@@ -331,7 +331,7 @@
             #binding-cells = <2>;
             tapping-term-ms = <230>;
             quick-tap-ms = <150>;
-            flavor = "balanced";
+            flavor = "tap-preferred";
             bindings = <&mo>, <&kp>;
         };
 
