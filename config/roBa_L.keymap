@@ -519,10 +519,10 @@
 
         MOUSE {
             bindings = <
-&LA_TAB        &none         &none      &none       &kp LS(LC(ESC))                                    &kp LC(V)      &kp LC(X)      &kp LC(C)      &kp LS(LC(TAB))    &kp LC(TAB)
-&kp LG(T)      &kp LEFT      &kp DOWN   &kp UP      &kp RIGHT         &kp LG(TAB)       &kp RALT       &none          &mkp MB1       &mkp MB3       &mkp MB2           &kp LC(W)
-&none          &LCG_D        &LCG_L     &LCG_R      &kp LG(TAB)       &kp LSHFT         &kp RGUI       &kp LS(HOME)   &kp LC(HOME)   &kp LC(END)    &kp LS(END)        &none
-&none          &none         &none      &mkp MB4    &mkp MB3          &mkp MB5          &mlt MAR MB4   &mlt MOU MB5                                                    &none
+&kp LC(Z)      &kp LC(X)     &kp LC(C)    &kp LC(V)   &kp LC(Y)                                          &kp LC(Z)       &kp LC(X)      &kp LC(C)      &kp LC(V)      &kp LC(Y)
+&none          &kp LEFT      &kp DOWN     &kp UP      &kp RIGHT         &kp LG(TAB)       &kp RALT       &kp LS(LC(TAB)) &mkp MB1       &mkp MB3       &mkp MB2       &kp LC(TAB)
+&none          &kp LS(HOME)  &kp LC(HOME) &kp LC(END) &kp LS(END)       &kp LSHFT         &kp RGUI       &kp LS(HOME)    &kp LC(HOME)   &kp LC(END)    &kp LS(END)    &none
+&none          &none         &none        &mkp MB4    &mkp MB3          &mkp MB5          &mlt MAR MB4   &mlt MOU MB5                                                &none
             >;
 
             sensor-bindings = <&move_vdesktop_lr>;
@@ -532,7 +532,7 @@
             bindings = <
 &kp ESC         &kp INS    &kp INT5           &kp INT4          &kp CAPS                                   &none           &kp BSPC     &kp DEL    &kp LC(BSPC)   &kp TAB
 &hrm LGUI TAB   &kp LSHFT  &hrm LCTRL LANG2   &hrm LALT LANG1   &caps_word    &kp C_MUTE     &kp RALT      &kp LEFT        &kp DOWN     &kp UP     &kp RIGHT      &kp RET
-&kp PSCRN       &none      &kp LC(T)          &kp LC(I)         &kp LC(O)     &kp LSHFT      &kp RGUI      &kp HOME        &kp PG_DN    &kp PG_UP  &kp END        &kp K_APP
+&kp LG(LS(S))   &kp PSCRN  &kp LC(T)          &kp LC(I)         &kp LC(O)     &kp LSHFT      &kp RGUI      &kp HOME        &kp PG_DN    &kp PG_UP  &kp END        &kp K_APP
 &none           &none      &none              &none             &none         &none          &lt SET DEL   &lt MAR SPACE                                          &none
             >;
 
@@ -563,9 +563,9 @@
 
         MACRO {
             bindings = <
-&kp LA(F4)       &kp LG(S)    &mkp MB4      &mkp MB5    &kp BSPC                           &kp LS(LC(ESC))  &msc LC(SCRL_UP)  &msc LC(SCRL_DOWN)  &LCA_TAB    &LA_TAB
-&kp LC(Z)        &kp LC(X)    &kp LC(C)     &kp LC(V)   &kp LC(Y)   &kp LA(ESC)  &kp RALT  &kp LG(T)        &JPRN2            &JBRC2              &JCBR2      &none
-&kp LS(LC(TAB))  &kp LC(TAB)  &kp LS(TAB)   &kp TAB     &kp RET     &kp LSHFT    &kp RGUI  &kp LG(TAB)      &LCG_L            &LCG_R              &LCG_D      &LCG_F4
+&kp LA(F4)       &LCA_TAB     &mkp MB4      &mkp MB5    &kp BSPC                           &none          &msc LC(SCRL_UP)  &msc LC(SCRL_DOWN)  &LCA_TAB    &LA_TAB
+&kp LS(LC(TAB))  &kp LC(TAB)  &kp LS(TAB)   &kp TAB     &kp RET     &kp LA(ESC)  &kp RALT  &kp LG(TAB)    &LCG_L            &LCG_R              &LCG_D      &LCG_F4
+&kp LC(Z)        &kp LC(X)    &kp LC(C)     &kp LC(V)   &kp LC(Y)   &kp LSHFT    &kp RGUI  &kp LG(T)      &LS(LC(ESC))      &none               &none       &none
 &none            &none        &none         &none       &none       &none        &none     &none                                                              &none
             >;
 
