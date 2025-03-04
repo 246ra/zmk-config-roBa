@@ -565,7 +565,7 @@
             bindings = <
 &kp LA(F4)       &LCA_TAB     &mkp MB4      &mkp MB5    &kp BSPC                           &none          &msc LC(SCRL_UP)  &msc LC(SCRL_DOWN)  &LCA_TAB    &LA_TAB
 &kp LS(LC(TAB))  &kp LC(TAB)  &kp LS(TAB)   &kp TAB     &kp RET     &kp LA(ESC)  &kp RALT  &kp LG(TAB)    &LCG_L            &LCG_R              &LCG_D      &LCG_F4
-&kp LC(Z)        &kp LC(X)    &kp LC(C)     &kp LC(V)   &kp LC(Y)   &kp LSHFT    &kp RGUI  &kp LG(T)      &kp LS(LC(ESC))   &none               &none       &none
+&kp LG(TAB)      &LCG_L       &LCG_R        &LCG_D      &LCG_F4     &kp LSHFT    &kp RGUI  &kp LG(T)      &kp LS(LC(ESC))   &none               &none       &none
 &none            &none        &none         &none       &none       &none        &none     &none                                                              &none
             >;
 
