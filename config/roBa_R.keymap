@@ -25,27 +25,17 @@
             <&mkp MB4>,
             <&mkp MB3>,
             <&none>;
-        tick = <80>;
+        tick = <50>;
     };
-    arrow {
+    virtual_desplay {
         layers = <LOW>;
         bindings =
-            <&kp RIGHT_ARROW>,
-            <&kp LEFT_ARROW>,
-            <&kp UP_ARROW>,
-            <&kp DOWN_ARROW>;
-        tick = <10>;
-        tap-ms = <500>;
+            <&LCG_R>,
+            <&LCG_L>,
+            <&kp LG(TAB)>,
+            <&none>;
+        tick = <50>;
     };
-    //virtual_desplay {
-    //    layers = <LOW>;
-    //    bindings =
-    //        <&LCG_R>,
-    //        <&LCG_L>,
-    //        <&kp LG(TAB)>,
-    //        <&none>;
-    //    tick = <80>;
-    //};
     move_application {
         layers = <RAI>;
         bindings =
@@ -53,7 +43,7 @@
             <&kp LS(LC(TAB))>,
             <&LCA_TAB>,
             <&kp LG(D)>;
-        tick = <80>;
+        tick = <50>;
     };
     volume {
         layers = <SET>;
@@ -62,6 +52,6 @@
             <&kp C_VOL_DN>,
             <&kp C_MUTE>,
             <&none>;
-        tick = <80>;
+        tick = <50>;
     };
 };
