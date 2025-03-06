@@ -35,7 +35,7 @@
             <&kp UP_ARROW>,
             <&kp DOWN_ARROW>;
         tick = <10>;
-        wait_ms = <500>;
+        wait-ms = <500>;
     };
     //virtual_desplay {
     //    layers = <LOW>;
