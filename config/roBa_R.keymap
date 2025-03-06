@@ -7,7 +7,7 @@
     //automouse-layer = <MOUSE>;
     scroll-layers = <RAI MAR2 SCR>;
     // snipe-layers = <3>;
-    //arro
+    //arrow {
     //    layers = <FUNCTIONS_AND_CONTROLS>;
     //    bindings =
     //        <&kp RIGHT_ARROW>,
@@ -27,7 +27,7 @@
             <&none>;
         tick = <80>;
     };
-    arro
+    arrow {
         layers = <LOW>;
         bindings =
             <&kp RIGHT_ARROW>,
