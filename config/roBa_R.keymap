@@ -4,7 +4,7 @@
 // トラックボールの設定(overlay)
 &trackball {
     //automouse-layer = <MOUSE>;
-    scroll-layers = <MAR SCR>;
+    scroll-layers = <MAR2 SCR>;
     // snipe-layers = <3>;
     //arro
     //    layers = <FUNCTIONS_AND_CONTROLS>;
