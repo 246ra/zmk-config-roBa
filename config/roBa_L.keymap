@@ -532,7 +532,7 @@
         MOVE {
             bindings = <
 &kp ESC         &kp INS          &kp INT5           &kp INT4          &kp CAPS                                   &kp K_APP       &kp BSPC     &kp DEL    &kp LC(BSPC)   &kp TAB
-&hrm LGUI TAB   &hrm LSHFT LANG5 &hrm LCTRL LANG2   &hrm LALT LANG1   &caps_word    &kp C_MUTE     &kp RALT      &kp LEFT        &kp DOWN     &kp UP     &kp RIGHT      &kp RET
+&hrm LGUI TAB   &hrm LSHFT GRAVE &hrm LCTRL LANG2   &hrm LALT LANG1   &caps_word    &kp C_MUTE     &kp RALT      &kp LEFT        &kp DOWN     &kp UP     &kp RIGHT      &kp RET
 &kp PSCRN       &kp LG(LS(S))    &kp LC(T)          &kp LC(I)         &kp LC(O)     &kp LSHFT      &kp RGUI      &kp HOME        &kp PG_DN    &kp PG_UP  &kp END        &none
 &none           &none            &none              &none             &none         &none          &lt SET DEL   &lt MAR SPACE                                          &none
             >;
