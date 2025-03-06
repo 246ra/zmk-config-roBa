@@ -1,3 +1,4 @@
+
 #include "roBa_L.keymap"
 #include "boards/shields/Test/roBa_R.overlay"
 
@@ -14,6 +15,8 @@
     //        <&kp UP_ARROW>,
     //        <&kp DOWN_ARROW>;
     //    tick = <10>;
+    //    // wait-ms = <5>;
+    //    // tap-ms = <5>;
     //};
     mouse {
         layers = <MOV>;
@@ -24,15 +27,25 @@
             <&none>;
         tick = <80>;
     };
-    virtual_desplay {
+    arro
         layers = <LOW>;
         bindings =
-            <&LCG_R>,
-            <&LCG_L>,
-            <&kp LG(TAB)>,
-            <&none>;
-        tick = <80>;
+            <&kp RIGHT_ARROW>,
+            <&kp LEFT_ARROW>,
+            <&kp UP_ARROW>,
+            <&kp DOWN_ARROW>;
+        tick = <10>;
+        wait_ms = <500>;
     };
+    //virtual_desplay {
+    //    layers = <LOW>;
+    //    bindings =
+    //        <&LCG_R>,
+    //        <&LCG_L>,
+    //        <&kp LG(TAB)>,
+    //        <&none>;
+    //    tick = <80>;
+    //};
     move_application {
         layers = <RAI>;
         bindings =
