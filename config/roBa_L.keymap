@@ -500,7 +500,7 @@
             bindings = <
 &kp Q        &kp L        &kp U         &kp COMMA     &kp DOT                                              &kp F        &kp W         &kp R         &kp Y        &kp P
 &hrm LGUI E  &hrm LSHFT I &hrm LCTRL A  &hrm LALT O   &kp MINUS       &kp LCTRL             &kp RALT       &kp K        &hrm RALT T   &hrm RCTRL N  &hrm RSHFT S &hrm RGUI H
-&klt MOU Z   &klt MSR X   &klt LOW C    &klt MOV V    &jseco          &kp LSHFT             &kp RGUI       &kp G        &klt MOV D    &klt LOW M    &klt MAR J   &klt MOU B
+&klt MOU Z   &klt MAR X   &klt LOW C    &klt MOV V    &jseco          &kp LSHFT             &kp RGUI       &kp G        &klt MOV D    &klt LOW M    &klt MAR J   &klt MOU B
 &kp LALT     &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE   &mlt MAR2 MB2         &lt LOW BSPC   &lt RAI RET                                           &mo MOU
             >;
 
