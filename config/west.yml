@@ -13,7 +13,7 @@ manifest:
       import: app/west.yml
     - name: zmk-pmw3610-driver
       remote: 246ra
-      revision: main
+      revision: ball_one_click
     - name: zmk-naginata
       remote: eswai
       revision: main
