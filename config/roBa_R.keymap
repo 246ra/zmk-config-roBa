@@ -25,7 +25,7 @@
             <&mkp MB4>,
             <&mkp MB3>,
             <&none>;
-        tick = <1>;
+        tick = <20>;
     };
     move_application {
         layers = <LOW>;
@@ -34,7 +34,7 @@
             <&kp LS(LC(TAB))>,
             <&LCA_TAB>,
             <&kp LG(D)>;
-        tick = <1>;
+        tick = <20>;
     };
     virtual_desplay {
         layers = <MAC>;
@@ -43,7 +43,7 @@
             <&LCG_L>,
             <&kp LG(TAB)>,
             <&none>;
-        tick = <1>;
+        tick = <20>;
     };
     volume {
         layers = <SET>;
@@ -52,7 +52,7 @@
             <&kp C_VOL_DN>,
             <&kp C_MUTE>,
             <&none>;
-        tick = <1>;
+        tick = <20>;
     };
     selet_sentence {
         layers = <RAI>;
@@ -61,6 +61,6 @@
             <&kp LS(HOME)>,
             <&kp LC(HOME)>,
             <&kp LC(END)>;
-        tick = <1>;
+        tick = <20>;
     };
 };
