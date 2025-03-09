@@ -491,8 +491,8 @@
             bindings = <
 &kp Q        &kp W        &kp E         &kp R         &kp T                                                  &kp Y        &kp U         &kp I          &kp O         &kp P
 &hrm LGUI A  &hrm LSHFT S &hrm LCTRL D  &hrm LALT F   &kp G             &kp LCTRL             &kp RALT       &kp H        &hrm RALT J   &hrm RCTRL K   &hrm RSHFT L  &hjseco
-&klt MOU Z   &klt MAR X   &klt LOW C    &klt MOV V    &kp B             &kp LSHFT             &kp RGUI       &kp N        &klt MOV M    &klt LOW COMMA &klt MAR DOT  &klt MOU FSLH
-&kp LALT     &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE     &mlt MAR2 MB2         &lt LOW BSPC   &lt RAI RET                                             &mo MOU
+&klt MOU Z   &klt MAC X   &klt LOW C    &klt MOV V    &kp B             &kp LSHFT             &kp RGUI       &kp N        &klt MOV M    &klt LOW COMMA &klt MAC DOT  &klt MOU FSLH
+&kp LALT     &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE     &mlt MAC2 MB2         &lt LOW BSPC   &lt RAI RET                                             &mo MOU
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -502,8 +502,8 @@
             bindings = <
 &kp Q          &kp P           &kp R         &kp D         &kp C                                                &kp B        &kp K         &kp U         &kp Y        &kp X
 &hrm LGUI A    &hrm LSHFT T    &hrm LCTRL N  &hrm LALT S   &kp W           &kp LCTRL             &kp RALT       &kp M        &hrm RALT H   &hrm RCTRL E  &hrm RSHFT I &hrm RGUI O
-&klt MOU FSLH  &klt MAR COMMA  &klt LOW L    &klt MOV G    &kp J           &kp LSHFT             &kp RGUI       &kp F        &klt MOV V    &wjseco       &klt MAR Z   &klt MOU DOT
-&kp LALT       &kp LCTRL       &kp LSHFT     &mkp MB1      &lt MOV SPACE   &mlt MAR2 MB2         &lt LOW BSPC   &lt RAI RET                                           &mo MOU
+&klt MOU FSLH  &klt MAC COMMA  &klt LOW L    &klt MOV G    &kp J           &kp LSHFT             &kp RGUI       &kp F        &klt MOV V    &wjseco       &klt MAC Z   &klt MOU DOT
+&kp LALT       &kp LCTRL       &kp LSHFT     &mkp MB1      &lt MOV SPACE   &mlt MAC2 MB2         &lt LOW BSPC   &lt RAI RET                                           &mo MOU
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -513,8 +513,8 @@
             bindings = <
 &kp Q        &kp L        &kp U         &kp COMMA     &kp DOT                                              &kp F        &kp W         &kp R         &kp Y        &kp P
 &hrm LGUI E  &hrm LSHFT I &hrm LCTRL A  &hrm LALT O   &kp MINUS       &kp LCTRL             &kp RALT       &kp K        &hrm RALT T   &hrm RCTRL N  &hrm RSHFT S &hrm RGUI H
-&klt MOU Z   &klt MAR X   &klt LOW C    &klt MOV V    &jseco          &kp LSHFT             &kp RGUI       &kp G        &klt MOV D    &klt LOW M    &klt MAR J   &klt MOU B
-&kp LALT     &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE   &mlt MAR2 MB2         &lt LOW BSPC   &lt RAI RET                                           &mo MOU
+&klt MOU Z   &klt MAC X   &klt LOW C    &klt MOV V    &jseco          &kp LSHFT             &kp RGUI       &kp G        &klt MOV D    &klt LOW M    &klt MAC J   &klt MOU B
+&kp LALT     &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE   &mlt MAC2 MB2         &lt LOW BSPC   &lt RAI RET                                           &mo MOU
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -524,7 +524,7 @@
             bindings = <
 &ng Q      &ng W      &ng E      &ng R         &ng T                                        &ng Y      &ng U      &ng I           &ng O         &ng P
 &ng A      &ng S      &ng D      &ng F         &ng G           &kp LCTRL      &kp RALT      &ng H      &ng J      &ng K           &ng L         &ng SEMI
-&nlt MOU Z &nlt MAR X &nlt LOW C &nlt MOV V    &ng B           &kp LSHFT      &kp RGUI      &ng N      &nlt MOV M &nlt LOW COMMA  &nlt MAR DOT  &nlt MOU FSLH
+&nlt MOU Z &nlt MAC X &nlt LOW C &nlt MOV V    &ng B           &kp LSHFT      &kp RGUI      &ng N      &nlt MOV M &nlt LOW COMMA  &nlt MAC DOT  &nlt MOU FSLH
 &none      &none      &none      &mlt MOU MB1  &ng SPACE       &mlt RAI2 MB2  &lt LOW BSPC  &ng ENTER                                           &mo MOU
             >;
 
@@ -536,7 +536,7 @@
 &kp LC(Z)      &kp LC(V)     &kp LC(C)    &kp LC(X)    &kp LC(Y)                                          &kp LC(Z)       &kp LC(X)      &kp LC(C)      &kp LC(V)      &kp LC(Y)
 &kp LC(C)      &kp LEFT      &kp UP       &kp DOWN     &kp RIGHT         &kp LG(TAB)       &kp RALT       &kp LS(LC(TAB)) &mkp MB1       &mkp MB3       &mkp MB2       &kp LC(TAB)
 &none          &kp LS(HOME)  &kp LC(HOME) &kp LC(END)  &kp LS(END)       &kp LSHFT         &kp RGUI       &kp LS(HOME)    &kp LC(END)    &kp LC(HOME)    &kp LS(END)    &none
-&none          &none         &none        &mkp MB4     &mkp MB3          &mkp MB5          &mlt MAR MB4   &mlt MOU MB5                                                 &none
+&none          &none         &none        &mkp MB4     &mkp MB3          &mkp MB5          &mlt MAC MB4   &mlt MOU MB5                                                 &none
             >;
 
             sensor-bindings = <&move_vdesktop_lr>;
@@ -547,7 +547,7 @@
 &kp ESC         &kp INS          &kp INT5           &kp INT4          &kp CAPS                                   &kp K_APP       &kp BSPC     &kp DEL    &kp LC(BSPC)   &kp TAB
 &hrm LGUI TAB   &hrm LSHFT GRAVE &hrm LCTRL LANG2   &hrm LALT LANG1   &caps_word    &kp C_MUTE     &kp RALT      &kp LEFT        &kp DOWN     &kp UP     &kp RIGHT      &kp RET
 &kp PSCRN       &kp LG(LS(S))    &kp LC(T)          &kp LC(I)         &kp LC(O)     &kp LSHFT      &kp RGUI      &kp HOME        &kp PG_DN    &kp PG_UP  &kp END        &none
-&none           &none            &none              &none             &none         &none          &lt SET DEL   &lt MAR SPACE                                          &none
+&none           &none            &none              &none             &none         &none          &lt SET DEL   &lt MAC SPACE                                          &none
             >;
 
             sensor-bindings = <&volume_up_down>;
@@ -569,7 +569,7 @@
 &kp F1           &kp F2           &kp F3            &kp F4            &kp F5                                       &kp F6     &kp F7            &kp F8            &kp F9           &kp F10
 &hrm LGUI N1     &hrm LSHFT N2    &hrm LCTRL N3     &hrm LALT N4      &kp N5       &kp LG(V)             &kp RALT  &kp N6     &hrm RALT N7      &hrm RCTRL N8     &hrm RSHFT N9    &hrm RGUI N0
 &kp KP_PLUS      &kp KP_MINUS     &kp KP_MULTIPLY   &kp KP_DIVIDE     &none        &kp LSHFT             &kp RGUI  &none      &kp KP_DOT        &kp KP_EQUAL      &kp F11          &kp F12
-&none            &none            &none             &kp DEL           &lt MAR RET  &lt SET BSPC          &none     &none                                                           &none
+&none            &none            &none             &kp DEL           &lt MAC RET  &lt SET BSPC          &none     &none                                                           &none
             >;
 
             sensor-bindings = <&move_reun>;
@@ -580,7 +580,7 @@
 &kp F1           &kp F2           &kp F3            &kp F4            &kp F5                                       &kp F6     &kp F7            &kp F8            &kp F9           &kp F10
 &hrm LGUI N1     &hrm LSHFT N2    &hrm LCTRL N3     &hrm LALT N4      &kp N5       &kp LG(V)             &kp RALT  &kp N6     &hrm RALT N7      &hrm RCTRL N8     &hrm RSHFT N9    &hrm RGUI N0
 &kp KP_PLUS      &kp KP_MINUS     &kp KP_MULTIPLY   &kp KP_DIVIDE     &none        &kp LSHFT             &kp RGUI  &none      &kp KP_DOT        &kp KP_EQUAL      &kp F11          &kp F12
-&none            &none            &none             &kp DEL           &lt MAR RET  &lt SET BSPC          &none     &none                                                           &none
+&none            &none            &none             &kp DEL           &lt MAC RET  &lt SET BSPC          &none     &none                                                           &none
             >;
 
             sensor-bindings = <&move_reun>;
