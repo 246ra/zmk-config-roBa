@@ -18,10 +18,11 @@
 #define MOV 5
 #define LOW 6
 #define RAI 7
-#define MAR 8
-#define MAR2 9
-#define SET 10
-#define SCR 11
+#define RAI2 8
+#define MAC 9
+#define MAC2 10
+#define SET 11
+#define SCR 12
 
 // keycodeを置き換えるとkeymap editorが利用できないため、基本的に実施しない。
 //#define XXX &none
@@ -144,6 +145,18 @@
             key-positions = <31 32>;
             bindings = <&RAW>;
             layers = <LOW>;
+        };
+        combo_RAI {
+            timeout-ms = <40>;
+            key-positions = <32 33>;
+            bindings = <&mo RAI>;
+            layers = <QWE WAK ONI NAG>;
+        };
+        combo_RAI2 {
+            timeout-ms = <40>;
+            key-positions = <22 23>;
+            bindings = <&mo RAI>;
+            layers = <QWE WAK ONI NAG>;
         };
         combo_SET {
             timeout-ms = <40>;
@@ -552,6 +565,17 @@
         };
 
         RAISE {
+            bindings = <
+&kp F1           &kp F2           &kp F3            &kp F4            &kp F5                                       &kp F6     &kp F7            &kp F8            &kp F9           &kp F10
+&hrm LGUI N1     &hrm LSHFT N2    &hrm LCTRL N3     &hrm LALT N4      &kp N5       &kp LG(V)             &kp RALT  &kp N6     &hrm RALT N7      &hrm RCTRL N8     &hrm RSHFT N9    &hrm RGUI N0
+&kp KP_PLUS      &kp KP_MINUS     &kp KP_MULTIPLY   &kp KP_DIVIDE     &none        &kp LSHFT             &kp RGUI  &none      &kp KP_DOT        &kp KP_EQUAL      &kp F11          &kp F12
+&none            &none            &none             &kp DEL           &lt MAR RET  &lt SET BSPC          &none     &none                                                           &none
+            >;
+
+            sensor-bindings = <&move_reun>;
+        };
+
+        RAISE2 {
             bindings = <
 &kp F1           &kp F2           &kp F3            &kp F4            &kp F5                                       &kp F6     &kp F7            &kp F8            &kp F9           &kp F10
 &hrm LGUI N1     &hrm LSHFT N2    &hrm LCTRL N3     &hrm LALT N4      &kp N5       &kp LG(V)             &kp RALT  &kp N6     &hrm RALT N7      &hrm RCTRL N8     &hrm RSHFT N9    &hrm RGUI N0
