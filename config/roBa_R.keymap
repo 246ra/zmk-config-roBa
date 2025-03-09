@@ -52,6 +52,6 @@
             <&kp C_VOL_DN>,
             <&kp C_MUTE>,
             <&none>;
-        tick = <1>2;
+        tick = <1>;
     };
 };
