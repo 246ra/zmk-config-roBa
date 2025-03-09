@@ -27,17 +27,8 @@
             <&none>;
         tick = <1>;
     };
-    virtual_desplay {
-        layers = <LOW>;
-        bindings =
-            <&LCG_R>,
-            <&LCG_L>,
-            <&kp LG(TAB)>,
-            <&none>;
-        tick = <1>;
-    };
     move_application {
-        layers = <RAI>;
+        layers = <LOW>;
         bindings =
             <&kp LC(TAB)>,
             <&kp LS(LC(TAB))>,
@@ -45,13 +36,13 @@
             <&kp LG(D)>;
         tick = <1>;
     };
-    selet_sentence {
+    virtual_desplay {
         layers = <MAC>;
         bindings =
-            <&kp LS(HOME)>,
-            <&kp LS(END)>,
-            <&kp LC(HOME)>,
-            <&kp LC(END)>;
+            <&LCG_R>,
+            <&LCG_L>,
+            <&kp LG(TAB)>,
+            <&none>;
         tick = <1>;
     };
     volume {
@@ -61,6 +52,15 @@
             <&kp C_VOL_DN>,
             <&kp C_MUTE>,
             <&none>;
+        tick = <1>;
+    };
+    selet_sentence {
+        layers = <RAI>;
+        bindings =
+            <&kp LS(END)>,
+            <&kp LS(HOME)>,
+            <&kp LC(HOME)>,
+            <&kp LC(END)>;
         tick = <1>;
     };
 };
