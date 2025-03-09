@@ -25,7 +25,7 @@
             <&mkp MB4>,
             <&mkp MB3>,
             <&none>;
-        tick = <50>;
+        tick = <1>;
     };
     virtual_desplay {
         layers = <LOW>;
@@ -34,7 +34,7 @@
             <&LCG_L>,
             <&kp LG(TAB)>,
             <&none>;
-        tick = <50>;
+        tick = <1>;
     };
     move_application {
         layers = <RAI>;
@@ -43,7 +43,7 @@
             <&kp LS(LC(TAB))>,
             <&LCA_TAB>,
             <&kp LG(D)>;
-        tick = <50>;
+        tick = <1>;
     };
     volume {
         layers = <SET>;
@@ -52,6 +52,6 @@
             <&kp C_VOL_DN>,
             <&kp C_MUTE>,
             <&none>;
-        tick = <50>;
+        tick = <1>2;
     };
 };
