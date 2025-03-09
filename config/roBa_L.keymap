@@ -358,6 +358,13 @@
             // 追加: スクロールのタップ時間を設定 (20ms)
             tap-ms = <20>;
         };
+        scroll_left_right: sensor_rotate_mouse_wheel_left_rightxo {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
+            // 追加: スクロールのタップ時間を設定 (20ms)
+            tap-ms = <20>;
+        };
         // 仮想デスクトップ移動
         move_vdesktop_lr: sensor_rotate_move_vdesktop_left_right  {
             compatible = "zmk,behavior-sensor-rotate";
@@ -491,7 +498,7 @@
             bindings = <
 &kp Q        &kp W        &kp E         &kp R         &kp T                                                  &kp Y        &kp U         &kp I          &kp O         &kp P
 &hrm LGUI A  &hrm LSHFT S &hrm LCTRL D  &hrm LALT F   &kp G             &kp LCTRL             &kp RALT       &kp H        &hrm RALT J   &hrm RCTRL K   &hrm RSHFT L  &hjseco
-&klt MOU Z   &klt MAC X   &klt LOW C    &klt MOV V    &kp B             &kp LSHFT             &kp RGUI       &kp N        &klt MOV M    &klt LOW COMMA &klt MAC DOT  &klt MOU FSLH
+&klt MOU Z   &klt MAC X   &klt LOW C    &klt MOV V    &kp B             &lt SCR LEFT          &lt SCR RIGHT  &kp N        &klt MOV M    &klt LOW COMMA &klt MAC DOT  &klt MOU FSLH
 &kp LALT     &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE     &mlt MAC2 MB2         &lt LOW BSPC   &lt RAI RET                                             &mo MOU
             >;
 
@@ -502,7 +509,7 @@
             bindings = <
 &kp Q          &kp P           &kp R         &kp D         &kp C                                                &kp B        &kp K         &kp U         &kp Y        &kp X
 &hrm LGUI A    &hrm LSHFT T    &hrm LCTRL N  &hrm LALT S   &kp W           &kp LCTRL             &kp RALT       &kp M        &hrm RALT H   &hrm RCTRL E  &hrm RSHFT I &hrm RGUI O
-&klt MOU FSLH  &klt MAC COMMA  &klt LOW L    &klt MOV G    &kp J           &kp LSHFT             &kp RGUI       &kp F        &klt MOV V    &wjseco       &klt MAC Z   &klt MOU DOT
+&klt MOU FSLH  &klt MAC COMMA  &klt LOW L    &klt MOV G    &kp J           &lt SCR LEFT          &lt SCR RIGHT  &kp F        &klt MOV V    &wjseco       &klt MAC Z   &klt MOU DOT
 &kp LALT       &kp LCTRL       &kp LSHFT     &mkp MB1      &lt MOV SPACE   &mlt MAC2 MB2         &lt LOW BSPC   &lt RAI RET                                           &mo MOU
             >;
 
@@ -513,7 +520,7 @@
             bindings = <
 &kp Q        &kp L        &kp U         &kp COMMA     &kp DOT                                              &kp F        &kp W         &kp R         &kp Y        &kp P
 &hrm LGUI E  &hrm LSHFT I &hrm LCTRL A  &hrm LALT O   &kp MINUS       &kp LCTRL             &kp RALT       &kp K        &hrm RALT T   &hrm RCTRL N  &hrm RSHFT S &hrm RGUI H
-&klt MOU Z   &klt MAC X   &klt LOW C    &klt MOV V    &jseco          &kp LSHFT             &kp RGUI       &kp G        &klt MOV D    &klt LOW M    &klt MAC J   &klt MOU B
+&klt MOU Z   &klt MAC X   &klt LOW C    &klt MOV V    &jseco          &lt SCR LEFT          &lt SCR RIGHT  &kp G        &klt MOV D    &klt LOW M    &klt MAC J   &klt MOU B
 &kp LALT     &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE   &mlt MAC2 MB2         &lt LOW BSPC   &lt RAI RET                                           &mo MOU
             >;
 
@@ -524,7 +531,7 @@
             bindings = <
 &ng Q      &ng W      &ng E      &ng R         &ng T                                        &ng Y      &ng U      &ng I           &ng O         &ng P
 &ng A      &ng S      &ng D      &ng F         &ng G           &kp LCTRL      &kp RALT      &ng H      &ng J      &ng K           &ng L         &ng SEMI
-&nlt MOU Z &nlt MAC X &nlt LOW C &nlt MOV V    &ng B           &kp LSHFT      &kp RGUI      &ng N      &nlt MOV M &nlt LOW COMMA  &nlt MAC DOT  &nlt MOU FSLH
+&nlt MOU Z &nlt MAC X &nlt LOW C &nlt MOV V    &ng B           &lt SCR LEFT   &lt SCR RIGHT &ng N      &nlt MOV M &nlt LOW COMMA  &nlt MAC DOT  &nlt MOU FSLH
 &none      &none      &none      &mlt MOU MB1  &ng SPACE       &mlt RAI2 MB2  &lt LOW BSPC  &ng ENTER                                           &mo MOU
             >;
 
@@ -626,6 +633,8 @@
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
             >;
+
+            sensor-bindings = <&scroll_left_right>;
         };
 
     };
