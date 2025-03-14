@@ -543,7 +543,7 @@
 &kp LC(Z)      &kp LC(V)     &kp LC(C)    &kp LC(X)    &kp LC(Y)                                          &kp LC(Z)       &kp LC(X)      &kp LC(C)      &kp LC(V)      &kp LC(Y)
 &kp LC(C)      &kp LEFT      &kp UP       &kp DOWN     &kp RIGHT         &kp LG(TAB)       &kp RALT       &kp LS(LC(TAB)) &mkp MB1       &mkp MB3       &mkp MB2       &kp LC(TAB)
 &none          &kp LS(HOME)  &kp LC(HOME) &kp LC(END)  &kp LS(END)       &kp LSHFT         &kp RGUI       &kp LS(HOME)    &kp LC(END)    &kp LC(HOME)    &kp LS(END)    &none
-&none          &none         &none        &mkp MB4     &mkp MB3          &mkp MB5          &mlt MAC MB4   &mlt MOU MB5                                                 &none
+&none          &none         &none        &mkp MB4     &mkp MB3          &mkp MB5          &mlt MAC MB4   &mlt MOV MB5                                                 &none
             >;
 
             sensor-bindings = <&move_vdesktop_lr>;
