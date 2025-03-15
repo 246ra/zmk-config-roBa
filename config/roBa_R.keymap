@@ -27,7 +27,7 @@
             <&kp N6>,
             <&kp N3>,
             <&kp N1>;
-        tick = <200>;
+        tick = <100>;
     };
     //mouse {
     //    layers = <MOV>;
