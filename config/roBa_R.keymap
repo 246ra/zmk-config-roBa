@@ -77,7 +77,7 @@
         layers = <RAI>;
         bindings =
             <&kp LC(HOME)>,
-            <&kp LC(HOEM)>,
+            <&kp LC(HOME)>,
             <&kp LS(END)>,
             <&kp LS(HOME)>,
             <&kp LC(END)>,
