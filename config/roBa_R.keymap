@@ -18,15 +18,26 @@
     //    // wait-ms = <5>;
     //    // tap-ms = <5>;
     //};
-    mouse {
+    num_arrow {
         layers = <MOV>;
         bindings =
-            <&mkp MB5>,
-            <&mkp MB4>,
-            <&mkp MB3>,
-            <&none>;
+            <&kp N7>,
+            <&kp N9>,
+            <&kp N4>,
+            <&kp N6>,
+            <&kp N3>,
+            <&kp N1>;
         tick = <20>;
     };
+    //mouse {
+    //    layers = <MOV>;
+    //    bindings =
+    //        <&mkp MB5>,
+    //        <&mkp MB4>,
+    //        <&mkp MB3>,
+    //        <&none>;
+    //    tick = <20>;
+    //};
     move_application {
         layers = <LOW>;
         bindings =
