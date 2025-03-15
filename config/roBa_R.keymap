@@ -36,8 +36,8 @@
             <&mkp MB3>,
             <&mkp MB4>,
             <&mkp MB5>,
-            <&kp LANG2>,
-            <&kp LANG1>;
+            <&kp LANG1>,
+            <&kp LANG2>;
         tick = <300>;
     };
     move_application {
