@@ -45,8 +45,8 @@
         bindings =
             <&kp LA(F4)>,
             <&LCA_TAB>,
-            <&kp LC(TAB)>,
             <&kp LS(LC(TAB))>,
+            <&kp LC(TAB)>,
             <&kp LG(LS(RIGHT))>,
             <&kp LG(LS(LEFT))>;
         tick = <300>;
@@ -56,8 +56,8 @@
         bindings =
             <&kp LG(TAB)>,
             <&kp LG(TAB)>,
-            <&LCG_R>,
             <&LCG_L>,
+            <&LCG_R>,
             <&LCG_D>,
             <&LCG_F4>;
         tick = <300>;
@@ -67,8 +67,8 @@
         bindings =
             <&msc LC(SCRL_UP)>,
             <&kp C_VOL_UP>,
-            <&kp C_MUTE>,
             <&kp LS(LC(ESC))>,
+            <&kp C_MUTE>,
             <&kp C_VOL_DN>,
             <&msc LC(SCRL_DOWN)>;
         tick = <300>;
@@ -76,10 +76,10 @@
     selet_sentence {
         layers = <RAI>;
         bindings =
-            <&kp LS(END)>,
+            <&kp LC(HOME)>,
+            <&kp LC(HOEM)>,
             <&kp LS(END)>,
             <&kp LS(HOME)>,
-            <&kp LC(HOME)>,
             <&kp LC(END)>,
             <&kp LC(END)>;
         tick = <300>;
