@@ -18,60 +18,70 @@
     //    // wait-ms = <5>;
     //    // tap-ms = <5>;
     //};
-    num_arrow {
-        layers = <MOV>;
-        bindings =
-            <&kp N7>,
-            <&kp N9>,
-            <&kp N4>,
-            <&kp N6>,
-            <&kp N3>,
-            <&kp N1>;
-        tick = <300>;
-    };
-    //mouse {
+    //num_arrow {
     //    layers = <MOV>;
     //    bindings =
-    //        <&mkp MB5>,
-    //        <&mkp MB4>,
-    //        <&mkp MB3>,
-    //        <&none>;
-    //    tick = <20>;
+    //        <&kp N7>,
+    //        <&kp N9>,
+    //        <&kp N4>,
+    //        <&kp N6>,
+    //        <&kp N3>,
+    //        <&kp N1>;
+    //    tick = <300>;
     //};
+    mouse {
+        layers = <MOV>;
+        bindings =
+            <&mkp MB2>,
+            <&mkp MB3>,
+            <&mkp MB4>,
+            <&mkp MB5>,
+            <&kp LANG2>,
+            <&kp LANG1>;
+        tick = <300>;
+    };
     move_application {
         layers = <LOW>;
         bindings =
+            <&kp LA(F4)>,
+            <&LCA_TAB>,
             <&kp LC(TAB)>,
             <&kp LS(LC(TAB))>,
-            <&LCA_TAB>,
-            <&kp LG(D)>;
-        tick = <20>;
+            <&kp LG(LS(RIGHT))>,
+            <&kp LG(LS(LEFT))>;
+        tick = <300>;
     };
     virtual_desplay {
         layers = <MAC>;
         bindings =
+            <&kp LG(TAB)>,
+            <&kp LG(TAB)>,
             <&LCG_R>,
             <&LCG_L>,
-            <&kp LG(TAB)>,
-            <&none>;
-        tick = <20>;
+            <&LCG_D>,
+            <&LCG_F4>;
+        tick = <300>;
     };
     volume {
         layers = <SET>;
         bindings =
+            <&msc LC(SCRL_UP)>,
             <&kp C_VOL_UP>,
-            <&kp C_VOL_DN>,
             <&kp C_MUTE>,
-            <&none>;
-        tick = <20>;
+            <&kp LS(LC(ESC))>,
+            <&kp C_VOL_DN>,
+            <&msc LC(SCRL_DOWN)>;
+        tick = <300>;
     };
     selet_sentence {
         layers = <RAI>;
         bindings =
             <&kp LS(END)>,
+            <&kp LS(END)>,
             <&kp LS(HOME)>,
             <&kp LC(HOME)>,
+            <&kp LC(END)>,
             <&kp LC(END)>;
-        tick = <20>;
+        tick = <300>;
     };
 };
