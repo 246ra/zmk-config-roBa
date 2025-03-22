@@ -609,7 +609,7 @@
             bindings = <
 &none             &none             &none             &none               &none                                                       &none               &none             &none             &none             &none
 &mkp_exit_AML MB4 &mkp_exit_AML MB1 &mo_exit_AML SCR  &mkp_exit_AML MB2   &mkp_exit_AML MB5   &none               &none               &mkp_exit_AML MB4   &mkp_exit_AML MB1 &mo_exit_AML SCR  &mkp_exit_AML MB2 &mkp_exit_AML MB5 
-&none             &trans            &mkp_exit_AML MB3 &none               &none               &none               &none               &none               &none             &mkp_exit_AML MB3 &trans            &none
+&none             &trans            &mkp_exit_AML MB3 &none               &none               &none               &none               &none               &kp A             &mkp_exit_AML MB3 &trans            &none
 &none             &none             &none             &mod_exit_AML LCTRL &mod_exit_AML LSHFT &mod_exit_AML LALT  &mod_exit_AML LSHFT &mod_exit_AML LCTRL &none                                                 &none
             >;
 
