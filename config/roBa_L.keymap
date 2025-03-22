@@ -105,18 +105,18 @@
         };
 
         // ショートカット
-        combo_left_scroll {
-            timeout-ms = <50>;
-            key-positions = <11 12>;
-            bindings = <&mo SCR>;
-            layers = <QWE WAK ONI NAG>;
-        };
-        combo_right_scroll {
-            timeout-ms = <50>;
-            key-positions = <19 20>;
-            bindings = <&mo SCR>;
-            layers = <QWE WAK ONI NAG MOU>;
-        };
+        //combo_left_scroll {
+        //    timeout-ms = <50>;
+        //    key-positions = <11 12>;
+        //    bindings = <&mo SCR>;
+        //    layers = <QWE WAK ONI NAG>;
+        //};
+        //combo_right_scroll {
+        //    timeout-ms = <50>;
+        //    key-positions = <19 20>;
+        //    bindings = <&mo SCR>;
+        //    layers = <QWE WAK ONI NAG MOU>;
+        //};
         combo_prn {
             timeout-ms = <40>;
             key-positions = <18 19>;
@@ -566,7 +566,7 @@
 &kp Q        &kp W        &kp E         &kp R         &kp T                                                  &kp Y        &kp U         &kp I          &kp O         &kp P
 &hrm LGUI A  &hrm LSHFT S &hrm LCTRL D  &hrm LALT F   &kp G             &kp LCTRL             &kp RALT       &kp H        &hrm RALT J   &hrm RCTRL K   &hrm RSHFT L  &hjseco
 &klt MOU Z   &klt MAC X   &klt LOW C    &klt MOV V    &kp B             &lt SCR LEFT          &lt SCR RIGHT  &kp N        &klt MOV M    &klt LOW COMMA &klt MAC DOT  &klt MOU FSLH
-&kp LALT     &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE     &mlt MAC2 MB2         &lt LOW BSPC   &lt RAI RET                                             &mo MOU
+&kp LALT     &kp LCTRL    &kp LSHFT     &kp LANG2     &lt MOV SPACE     &lt MAC2 LANG1        &lt LOW BSPC   &lt RAI RET                                             &mo MOU
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -577,7 +577,7 @@
 &kp Q          &kp P           &kp R         &kp D         &kp C                                                &kp B        &kp K         &kp U         &kp Y        &kp X
 &hrm LGUI A    &hrm LSHFT T    &hrm LCTRL N  &hrm LALT S   &kp W           &kp LCTRL             &kp RALT       &kp M        &hrm RALT H   &hrm RCTRL E  &hrm RSHFT I &hrm RGUI O
 &klt MOU FSLH  &klt MAC COMMA  &klt LOW L    &klt MOV G    &kp J           &lt SCR LEFT          &lt SCR RIGHT  &kp F        &klt MOV V    &wjseco       &klt MAC Z   &klt MOU DOT
-&kp LALT       &kp LCTRL       &kp LSHFT     &mkp MB1      &lt MOV SPACE   &mlt MAC2 MB2         &lt LOW BSPC   &lt RAI RET                                           &mo MOU
+&kp LALT       &kp LCTRL       &kp LSHFT     &kp LANG2     &lt MOV SPACE   &lt MAC2 LANG1        &lt LOW BSPC   &lt RAI RET                                           &mo MOU
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -588,7 +588,7 @@
 &kp Q        &kp L        &kp U         &kp COMMA     &kp DOT                                              &kp F        &kp W         &kp R         &kp Y        &kp P
 &hrm LGUI E  &hrm LSHFT I &hrm LCTRL A  &hrm LALT O   &kp MINUS       &kp LCTRL             &kp RALT       &kp K        &hrm RALT T   &hrm RCTRL N  &hrm RSHFT S &hrm RGUI H
 &klt MOU Z   &klt MAC X   &klt LOW C    &klt MOV V    &jseco          &lt SCR LEFT          &lt SCR RIGHT  &kp G        &klt MOV D    &klt LOW M    &klt MAC J   &klt MOU B
-&kp LALT     &kp LCTRL    &kp LSHFT     &mkp MB1      &lt MOV SPACE   &mlt MAC2 MB2         &lt LOW BSPC   &lt RAI RET                                           &mo MOU
+&kp LALT     &kp LCTRL    &kp LSHFT     &kp LANG2     &lt MOV SPACE   &lt MAC2 LANG1        &lt LOW BSPC   &lt RAI RET                                           &mo MOU
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -599,7 +599,7 @@
 &ng Q      &ng W      &ng E      &ng R         &ng T                                        &ng Y      &ng U      &ng I           &ng O         &ng P
 &ng A      &ng S      &ng D      &ng F         &ng G           &kp LCTRL      &kp RALT      &ng H      &ng J      &ng K           &ng L         &ng SEMI
 &nlt MOU Z &nlt MAC X &nlt LOW C &nlt MOV V    &ng B           &lt SCR LEFT   &lt SCR RIGHT &ng N      &nlt MOV M &nlt LOW COMMA  &nlt MAC DOT  &nlt MOU FSLH
-&none      &none      &none      &mlt MOU MB1  &ng SPACE       &mlt RAI2 MB2  &lt LOW BSPC  &ng ENTER                                           &mo MOU
+&none      &none      &none      &mo MOU       &ng SPACE       &mo RAI2       &lt LOW BSPC  &ng ENTER                                           &mo MOU
             >;
 
             sensor-bindings = <&scroll_up_down>;
@@ -609,7 +609,7 @@
             bindings = <
 &none             &none             &none             &none               &none                                                       &none               &none             &none             &none             &none
 &mkp_exit_AML MB4 &mkp_exit_AML MB1 &mo_exit_AML SCR  &mkp_exit_AML MB2   &mkp_exit_AML MB5   &none               &none               &mkp_exit_AML MB4   &mkp_exit_AML MB1 &mo_exit_AML SCR  &mkp_exit_AML MB2 &mkp_exit_AML MB5 
-&none             &trans            &mkp_exit_AML MB3 &none               &none               &none               &none               &none               &kp A             &mkp_exit_AML MB3 &trans            &none
+&none             &none             &mkp_exit_AML MB3 &none               &none               &none               &none               &none               &none             &mkp_exit_AML MB3 &none             &none
 &none             &none             &none             &mod_exit_AML LCTRL &mod_exit_AML LSHFT &mod_exit_AML LALT  &mod_exit_AML LSHFT &mod_exit_AML LCTRL &none                                                 &none
             >;
 
