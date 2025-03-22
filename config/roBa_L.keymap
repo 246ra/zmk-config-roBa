@@ -609,7 +609,7 @@
             bindings = <
 &none             &none             &none             &none               &none                                                       &none               &none             &none             &none             &none
 &mkp_exit_AML MB4 &mkp_exit_AML MB1 &mo_exit_AML SCR  &mkp_exit_AML MB2   &mkp_exit_AML MB5   &none               &none               &mkp_exit_AML MB4   &mkp_exit_AML MB1 &mo_exit_AML SCR  &mkp_exit_AML MB2 &mkp_exit_AML MB5 
-&none             &trans            &mkp_exit_AML MB3 &none               &none               &none               &none               &none               &none             &mkp_exit_AML MB3 &none             &none
+&none             &trans            &mkp_exit_AML MB3 &none               &none               &none               &none               &none               &none             &mkp_exit_AML MB3 &trans            &none
 &none             &none             &none             &mod_exit_AML LCTRL &mod_exit_AML LSHFT &mod_exit_AML LALT  &mod_exit_AML LSHFT &mod_exit_AML LCTRL &none                                                 &none
             >;
 
@@ -620,7 +620,7 @@
             bindings = <
 &kp LC(Z)      &kp LC(V)     &kp LC(C)    &kp LC(X)    &kp LC(Y)                                          &kp LC(Z)       &kp LC(X)      &kp LC(C)      &kp LC(V)      &kp LC(Y)
 &kp LC(C)      &kp LEFT      &kp UP       &kp DOWN     &kp RIGHT         &kp LG(TAB)       &kp RALT       &kp LS(LC(TAB)) &mkp MB1       &mkp MB3       &mkp MB2       &kp LC(TAB)
-&none          &kp LS(HOME)  &kp LC(HOME) &kp LC(END)  &kp LS(END)       &kp LSHFT         &kp RGUI       &kp LS(HOME)    &kp LC(END)    &kp LC(HOME)    &kp LS(END)    &none
+&none          &kp LS(HOME)  &kp LC(HOME) &kp LC(END)  &kp LS(END)       &kp LSHFT         &kp RGUI       &kp LS(HOME)    &kp LC(END)    &kp LC(HOME)   &kp LS(END)    &none
 &none          &none         &none        &mkp MB4     &mkp MB3          &mkp MB5          &mlt MAC MB4   &mlt MOV MB5                                                 &none
             >;
 
