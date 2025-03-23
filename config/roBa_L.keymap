@@ -173,18 +173,18 @@
         };
 
         // 入力切替
-        combo_eisu {
-            timeout-ms = <50>;
-            key-positions = <12 13>;
-            bindings = <&kp LANG2>;
-            layers = <QWE WAK ONI>;
-        };
-        combo_kana {
-            timeout-ms = <50>;
-            key-positions = <18 19>;
-            bindings = <&kp LANG1>;
-            layers = <QWE WAK ONI>;
-        };
+        //combo_eisu {
+        //    timeout-ms = <50>;
+        //    key-positions = <12 13>;
+        //    bindings = <&kp LANG2>;
+        //    layers = <QWE WAK ONI>;
+        //};
+        //combo_kana {
+        //    timeout-ms = <50>;
+        //    key-positions = <18 19>;
+        //    bindings = <&kp LANG1>;
+        //    layers = <QWE WAK ONI>;
+        //};
 
     };
 
