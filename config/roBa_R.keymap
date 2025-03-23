@@ -1,29 +1,29 @@
 
 #include "roBa_L.keymap"
 #include "boards/shields/Test/roBa_R.overlay"
-#include <input/processors.dtsi>
-/ {
-    /omit-if-no-ref/ zip_temp_layer: zip_temp_layer {
-        compatible = "zmk,input-processor-temp-layer";
-        #input-processor-cells = <2>;
-        excluded-positions = <
-            10  11  12  13  14   // BTN4, BTN1, SCRL, BTN2, BTN5
-            17  18  19  20  21   // BTN4, BTN1, SCRL, BTN2, BTN5
-            24  31               // BTN3
-            37  38  39  40  41   // modifer
-        >;
-    };
-
-    trackball_listener {
-        compatible = "zmk,input-listener";
-        device = <&trackball>;
-        input-processors = <&zip_temp_layer AMO 2147483647>;
-    };
-};
+//#include <input/processors.dtsi>
+/// {
+//    /omit-if-no-ref/ zip_temp_layer: zip_temp_layer {
+//        compatible = "zmk,input-processor-temp-layer";
+//        #input-processor-cells = <2>;
+//        excluded-positions = <
+//            10  11  12  13  14   // BTN4, BTN1, SCRL, BTN2, BTN5
+//            17  18  19  20  21   // BTN4, BTN1, SCRL, BTN2, BTN5
+//            24  31               // BTN3
+//            37  38  39  40  41   // modifer
+//        >;
+//    };
+//
+//    trackball_listener {
+//        compatible = "zmk,input-listener";
+//        device = <&trackball>;
+//        input-processors = <&zip_temp_layer AMO 2147483647>;
+//    };
+//};
 
 // トラックボールの設定(overlay)
 &trackball {
-    //automouse-layer = <MOUSE>;
+    automouse-layer = <AMO>;
     scroll-layers = <RAI2 MAC2 SCR>;
     // snipe-layers = <3>;
     //arrow {
