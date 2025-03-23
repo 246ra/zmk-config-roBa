@@ -473,7 +473,6 @@
             bindings = <&kp LBRC>, <&kp PLUS>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-
     };
 
     keymap {
@@ -626,16 +625,15 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        SCROLL {
+        MACRO {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
+LA_F4    LG_S    &mkp MB4  &mkp MB5  &kp BSPC                         LCS_ESC  LC_PLU  LC_MIN  &LCA_TAB  LC_TAB
+LC_Z     LC_X    LC_C      LC_V      LC_Y      &kp LCTRL    &kp RALT  LC_T     XXX     XXX     XXX       XXX
+LCS_TAB  LC_TAB  LS_TAB    &kp TAB   &kp RET   &kp LSHFT    &kp RGUI  LG_TAB   &LCG_L  &LCG_R  &LCG_D    &LCG_F4
+XXX      XXX     XXX       XXX       XXX       XXX          XXX       XXX                                XXX
             >;
 
             sensor-bindings = <&scroll_left_right>;
         };
-
     };
 };
