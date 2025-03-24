@@ -409,7 +409,7 @@
             tapping-term-ms = <230>;
             quick-tap-ms = <150>;
             flavor = "tap-preferred";
-            bindings = <&mo_exis_AML>, <&kp_exit_AML>;
+            bindings = <&mo_exit_AML>, <&kp_exit_AML>;
         };
         // mod-tap(mouse)の設定
         mlt: mouse_layer_tap {
