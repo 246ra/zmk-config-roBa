@@ -616,9 +616,9 @@
         AMOUSE {
             bindings = <
 &none_exit_AML &none_exit_AML    &none_exit_AML    &none_exit_AML    &none_exit_AML                                    &none_exit_AML &none_exit_AML    &none_exit_AML    &none_exit_AML    &none_exit_AML
-&none_exit_AML &mkp_exit_AML MB1 &mo_exit_AML SCR  &mkp_exit_AML MB2 &none_exit_AML &none_exit_AML      &none_exit_AML &none_exit_AML &mkp_exit_AML MB1 &mo_exit_AML SCR  &mkp_exit_AML MB2 &none_exit_AML
+&none_exit_AML &mkp_exit_AML MB1 &mo SCR           &mkp_exit_AML MB2 &none_exit_AML &none_exit_AML      &none_exit_AML &none_exit_AML &mkp_exit_AML MB1 &mo SCR           &mkp_exit_AML MB2 &none_exit_AML
 &none_exit_AML &mkp_exit_AML MB4 &mkp_exit_AML MB3 &mkp_exit_AML MB5 &none_exit_AML &none_exit_AML      &none_exit_AML &none_exit_AML &mkp_exit_AML MB4 &mkp_exit_AML MB3 &mkp_exit_AML MB5 &none_exit_AML
-&none_exit_AML &none_exit_AML    &none_exit_AML    &kp LCTRL         &kp LSHFT      &kp LALT            &kp LALT       &kp LSHFT      &none_exit_AML                                        &none_exit_AML
+&none_exit_AML &none_exit_AML    &none_exit_AML    &kp LCTRL         &kp LSHFT      &kp LALT            &kp LALT       &kp LSHFT                                                            &none_exit_AML
             >;
             sensor-bindings = <&scroll_up_down>;
         };
