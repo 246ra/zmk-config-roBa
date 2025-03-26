@@ -15,7 +15,7 @@
 #define ONI 2
 #define NAG 3
 #define AMO 4
-#define AMO2 5　
+#define AMO2 5
 #define MOU 6
 #define MOV 7
 #define LOW 8
