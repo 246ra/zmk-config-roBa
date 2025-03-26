@@ -633,10 +633,10 @@
 
         AMOUSE {
             bindings = <
-&none_exit_AML     &none_exit_AML    &none_exit_AML    &none_exit_AML    &none_exit_AML                                       &none_exit_AML &none_exit_AML    &none_exit_AML    &none_exit_AML    &none_exit_AML
-&mkp_exit_AML_DMB1 &mkp_exit_AML MB1 &mo_exit_AML SCR  &mkp_exit_AML MB2 &none_exit_AML   &none_exit_AML      &none_exit_AML  &none_exit_AML &mkp_exit_AML MB1 &mo_exit_AML SCR  &mkp_exit_AML MB2 &mkp_exit_AML_DMB1
-&none_exit_AML     &mkp_exit_AML MB4 &mkp_exit_AML MB3 &mkp_exit_AML MB5 &none_exit_AML   &none_exit_AML      &none_exit_AML  &none_exit_AML &mkp_exit_AML MB4 &mkp_exit_AML MB3 &mkp_exit_AML MB5 &none_exit_AML
-&none_exit_AML     &none_exit_AML    &none_exit_AML    &mltkp SET LANG2  &mltkp MOV SPACE &mltkp MAC2 LANG1   &mltkp LOW BSPC &mltkp RAI RET                                                       &none_exit_AML
+&none_exit_AML     &mkp_exit_AML_DMB1 &none_exit_AML    &none_exit_AML    &none_exit_AML                                       &none_exit_AML &none_exit_AML    &none_exit_AML    &mkp_exit_AML_DMB1 &none_exit_AML
+&mkp_exit_AML_DMB1 &mkp_exit_AML MB1  &mo_exit_AML SCR  &mkp_exit_AML MB2 &none_exit_AML   &none_exit_AML      &none_exit_AML  &none_exit_AML &mkp_exit_AML MB1 &mo_exit_AML SCR  &mkp_exit_AML MB2  &mkp_exit_AML_DMB1
+&none_exit_AML     &mkp_exit_AML MB4  &mkp_exit_AML MB3 &mkp_exit_AML MB5 &none_exit_AML   &none_exit_AML      &none_exit_AML  &none_exit_AML &mkp_exit_AML MB4 &mkp_exit_AML MB3 &mkp_exit_AML MB5  &none_exit_AML
+&none_exit_AML     &none_exit_AML     &none_exit_AML    &mltkp SET LANG2  &mltkp MOV SPACE &mltkp MAC2 LANG1   &mltkp LOW BSPC &mltkp RAI RET                                                        &none_exit_AML
             >;
             sensor-bindings = <&scroll_up_down>;
         };
