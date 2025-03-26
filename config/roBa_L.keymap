@@ -15,16 +15,15 @@
 #define ONI 2
 #define NAG 3
 #define AMO 4
-#define AMO2 5
-#define MOU 6
-#define MOV 7
-#define LOW 8
-#define RAI 9
-#define RAI2 10
-#define MAC 11
-#define MAC2 12
-#define SET 13
-#define SCR 14
+#define MOU 5
+#define MOV 6
+#define LOW 7
+#define RAI 8
+#define RAI2 9
+#define MAC 10
+#define MAC2 11
+#define SET 12
+#define SCR 13
 
 // keycodeを置き換えるとkeymap editorが利用できないため、基本的に実施しない。
 //#define XXX &none
@@ -61,7 +60,7 @@
     tapping-term-ms = <150>;
     quick-tap-ms = <150>;
 };
-&sl { release-after-ms = <120>; }; // タイムアウトを指定
+&sl { release-after-ms = <0>; }; // タイムアウトを指定
 / {
 
     combos {
@@ -379,6 +378,24 @@
                 <&macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "MOD_exit_AML";
         };
+        mkp_exit_AML_DMB1: mkp_exit_AML_Double_MB1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &mkp MB1>,
+                <&macro_press &mkp MB1>,
+                <&sl AMO>;
+            label = "MKP_EXIT_AML";
+        };
+        mkp_exit_AML_DMB2: mkp_exit_AML_Double_MB2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &mkp MB1>,
+                <&macro_press &mkp MB2>,
+                <&sl AMO>;
+            label = "MKP_EXIT_AML";
+        };
     };
 
     behaviors {
@@ -627,20 +644,10 @@
 
         AMOUSE {
             bindings = <
-&none_exit_AML    &none_exit_AML    &none_exit_AML    &none_exit_AML    &none_exit_AML                                       &none_exit_AML &none_exit_AML    &none_exit_AML    &none_exit_AML    &none_exit_AML
-&mo_exit_AML AMO2 &mkp_exit_AML MB1 &mo_exit_AML SCR  &mkp_exit_AML MB2 &none_exit_AML   &none_exit_AML      &none_exit_AML  &none_exit_AML &mkp_exit_AML MB1 &mo_exit_AML SCR  &mkp_exit_AML MB2 &mo_exit_AML AMO2
-&none_exit_AML    &mkp_exit_AML MB4 &mkp_exit_AML MB3 &mkp_exit_AML MB5 &none_exit_AML   &none_exit_AML      &none_exit_AML  &none_exit_AML &mkp_exit_AML MB4 &mkp_exit_AML MB3 &mkp_exit_AML MB5 &none_exit_AML
+&none_exit_AML    &mkp_exit_AML MB4  &none_exit_AML    &mkp_exit_AML MB5  &none_exit_AML                                       &none_exit_AML &mkp_exit_AML MB4  &none_exit_AML    &mkp_exit_AML MB5  &none_exit_AML
+&mo_exit_AML AMO2 &mkp_exit_AML MB1  &mo_exit_AML SCR  &mkp_exit_AML MB2  &none_exit_AML   &none_exit_AML      &none_exit_AML  &none_exit_AML &mkp_exit_AML MB1  &mo_exit_AML SCR  &mkp_exit_AML MB2  &mo_exit_AML AMO2
+&none_exit_AML    &mkp_exit_AML_DMB1 &mkp_exit_AML MB3 &mkp_exit_AML_DMB2 &none_exit_AML   &none_exit_AML      &none_exit_AML  &none_exit_AML &mkp_exit_AML_DMB1 &mkp_exit_AML MB3 &mkp_exit_AML_DMB2 &none_exit_AML
 &none_exit_AML    &none_exit_AML    &none_exit_AML    &mltkp SET LANG2  &mltkp MOV SPACE &mltkp MAC2 LANG1   &mltkp LOW BSPC &mltkp RAI RET                                                       &none_exit_AML
-            >;
-            sensor-bindings = <&scroll_up_down>;
-        };
-
-        AMOUSE2 {
-            bindings = <
-&none &none    &none    &none             &none                                                &none          &none    &none    &none    &none
-&none &mkp MB1 &mo SCR  &mkp MB2          &none            &none               &none           &none          &mkp MB1 &mo SCR  &mkp MB2 &none
-&none &mkp MB4 &mkp MB3 &mkp MB5          &none            &none               &none           &none          &mkp MB4 &mkp MB3 &mkp MB5 &none
-&none &none    &none    &mltkp SET LANG2  &mltkp MOV SPACE &mltkp MAC2 LANG1   &mltkp LOW BSPC &mltkp RAI RET                            &none
             >;
             sensor-bindings = <&scroll_up_down>;
         };
