@@ -60,7 +60,7 @@
     tapping-term-ms = <150>;
     quick-tap-ms = <150>;
 };
-//&sl { release-after-ms = <1>; }; // タイムアウトを指定
+//&sl { release-after-ms = <120>; }; // タイムアウトを指定
 / {
 
     combos {
@@ -399,6 +399,14 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+        qhrm: qickly_homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <150>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
         mltkp: auto_mouse_lt_kp {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -559,6 +567,9 @@
             bindings = <&kp LBRC>, <&kp PLUS>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        
+        //home row mode(記号)
+        
 
     };
 
@@ -642,40 +653,40 @@
 
         MOVE {
             bindings = <
-&kp ESC         &kp INS          &kp INT5           &kp INT4          &kp CAPS                                   &kp K_APP       &kp BSPC     &kp DEL    &kp LC(BSPC)   &kp TAB
-&hrm LGUI TAB   &hrm LSHFT GRAVE &hrm LCTRL LANG2   &hrm LALT LANG1   &caps_word    &kp C_MUTE     &kp RALT      &kp LEFT        &kp DOWN     &kp UP     &kp RIGHT      &kp RET
-&kp PSCRN       &kp LG(LS(S))    &kp LC(T)          &kp LC(I)         &kp LC(O)     &kp LSHFT      &kp RGUI      &kp HOME        &kp PG_DN    &kp PG_UP  &kp END        &none
-&none           &none            &none              &none             &none         &none          &lt SET DEL   &lt MAC SPACE                                          &none
+&kp ESC        &kp INS           &kp INT5          &kp INT4         &kp CAPS                              &kp K_APP     &kp BSPC  &kp DEL   &kp LC(BSPC) &kp TAB
+&qhrm LGUI TAB &qhrm LSHFT GRAVE &qhrm LCTRL LANG2 &qhrm LALT LANG1 &caps_word &kp C_MUTE     &kp RALT    &kp LEFT      &kp DOWN  &kp UP    &kp RIGHT    &kp RET
+&kp PSCRN      &kp LG(LS(S))     &kp LC(T)         &kp LC(I)        &kp LC(O)  &kp LSHFT      &kp RGUI    &kp HOME      &kp PG_DN &kp PG_UP &kp END      &none
+&none          &none             &none             &none            &none      &none          &lt SET DEL &lt MAC SPACE                                  &none
             >;
             sensor-bindings = <&volume_up_down>;
         };
 
         LOWER {
             bindings = <
-&kp LS(N1) &kp LBKT   &kp LS(N3)    &kp LS(N4)    &kp LS(N5)                               &kp EQUAL   &kp LS(N6)  &kp LS(SQT)  &kp LS(N8)    &kp LS(N9)
-&jgrti     &jeqpl     &jmiun        &jbspi        &kp FSLH     &kp LCTRL         &kp RALT  &none       &kp LS(N8)  &jlblb       &kp LS(RBKT)  &kp AMPS
-&kp PLUS   &kp COLON  &kp LS(INT1)  &kp LS(INT3)  &kp QMARK    &kp LSHFT         &kp RGUI  &none       &kp LS(N9)  &jrbrb       &kp LS(NUHS)  &jsqdq
-&none      &none      &none         &kp DEL       &kp RET      &kp BSPC          &none     &none                                              &none
+&kp LS(N1)      &kp LBKT          &kp LS(N3)        &kp LS(N4)      &kp LS(N5)                             &kp EQUAL   &kp LS(N6)        &kp LS(SQT)      &kp LS(N8)           &kp LS(N9)
+&qhrm LGUI LBRC &qhrm LSHFT UNDER &qhrm LCTRL MINUS &qhrm LALT INT1 &kp FSLH   &kp LCTRL         &kp RALT  &none       &qhrm LALT LS(N8) &qhrm LCTRL RBKT &qhrm LSHFT LS(RBKT) &qhrm LGUI AMPS
+&kp PLUS        &kp COLON         &kp LS(INT1)      &kp LS(INT3)    &kp QMARK  &kp LSHFT         &kp RGUI  &none       &kp LS(N9)        &jrbrb           &kp LS(NUHS)         &jsqdq
+&none           &none             &none             &kp DEL         &kp RET    &kp BSPC          &none     &none                                                               &none
             >;
             sensor-bindings = <&rot_kp  LC(TAB) LS(LC(TAB))>;
         };
 
         RAISE {
             bindings = <
-&kp F1           &kp F2           &kp F3            &kp F4            &kp F5                                       &kp F6     &kp F7            &kp F8            &kp F9           &kp F10
-&hrm LGUI N1     &hrm LSHFT N2    &hrm LCTRL N3     &hrm LALT N4      &kp N5       &kp LG(V)             &kp RALT  &kp N6     &hrm RALT N7      &hrm RCTRL N8     &hrm RSHFT N9    &hrm RGUI N0
-&kp KP_PLUS      &kp KP_MINUS     &kp KP_MULTIPLY   &kp KP_DIVIDE     &none        &kp LSHFT             &kp RGUI  &none      &kp KP_DOT        &kp KP_EQUAL      &kp F11          &kp F12
-&none            &none            &none             &kp DEL           &lt MAC RET  &lt SET BSPC          &none     &none                                                           &none
+&kp F1        &kp F2         &kp F3          &kp F4        &kp F5                                     &kp F6 &kp F7        &kp F8         &kp F9         &kp F10
+&qhrm LGUI N1 &ahrm LSHFT N2 &qhrm LCTRL N3  &qhrm LALT N4 &kp N5      &kp LG(V)             &kp RALT &kp N6 &qhrm RALT N7 &qhrm RCTRL N8 &qhrm RSHFT N9 &qhrm RGUI N0
+&kp KP_PLUS   &kp KP_MINUS   &kp KP_MULTIPLY &kp KP_DIVIDE &none       &kp LSHFT             &kp RGUI &none  &kp KP_DOT    &kp KP_EQUAL   &kp F11        &kp F12
+&none         &none          &none           &kp DEL       &lt MAC RET &lt SET BSPC          &none    &none                                              &none
             >;
             sensor-bindings = <&move_reun>;
         };
 
         RAISE2 {
             bindings = <
-&kp F1           &kp F2           &kp F3            &kp F4            &kp F5                                       &kp F6     &kp F7            &kp F8            &kp F9           &kp F10
-&hrm LGUI N1     &hrm LSHFT N2    &hrm LCTRL N3     &hrm LALT N4      &kp N5       &kp LG(V)             &kp RALT  &kp N6     &hrm RALT N7      &hrm RCTRL N8     &hrm RSHFT N9    &hrm RGUI N0
-&kp KP_PLUS      &kp KP_MINUS     &kp KP_MULTIPLY   &kp KP_DIVIDE     &none        &kp LSHFT             &kp RGUI  &none      &kp KP_DOT        &kp KP_EQUAL      &kp F11          &kp F12
-&none            &none            &none             &kp DEL           &lt MAC RET  &lt SET BSPC          &none     &none                                                           &none
+&kp F1        &kp F2         &kp F3          &kp F4        &kp F5                                      &kp F6 &kp F7        &kp F8         &kp F9         &kp F10
+&qhrm LGUI N1 &qhrm LSHFT N2 &qhrm LCTRL N3  &qhrm LALT N4 &kp N5      &kp LG(V)             &kp RALT  &kp N6 &qhrm RALT N7 &qhrm RCTRL N8 &qhrm RSHFT N9 &qhrm RGUI N0
+&kp KP_PLUS   &kp KP_MINUS   &kp KP_MULTIPLY &kp KP_DIVIDE &none       &kp LSHFT             &kp RGUI  &none  &kp KP_DOT    &kp KP_EQUAL   &kp F11        &kp F12
+&none         &none          &none           &kp DEL       &lt MAC RET &lt SET BSPC          &none     &none                                              &none
             >;
             sensor-bindings = <&move_reun>;
         };
