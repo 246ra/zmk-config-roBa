@@ -382,19 +382,19 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &mkp MB1>,
-                <&macro_press &mkp MB1>,
+                <&macro_tap &mkp MB1>,
+                <&macro_tap &mkp MB1>,
                 <&sl AMO>;
-            label = "MKP_EXIT_AML";
+            label = "MKP_EXIT_AML_DOUBLE_MB1";
         };
         mkp_exit_AML_DMB2: mkp_exit_AML_Double_MB2 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &mkp MB1>,
-                <&macro_press &mkp MB2>,
+                <&macro_tap &mkp MB1>,
+                <&macro_tap &mkp MB2>,
                 <&sl AMO>;
-            label = "MKP_EXIT_AML";
+            label = "MKP_EXIT_AML_MB2";
         };
     };
 
