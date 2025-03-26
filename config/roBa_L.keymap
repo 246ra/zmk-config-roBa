@@ -674,7 +674,7 @@
         RAISE {
             bindings = <
 &kp F1        &kp F2         &kp F3          &kp F4        &kp F5                                     &kp F6 &kp F7        &kp F8         &kp F9         &kp F10
-&qhrm LGUI N1 &ahrm LSHFT N2 &qhrm LCTRL N3  &qhrm LALT N4 &kp N5      &kp LG(V)             &kp RALT &kp N6 &qhrm RALT N7 &qhrm RCTRL N8 &qhrm RSHFT N9 &qhrm RGUI N0
+&qhrm LGUI N1 &qhrm LSHFT N2 &qhrm LCTRL N3  &qhrm LALT N4 &kp N5      &kp LG(V)             &kp RALT &kp N6 &qhrm RALT N7 &qhrm RCTRL N8 &qhrm RSHFT N9 &qhrm RGUI N0
 &kp KP_PLUS   &kp KP_MINUS   &kp KP_MULTIPLY &kp KP_DIVIDE &none       &kp LSHFT             &kp RGUI &none  &kp KP_DOT    &kp KP_EQUAL   &kp F11        &kp F12
 &none         &none          &none           &kp DEL       &lt MAC RET &lt SET BSPC          &none    &none                                              &none
             >;
