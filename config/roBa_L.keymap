@@ -105,18 +105,6 @@
         };
 
         // ショートカット
-        //combo_left_scroll {
-        //    timeout-ms = <50>;
-        //    key-positions = <11 12>;
-        //    bindings = <&mo SCR>;
-        //    layers = <QWE WAK ONI NAG>;
-        //};
-        //combo_right_scroll {
-        //    timeout-ms = <50>;
-        //    key-positions = <19 20>;
-        //    bindings = <&mo SCR>;
-        //    layers = <QWE WAK ONI NAG MOU>;
-        //};
         combo_prn {
             timeout-ms = <40>;
             key-positions = <18 19>;
@@ -171,20 +159,6 @@
             bindings = <&mo SET>;
             layers = <QWE WAK ONI NAG>;
         };
-
-        // 入力切替
-        //combo_eisu {
-        //    timeout-ms = <50>;
-        //    key-positions = <12 13>;
-        //    bindings = <&kp LANG2>;
-        //    layers = <QWE WAK ONI>;
-        //};
-        //combo_kana {
-        //    timeout-ms = <50>;
-        //    key-positions = <18 19>;
-        //    bindings = <&kp LANG1>;
-        //    layers = <QWE WAK ONI>;
-        //};
 
     };
 
@@ -334,7 +308,7 @@
             #binding-cells = <1>;
             bindings = <&macro_param_1to1 &kp MACRO_PLACEHOLDER &exit_AML>;
         };
-        mkp_exit_AML: mkp_exit_AML {
+        mkp_sl_AML: mkp_exit_AML {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             bindings =
@@ -345,6 +319,19 @@
                 <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
                 <&macro_tap>,
                 <&sl AMO>;
+            label = "MKP_SL_AML";
+        };
+        mkp_exit_AML: mkp_exit_AML {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_press>,
+                <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
+                <&macro_tap>,
+                <&exit_AML>;
             label = "MKP_EXIT_AML";
         };
         mo_exit_AML: mo_exit_AML {
@@ -378,6 +365,15 @@
                 <&macro_param_1to1 &kp MACRO_PLACEHOLDER>;
             label = "MOD_exit_AML";
         };
+        mkp_exit_AML_DMB1: mkp_exit_AML_Double_MB1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &mkp MB1>,
+                <&macro_tap &mkp MB1>,
+                <&exit_AML>;
+            label = "MKP_EXIT_AML_DOUBLE_MB1";
+        };
     };
 
     behaviors {
@@ -399,6 +395,14 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <230>;
+            quick-tap-ms = <150>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+        qhrm: qickly_homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
             quick-tap-ms = <150>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
@@ -563,7 +567,6 @@
             bindings = <&kp LBRC>, <&kp PLUS>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-
     };
 
     keymap {
@@ -591,7 +594,6 @@
 &klt MOU Z   &klt MAC X   &klt LOW C    &klt MOV V    &kp B             &lt SCR LEFT          &lt SCR RIGHT  &kp N        &klt MOV M    &klt LOW COMMA &klt MAC DOT  &klt MOU FSLH
 &kp LALT     &kp LCTRL    &kp LSHFT     &lt SET LANG2 &lt MOV SPACE     &lt MAC2 LANG1        &lt LOW BSPC   &lt RAI RET                                             &mo MOU
             >;
-
             sensor-bindings = <&scroll_up_down>;
         };
 
@@ -602,7 +604,6 @@
 &klt MOU FSLH  &klt MAC COMMA  &klt LOW L    &klt MOV G    &kp J           &lt SCR LEFT          &lt SCR RIGHT  &kp F        &klt MOV V    &wjseco       &klt MAC Z   &klt MOU DOT
 &kp LALT       &kp LCTRL       &kp LSHFT     &lt SET LANG2 &lt MOV SPACE   &lt MAC2 LANG1        &lt LOW BSPC   &lt RAI RET                                           &mo MOU
             >;
-
             sensor-bindings = <&scroll_up_down>;
         };
 
@@ -613,7 +614,6 @@
 &klt MOU Z   &klt MAC X   &klt LOW C    &klt MOV V    &jseco          &lt SCR LEFT          &lt SCR RIGHT  &kp G        &klt MOV D    &klt LOW M    &klt MAC J   &klt MOU B
 &kp LALT     &kp LCTRL    &kp LSHFT     &lt SET LANG2 &lt MOV SPACE   &lt MAC2 LANG1        &lt LOW BSPC   &lt RAI RET                                           &mo MOU
             >;
-
             sensor-bindings = <&scroll_up_down>;
         };
 
@@ -624,16 +624,15 @@
 &nlt MOU Z &nlt MAC X &nlt LOW C &nlt MOV V    &ng B           &lt SCR LEFT   &lt SCR RIGHT &ng N      &nlt MOV M &nlt LOW COMMA  &nlt MAC DOT  &nlt MOU FSLH
 &none      &none      &none      &mo MOU       &ng SPACE       &mo RAI2       &lt LOW BSPC  &ng ENTER                                           &mo MOU
             >;
-
             sensor-bindings = <&scroll_up_down>;
         };
 
         AMOUSE {
             bindings = <
-&none_exit_AML &none_exit_AML &none_exit_AML &none_exit_AML   &none_exit_AML                                       &none_exit_AML &none_exit_AML &none_exit_AML &none_exit_AML &none_exit_AML
-&none_exit_AML &mkp MB1       &mo SCR        &mkp MB2         &none_exit_AML   &none_exit_AML      &none_exit_AML  &none_exit_AML &mkp MB1       &mo SCR        &mkp MB2       &none_exit_AML
-&none_exit_AML &mkp MB4       &mkp MB3       &mkp MB5         &none_exit_AML   &none_exit_AML      &none_exit_AML  &none_exit_AML &mkp MB4       &mkp MB3       &mkp MB5       &none_exit_AML
-&none_exit_AML &none_exit_AML &none_exit_AML &mltkp SET LANG2 &mltkp MOV SPACE &mltkp MAC2 LANG1   &mltkp LOW BSPC &mltkp RAI RET                                              &none_exit_AML
+&none_exit_AML &none_exit_AML  &none_exit_AML    &none_exit_AML   &none_exit_AML                                       &none_exit_AML &none_exit_AML  &none_exit_AML   &none_exit_AML  &none_exit_AML
+&none_exit_AML &mkp_sl_AML MB1 &mo_exit_AML SCR  &mkp_sl_AML MB2  &none_exit_AML   &none_exit_AML      &none_exit_AML  &none_exit_AML &mkp_sl_AML MB1 &mo_exit_AML SCR &mkp_sl_AML MB2 &none_exit_AML
+&none_exit_AML &mkp_sl_AML MB4 &mkp_sl_AML MB3   &mkp_sl_AML MB5  &none_exit_AML   &none_exit_AML      &none_exit_AML  &none_exit_AML &mkp_sl_AML MB4 &mkp_sl_AML MB3  &mkp_sl_AML MB5 &none_exit_AML
+&none_exit_AML &none_exit_AML  &none_exit_AML    &mltkp SET LANG2 &mltkp MOV SPACE &mltkp MAC2 LANG1   &mltkp LOW BSPC &mltkp RAI RET                                                  &none_exit_AML
             >;
             sensor-bindings = <&scroll_up_down>;
         };
@@ -645,51 +644,46 @@
 &none          &kp LS(HOME)  &kp LC(HOME) &kp LC(END)  &kp LS(END)       &kp LSHFT         &kp RGUI       &kp LS(HOME)    &kp LC(END)    &kp LC(HOME)   &kp LS(END)    &none
 &none          &none         &none        &mkp MB4     &mkp MB3          &mkp MB5          &mlt MAC MB4   &mlt MOV MB5                                                 &none
             >;
-
             sensor-bindings = <&move_vdesktop_lr>;
         };
 
         MOVE {
             bindings = <
-&kp ESC         &kp INS          &kp INT5           &kp INT4          &kp CAPS                                   &kp K_APP       &kp BSPC     &kp DEL    &kp LC(BSPC)   &kp TAB
-&hrm LGUI TAB   &hrm LSHFT GRAVE &hrm LCTRL LANG2   &hrm LALT LANG1   &caps_word    &kp C_MUTE     &kp RALT      &kp LEFT        &kp DOWN     &kp UP     &kp RIGHT      &kp RET
-&kp PSCRN       &kp LG(LS(S))    &kp LC(T)          &kp LC(I)         &kp LC(O)     &kp LSHFT      &kp RGUI      &kp HOME        &kp PG_DN    &kp PG_UP  &kp END        &none
-&none           &none            &none              &none             &none         &none          &lt SET DEL   &lt MAC SPACE                                          &none
+&kp ESC        &kp INS           &kp INT5          &kp INT4         &kp CAPS                              &kp K_APP     &kp BSPC  &kp DEL   &kp LC(BSPC) &kp TAB
+&qhrm LGUI TAB &qhrm LSHFT GRAVE &qhrm LCTRL LANG2 &qhrm LALT LANG1 &caps_word &kp C_MUTE     &kp RALT    &kp LEFT      &kp DOWN  &kp UP    &kp RIGHT    &kp RET
+&kp PSCRN      &kp LG(LS(S))     &kp LC(T)         &kp LC(I)        &kp LC(O)  &kp LSHFT      &kp RGUI    &kp HOME      &kp PG_DN &kp PG_UP &kp END      &none
+&none          &none             &none             &none            &none      &none          &lt SET DEL &lt MAC SPACE                                  &none
             >;
-
             sensor-bindings = <&volume_up_down>;
         };
 
         LOWER {
             bindings = <
-&kp LS(N1) &kp LBKT   &kp LS(N3)    &kp LS(N4)    &kp LS(N5)                               &kp EQUAL   &kp LS(N6)  &kp LS(SQT)  &kp LS(N8)    &kp LS(N9)
-&jgrti     &jeqpl     &jmiun        &jbspi        &kp FSLH     &kp LCTRL         &kp RALT  &none       &kp LS(N8)  &jlblb       &kp LS(RBKT)  &kp AMPS
-&kp PLUS   &kp COLON  &kp LS(INT1)  &kp LS(INT3)  &kp QMARK    &kp LSHFT         &kp RGUI  &none       &kp LS(N9)  &jrbrb       &kp LS(NUHS)  &jsqdq
-&none      &none      &none         &kp DEL       &kp RET      &kp BSPC          &none     &none                                              &none
+&kp LS(N1) &kp LBKT  &kp LS(N3)   &kp LS(N4)   &kp LS(N5)                             &kp EQUAL   &kp LS(N6) &kp LS(SQT) &kp LS(N8)   &kp LS(N9)
+&kp LBRC   &kp UNDER &kp MINUS    &kp INT1     &kp FSLH   &kp LCTRL         &kp RALT  &none       &kp LS(N8) &kp RBKT    &kp LS(RBKT) &kp AMPS
+&kp PLUS   &kp COLON &kp LS(INT1) &kp LS(INT3) &kp QMARK  &kp LSHFT         &kp RGUI  &none       &kp LS(N9) &jrbrb      &kp LS(NUHS) &jsqdq
+&none      &none     &none        &kp DEL      &kp RET    &kp BSPC          &none     &none                                           &none
             >;
-
             sensor-bindings = <&rot_kp  LC(TAB) LS(LC(TAB))>;
         };
 
         RAISE {
             bindings = <
-&kp F1           &kp F2           &kp F3            &kp F4            &kp F5                                       &kp F6     &kp F7            &kp F8            &kp F9           &kp F10
-&hrm LGUI N1     &hrm LSHFT N2    &hrm LCTRL N3     &hrm LALT N4      &kp N5       &kp LG(V)             &kp RALT  &kp N6     &hrm RALT N7      &hrm RCTRL N8     &hrm RSHFT N9    &hrm RGUI N0
-&kp KP_PLUS      &kp KP_MINUS     &kp KP_MULTIPLY   &kp KP_DIVIDE     &none        &kp LSHFT             &kp RGUI  &none      &kp KP_DOT        &kp KP_EQUAL      &kp F11          &kp F12
-&none            &none            &none             &kp DEL           &lt MAC RET  &lt SET BSPC          &none     &none                                                           &none
+&kp F1      &kp F2       &kp F3          &kp F4        &kp F5                                     &kp F6 &kp F7     &kp F8       &kp F9  &kp F10
+&kp N1      &kp N2       &kp N3          &kp N4        &kp N5      &kp LG(V)             &kp RALT &kp N6 &kp N7     &kp N8       &kp N9  &kp N0
+&kp KP_PLUS &kp KP_MINUS &kp KP_MULTIPLY &kp KP_DIVIDE &none       &kp LSHFT             &kp RGUI &none  &kp KP_DOT &kp KP_EQUAL &kp F11 &kp F12
+&none       &none        &none           &kp DEL       &lt MAC RET &lt SET BSPC          &none    &none                                  &none
             >;
-
             sensor-bindings = <&move_reun>;
         };
 
         RAISE2 {
             bindings = <
-&kp F1           &kp F2           &kp F3            &kp F4            &kp F5                                       &kp F6     &kp F7            &kp F8            &kp F9           &kp F10
-&hrm LGUI N1     &hrm LSHFT N2    &hrm LCTRL N3     &hrm LALT N4      &kp N5       &kp LG(V)             &kp RALT  &kp N6     &hrm RALT N7      &hrm RCTRL N8     &hrm RSHFT N9    &hrm RGUI N0
-&kp KP_PLUS      &kp KP_MINUS     &kp KP_MULTIPLY   &kp KP_DIVIDE     &none        &kp LSHFT             &kp RGUI  &none      &kp KP_DOT        &kp KP_EQUAL      &kp F11          &kp F12
-&none            &none            &none             &kp DEL           &lt MAC RET  &lt SET BSPC          &none     &none                                                           &none
+&kp F1        &kp F2         &kp F3          &kp F4        &kp F5                                      &kp F6 &kp F7        &kp F8         &kp F9         &kp F10
+&qhrm LGUI N1 &qhrm LSHFT N2 &qhrm LCTRL N3  &qhrm LALT N4 &kp N5      &kp LG(V)             &kp RALT  &kp N6 &qhrm RALT N7 &qhrm RCTRL N8 &qhrm RSHFT N9 &qhrm RGUI N0
+&kp KP_PLUS   &kp KP_MINUS   &kp KP_MULTIPLY &kp KP_DIVIDE &none       &kp LSHFT             &kp RGUI  &none  &kp KP_DOT    &kp KP_EQUAL   &kp F11        &kp F12
+&none         &none          &none           &kp DEL       &lt MAC RET &lt SET BSPC          &none     &none                                              &none
             >;
-
             sensor-bindings = <&move_reun>;
         };
 
@@ -700,7 +694,6 @@
 &LCG_F4           &LCG_D             &LCG_L           &LCG_R         &kp LG(TAB) &kp LSHFT    &kp RGUI  &kp LG(T)        &kp LG(LA(D))     &none               &none       &none
 &none             &none              &none            &none          &none       &none        &none     &none                                                              &none
             >;
-
             sensor-bindings = <&move_leri>;
         };
 
@@ -711,7 +704,6 @@
 &LCG_F4           &LCG_D             &LCG_L           &LCG_R         &kp LG(TAB) &kp LSHFT    &kp RGUI  &kp LG(T)        &kp LG(LA(D))     &none               &none       &none
 &none             &none              &none            &none          &none       &none        &none     &none                                                              &none
             >;
-
             sensor-bindings = <&move_leri>;
         };
 
@@ -722,7 +714,6 @@
 &kp C_VOL_DN  &kp C_PREV  &kp C_BRI_DN  &sys_reset  &bootloader    &bootloader      &bootloader  &kp SLCK    &none       &none         &bt BT_CLR    &bt BT_CLR_ALL
 &none         &none       &none         &none       &none          &none            &none        &none                                               &none
             >;
-
             sensor-bindings = <&scroll_up_down>;
         };
 
@@ -733,7 +724,6 @@
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
             >;
-
             sensor-bindings = <&scroll_left_right>;
         };
 
