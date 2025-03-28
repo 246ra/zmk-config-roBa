@@ -5,7 +5,6 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
-
 // レイヤー定義
 #define QWE 0
 #define AMO 1
@@ -34,13 +33,13 @@
             timeout-ms = <40>;
             key-positions = <31 32>;
             bindings = <&mo SET>;
-            layers = <QWE WAK ONI NAG>;
+            layers = <QWE>;
         };
         combo_SET2 {
             timeout-ms = <40>;
             key-positions = <23 24>;
             bindings = <&mo SET>;
-            layers = <QWE WAK ONI NAG>;
+            layers = <QWE>;
         };
 
     };
@@ -312,7 +311,7 @@
 &kp Q        &kp W        &kp E         &kp R         &kp T                                                  &kp Y        &kp U         &kp I          &kp O         &kp P
 &hrm LGUI A  &hrm LSHFT S &hrm LCTRL D  &hrm LALT F   &kp G             &kp LCTRL             &kp RALT       &kp H        &hrm RALT J   &hrm RCTRL K   &hrm RSHFT L  &hjseco
 &klt MOU Z   &klt MAC X   &klt LOW C    &klt MOV V    &kp B             &lt SCR LEFT          &lt SCR RIGHT  &kp N        &klt MOV M    &klt LOW COMMA &klt MAC DOT  &klt MOU FSLH
-&kp LALT     &kp LCTRL    &kp LSHFT     &lt SET LANG2 &lt MOV SPACE     &lt MAC2 LANG1        &lt LOW BSPC   &lt RAI RET                                             &mo MOU
+&kp LALT     &kp LCTRL    &kp LSHFT     &lt SET LANG2 &lt MOV SPACE     &lt MAC LANG1         &lt LOW BSPC   &lt RAI RET                                             &mo MOU
             >;
             sensor-bindings = <&scroll_up_down>;
         };
@@ -322,7 +321,7 @@
 &none_exit_AML &none_exit_AML  &none_exit_AML    &none_exit_AML   &none_exit_AML                                       &none_exit_AML &none_exit_AML  &none_exit_AML   &none_exit_AML  &none_exit_AML
 &none_exit_AML &mkp_sl_AML MB1 &mo_exit_AML SCR  &mkp_sl_AML MB2  &none_exit_AML   &none_exit_AML      &none_exit_AML  &none_exit_AML &mkp_sl_AML MB1 &mo_exit_AML SCR &mkp_sl_AML MB2 &none_exit_AML
 &none_exit_AML &mkp_sl_AML MB4 &mkp_sl_AML MB3   &mkp_sl_AML MB5  &none_exit_AML   &none_exit_AML      &none_exit_AML  &none_exit_AML &mkp_sl_AML MB4 &mkp_sl_AML MB3  &mkp_sl_AML MB5 &none_exit_AML
-&none_exit_AML &none_exit_AML  &none_exit_AML    &mltkp SET LANG2 &mltkp MOV SPACE &mltkp MAC2 LANG1   &mltkp LOW BSPC &mltkp RAI RET                                                  &none_exit_AML
+&none_exit_AML &none_exit_AML  &none_exit_AML    &mltkp SET LANG2 &mltkp MOV SPACE &mltkp MAC LANG1    &mltkp LOW BSPC &mltkp RAI RET                                                  &none_exit_AML
             >;
             sensor-bindings = <&scroll_up_down>;
         };
@@ -351,7 +350,7 @@
             bindings = <
 &kp LS(N1) &kp LBKT  &kp LS(N3)   &kp LS(N4)   &kp LS(N5)                             &kp EQUAL   &kp LS(N6) &kp LS(SQT) &kp LS(N8)   &kp LS(N9)
 &kp LBRC   &kp UNDER &kp MINUS    &kp INT1     &kp FSLH   &kp LCTRL         &kp RALT  &none       &kp LS(N8) &kp RBKT    &kp LS(RBKT) &kp AMPS
-&kp PLUS   &kp COLON &kp LS(INT1) &kp LS(INT3) &kp QMARK  &kp LSHFT         &kp RGUI  &none       &kp LS(N9) &jrbrb      &kp LS(NUHS) &&kp AT
+&kp PLUS   &kp COLON &kp LS(INT1) &kp LS(INT3) &kp QMARK  &kp LSHFT         &kp RGUI  &none       &kp LS(N9) &jrbrb      &kp LS(NUHS) &kp AT
 &none      &none     &none        &kp DEL      &kp RET    &kp BSPC          &none     &none                                           &none
             >;
             sensor-bindings = <&rot_kp  LC(TAB) LS(LC(TAB))>;
