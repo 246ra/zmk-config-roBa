@@ -1,106 +1,10 @@
 
 #include "roBa_L.keymap"
 #include "boards/shields/Test/roBa_R.overlay"
-//#include <input/processors.dtsi>
-/// {
-//    /omit-if-no-ref/ zip_temp_layer: zip_temp_layer {
-//        compatible = "zmk,input-processor-temp-layer";
-//        #input-processor-cells = <2>;
-//        excluded-positions = <
-//            10  11  12  13  14   // BTN4, BTN1, SCRL, BTN2, BTN5
-//            17  18  19  20  21   // BTN4, BTN1, SCRL, BTN2, BTN5
-//            24  31               // BTN3
-//            37  38  39  40  41   // modifer
-//        >;
-//    };
-//
-//    trackball_listener {
-//        compatible = "zmk,input-listener";
-//        device = <&trackball>;
-//        input-processors = <&zip_temp_layer AMO 2147483647>;
-//    };
-//};
 
 // トラックボールの設定(overlay)
 &trackball {
     automouse-layer = <AMO>;
     scroll-layers = <RAI2 MAC2 SCR>;
     // snipe-layers = <3>;
-    //arrow {
-    //    layers = <FUNCTIONS_AND_CONTROLS>;
-    //    bindings =
-    //        <&kp RIGHT_ARROW>,
-    //        <&kp LEFT_ARROW>,
-    //        <&kp UP_ARROW>,
-    //        <&kp DOWN_ARROW>;
-    //    tick = <10>;
-    //    // wait-ms = <5>;
-    //    // tap-ms = <5>;
-    //};
-    //num_arrow {
-    //    layers = <MOV>;
-    //    bindings =
-    //        <&kp N7>,
-    //        <&kp N9>,
-    //        <&kp N4>,
-    //        <&kp N6>,
-    //        <&kp N3>,
-    //        <&kp N1>;
-    //    tick = <300>;
-    //};
-    mouse {
-        layers = <MOV>;
-        bindings =
-            <&mkp MB2>,
-            <&mkp MB3>,
-            <&mkp MB4>,
-            <&mkp MB5>,
-            <&kp LANG1>,
-            <&kp LANG2>;
-        tick = <300>;
-    };
-    move_application {
-        layers = <LOW>;
-        bindings =
-            <&kp LA(F4)>,
-            <&LCA_TAB>,
-            <&kp LS(LC(TAB))>,
-            <&kp LC(TAB)>,
-            <&kp LG(LS(RIGHT))>,
-            <&kp LG(LS(LEFT))>;
-        tick = <300>;
-    };
-    virtual_desplay {
-        layers = <MAC>;
-        bindings =
-            <&kp LG(TAB)>,
-            <&kp LG(TAB)>,
-            <&LCG_L>,
-            <&LCG_R>,
-            <&LCG_D>,
-            <&LCG_F4>;
-        tick = <300>;
-    };
-    volume {
-        layers = <SET>;
-        bindings =
-            <&msc LC(SCRL_UP)>,
-            <&kp C_VOL_UP>,
-            <&kp LS(LC(ESC))>,
-            <&kp C_MUTE>,
-            <&kp C_VOL_DN>,
-            <&msc LC(SCRL_DOWN)>;
-        tick = <300>;
-    };
-    selet_sentence {
-        layers = <RAI>;
-        bindings =
-            <&kp LC(HOME)>,
-            <&kp LC(HOME)>,
-            <&kp LS(END)>,
-            <&kp LS(HOME)>,
-            <&kp LC(END)>,
-            <&kp LC(END)>;
-        tick = <300>;
-    };
 };
