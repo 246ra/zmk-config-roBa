@@ -286,6 +286,13 @@
             bindings = <&kp>, <&kp>;
             tap-ms = <1>;
         };
+        // JIS用文字入力([/?]はJISでも入力が同じ)
+        hjseco: homerow_mods_jis_semi_colon {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&hrm RGUI SEMI>, <&kp SQT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     keymap {
