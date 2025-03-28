@@ -1,400 +1,61 @@
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 100
+#include "roBa.dtsi"
 
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/pointing.h>
-
-// レイヤー定義
-#define QWE 0
-#define AMO 1
-#define MOU 2
-#define MOV 3
-#define LOW 4
-#define RAI 5
-#define MAC 6
-#define SET 7
-#define SCR 8
-
-// layerの設定
-&lt {
-    flavor = "tap-preferred";
-    tapping-term-ms = <150>;
-    quick-tap-ms = <150>;
+&default_transform {
+    col-offset = <6>;
 };
-&sl { release-after-ms = <120>; }; // タイムアウトを指定
+
+&kscan0 {
+        col-gpios
+            = <&xiao_d 10 GPIO_ACTIVE_HIGH>
+            , <&xiao_d 9 GPIO_ACTIVE_HIGH> 
+            , <&xiao_d 8 GPIO_ACTIVE_HIGH> 
+            , <&xiao_d 7 GPIO_ACTIVE_HIGH> 
+            , <&gpio0 10 GPIO_ACTIVE_HIGH>
+            ;
+};
+
 / {
-
-    combos {
-        compatible = "zmk,combos";
-
-        // ショートカット
-        combo_SET {
-            timeout-ms = <40>;
-            key-positions = <31 32>;
-            bindings = <&mo SET>;
-            layers = <QWE>;
-        };
-        combo_SET2 {
-            timeout-ms = <40>;
-            key-positions = <23 24>;
-            bindings = <&mo SET>;
-            layers = <QWE>;
-        };
+    trackball_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball>;
 
     };
+};
 
-    macros {
-
-        // アクティブアプリ(切り替え)
-        LA_TAB: alt_tab {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>,
-                       <&macro_tap &kp TAB>,
-                       <&macro_release &kp LALT>;
-        };
-
-        // アクティブアプリ(一覧)
-        LCA_TAB: alt_ctrl_tab {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>,
-                       <&macro_press &kp LCTRL>,
-                       <&macro_wait_time 100>,
-                       <&macro_tap &kp TAB>,
-                       <&macro_release &kp LCTRL>,
-                       <&macro_release &kp LALT>;
-        };
-
-        // 仮想デスクトップ 新規
-        LCG_D: gui_ctrl_d {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_press &kp LGUI>,
-                       <&macro_press &kp LCTRL>,
-                       <&macro_tap &kp D>,
-                       <&macro_release &kp LCTRL>,
-                       <&macro_release &kp LGUI>;
-        };
-
-        // 仮想デスクトップ 削除
-        LCG_F4: gui_ctrl_F4 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_press &kp LGUI>,
-                       <&macro_press &kp LCTRL>,
-                       <&macro_tap &kp F4>,
-                       <&macro_release &kp LCTRL>,
-                       <&macro_release &kp LGUI>;
-        };
-
-        // 仮想デスクトップ 右移動
-        LCG_R: gui_ctrl_right {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_press &kp LGUI>,
-                       <&macro_press &kp LCTRL>,
-                       <&macro_tap &kp RIGHT>,
-                       <&macro_release &kp LCTRL>,
-                       <&macro_release &kp LGUI>;
-        };
-
-        // 仮想デスクトップ 左移動
-        LCG_L: gui_ctrl_left {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_press &kp LGUI>,
-                       <&macro_press &kp LCTRL>,
-                       <&macro_tap &kp LEFT>,
-                       <&macro_release &kp LCTRL>,
-                       <&macro_release &kp LGUI>;
-        };
-
-        // マウスレイヤーでキーを押した後に抜ける
-        exit_AML: exit_AML {
-            compatible = "zmk,behavior-macro";
-            wait-ms = <0>;
-            tap-ms = <0>;
-            #binding-cells = <0>;
-            bindings = <&tog_off AMO>;
-            label = "exit_AML";
-        };
-        none_exit_AML: none_exit_AML {
-            compatible = "zmk,behavior-macro";
-            wait-ms = <0>;
-            tap-ms = <0>;
-            #binding-cells = <0>;
-            bindings = <&none &exit_AML>;
-            label = "None_exit_AML";
-        };
-        kp_exit_AML: kp_exit_AML {
-            compatible = "zmk,behavior-macro-one-param";
-            wait-ms = <0>;
-            tap-ms = <0>;
-            #binding-cells = <1>;
-            bindings = <&macro_param_1to1 &kp MACRO_PLACEHOLDER &exit_AML>;
-        };
-        mkp_sl_AML: mkp_sl_AML {
-            compatible = "zmk,behavior-macro-one-param";
-            #binding-cells = <1>;
-            bindings =
-                <&macro_press>,
-                <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
-                <&macro_tap>,
-                <&sl AMO>;
-            label = "MKP_SL_AML";
-        };
-        mo_exit_AML: mo_exit_AML {
-            compatible = "zmk,behavior-macro-one-param";
-            wait-ms = <0>;
-            tap-ms = <0>;
-            #binding-cells = <1>;
-            bindings =
-                <&macro_press>,
-                <&macro_param_1to1 &mo MACRO_PLACEHOLDER>,
-                <&macro_tap>,
-                <&exit_AML>,
-                <&macro_pause_for_release>,
-                <&macro_release>,
-                <&macro_param_1to1 &mo MACRO_PLACEHOLDER>,
-                <&macro_tap>;
-            label = "MO_exit_AML";
+&pinctrl {
+    spi0_default: spi0_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 5)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 4)>,
+                <NRF_PSEL(SPIM_MISO, 0, 4)>;
         };
     };
 
-    behaviors {
-        tog_on: toggle_layer_on {
-            compatible = "zmk,behavior-toggle-layer";
-            #binding-cells = <1>;
-            display-name = "Toggle Layer On";
-            toggle-mode = "on";
-        };
-        tog_off: toggle_layer_off {
-            compatible = "zmk,behavior-toggle-layer";
-            #binding-cells = <1>;
-            display-name = "Toggle Layer Off";
-            toggle-mode = "off";
-        };
-
-        // HRMの設定
-        hrm: homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <230>;
-            quick-tap-ms = <150>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-        qhrm: qickly_homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            quick-tap-ms = <150>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
-        mltkp: auto_mouse_lt_kp {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <230>;
-            quick-tap-ms = <150>;
-            flavor = "tap-preferred";
-            bindings = <&mo_exit_AML>, <&kp_exit_AML>;
-        };
-        // mod-tap(mouse)の設定
-        mlt: mouse_layer_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            quick-tap-ms = <150>;
-            flavor = "tap-preferred";
-            bindings = <&mo>, <&mkp>;
-        };
-        // layerの設定(文字を入力する場合)
-        klt: key_layer_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <230>;
-            quick-tap-ms = <150>;
-            flavor = "tap-preferred";
-            bindings = <&mo>, <&kp>;
-        };
-
-        // ロータリーエンコーダの設定
-        // スクロール動作の追加
-        scroll_up_down: sensor_rotate_mouse_wheel_up_down {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
-            // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <20>;
-        };
-        scroll_left_right: sensor_rotate_mouse_wheel_left_rightxo {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
-            // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <20>;
-        };
-        // 仮想デスクトップ移動
-        move_vdesktop_lr: sensor_rotate_move_vdesktop_left_right  {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&LCG_R>, <&LCG_L>;
-            // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <1>;
-        };
-        // 音量増減
-        volume_up_down: sensor_rotate_volume_up_down  {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&kp C_VOL_UP>, <&kp C_VOL_DN>;
-            // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <1>;
-        };
-        // タブ移動
-        move_tab_lr: sensor_rotate_move_tab_left_right  {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&kp LC(TAB)>, <&kp LS(LC(TAB))>;
-            // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <1>;
-        };
-        // 進む/戻る
-        move_reun: sensor_rotate_move_redo_undo  {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&kp LC(Y)>, <&kp LC(Z)>;
-            // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <1>;
-        };
-        // 右/左
-        move_leri: sensor_rotate_move_left_right  {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&kp RIGHT>, <&kp LEFT>;
-            // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <1>;
-        };
-         rot_kp: sensor_rotate_kp {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-            tap-ms = <1>;
+    spi0_sleep: spi0_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 5)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 4)>,
+                <NRF_PSEL(SPIM_MISO, 0, 4)>;
+            low-power-enable;
         };
     };
+};
 
-    keymap {
-        compatible = "zmk,keymap";
+&xiao_serial { status = "disabled"; };
 
-        /*
-        map = <
-            RC(0,0) RC(0,1) RC(0,2) RC(0,3) RC(0,4)                     RC(0,6) RC(0,7) RC(0,8) RC(0,9) RC(0,10)
-            RC(1,0) RC(1,1) RC(1,2) RC(1,3) RC(1,4) RC(1,5)     RC(3,6) RC(1,6) RC(1,7) RC(1,8) RC(1,9) RC(1,10)
-            RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)     RC(3,7) RC(2,6) RC(2,7) RC(2,8) RC(2,9) RC(2,10)
-            RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5)     RC(3,8) RC(3,9)                         RC(3,10)
-        >;
+&spi0 {
+    status = "okay";
+    compatible = "nordic,nrf-spim";
+    pinctrl-0 = <&spi0_default>;
+    pinctrl-1 = <&spi0_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
 
-        number
-            00  01  02  03  04                  05  06  07  08  09
-            10  11  12  13  14  15          16  17  18  19  20  21
-            22  23  24  25  26  27          28  29  30  31  32  33
-            34  35  36  37  38  39          40  41              42
-        */
-
-        DEFAULT {
-            bindings = <
-&kp Q        &kp W        &kp E         &kp R         &kp T                                                  &kp Y        &kp U         &kp I          &kp O         &kp P
-&hrm LGUI A  &hrm LSHFT S &hrm LCTRL D  &hrm LALT F   &kp G             &kp LCTRL             &kp RALT       &kp H        &hrm RALT J   &hrm RCTRL K   &hrm RSHFT L  &hjseco
-&klt MOU Z   &klt MAC X   &klt LOW C    &klt MOV V    &kp B             &lt SCR LEFT          &lt SCR RIGHT  &kp N        &klt MOV M    &klt LOW COMMA &klt MAC DOT  &klt MOU FSLH
-&kp LALT     &kp LCTRL    &kp LSHFT     &lt SET LANG2 &lt MOV SPACE     &lt MAC LANG1         &lt LOW BSPC   &lt RAI RET                                             &mo MOU
-            >;
-            sensor-bindings = <&scroll_up_down>;
-        };
-
-        AMOUSE {
-            bindings = <
-&none_exit_AML &none_exit_AML  &none_exit_AML    &none_exit_AML   &none_exit_AML                                       &none_exit_AML &none_exit_AML  &none_exit_AML   &none_exit_AML  &none_exit_AML
-&none_exit_AML &mkp_sl_AML MB1 &mo_exit_AML SCR  &mkp_sl_AML MB2  &none_exit_AML   &none_exit_AML      &none_exit_AML  &none_exit_AML &mkp_sl_AML MB1 &mo_exit_AML SCR &mkp_sl_AML MB2 &none_exit_AML
-&none_exit_AML &mkp_sl_AML MB4 &mkp_sl_AML MB3   &mkp_sl_AML MB5  &none_exit_AML   &none_exit_AML      &none_exit_AML  &none_exit_AML &mkp_sl_AML MB4 &mkp_sl_AML MB3  &mkp_sl_AML MB5 &none_exit_AML
-&none_exit_AML &none_exit_AML  &none_exit_AML    &mltkp SET LANG2 &mltkp MOV SPACE &mltkp MAC LANG1    &mltkp LOW BSPC &mltkp RAI RET                                                  &none_exit_AML
-            >;
-            sensor-bindings = <&scroll_up_down>;
-        };
-
-        MOUSE {
-            bindings = <
-&kp LC(Z)      &kp LC(V)     &kp LC(C)    &kp LC(X)    &kp LC(Y)                                          &kp LC(Z)       &kp LC(X)      &kp LC(C)      &kp LC(V)      &kp LC(Y)
-&kp LC(C)      &kp LEFT      &kp UP       &kp DOWN     &kp RIGHT         &kp LG(TAB)       &kp RALT       &kp LS(LC(TAB)) &mkp MB1       &mkp MB3       &mkp MB2       &kp LC(TAB)
-&none          &kp LS(HOME)  &kp LC(HOME) &kp LC(END)  &kp LS(END)       &kp LSHFT         &kp RGUI       &kp LS(HOME)    &kp LC(END)    &kp LC(HOME)   &kp LS(END)    &none
-&none          &none         &none        &mkp MB4     &mkp MB3          &mkp MB5          &mlt MAC MB4   &mlt MOV MB5                                                 &none
-            >;
-            sensor-bindings = <&move_vdesktop_lr>;
-        };
-
-        MOVE {
-            bindings = <
-&kp ESC        &kp INS           &kp INT5          &kp INT4         &kp CAPS                              &kp K_APP     &kp BSPC  &kp DEL   &kp LC(BSPC) &kp TAB
-&qhrm LGUI TAB &qhrm LSHFT GRAVE &qhrm LCTRL LANG2 &qhrm LALT LANG1 &caps_word &kp C_MUTE     &kp RALT    &kp LEFT      &kp DOWN  &kp UP    &kp RIGHT    &kp RET
-&kp PSCRN      &kp LG(LS(S))     &kp LC(T)         &kp LC(I)        &kp LC(O)  &kp LSHFT      &kp RGUI    &kp HOME      &kp PG_DN &kp PG_UP &kp END      &none
-&none          &none             &none             &none            &none      &none          &lt SET DEL &lt MAC SPACE                                  &none
-            >;
-            sensor-bindings = <&volume_up_down>;
-        };
-
-        LOWER {
-            bindings = <
-&kp LS(N1) &kp LBKT  &kp LS(N3)   &kp LS(N4)   &kp LS(N5)                             &kp EQUAL   &kp LS(N6) &kp LS(SQT) &kp LS(N8)   &kp LS(N9)
-&kp LBRC   &kp UNDER &kp MINUS    &kp INT1     &kp FSLH   &kp LCTRL         &kp RALT  &none       &kp LS(N8) &kp RBKT    &kp LS(RBKT) &kp AMPS
-&kp PLUS   &kp COLON &kp LS(INT1) &kp LS(INT3) &kp QMARK  &kp LSHFT         &kp RGUI  &none       &kp LS(N9) &jrbrb      &kp LS(NUHS) &kp AT
-&none      &none     &none        &kp DEL      &kp RET    &kp BSPC          &none     &none                                           &none
-            >;
-            sensor-bindings = <&rot_kp  LC(TAB) LS(LC(TAB))>;
-        };
-
-        RAISE {
-            bindings = <
-&kp F1      &kp F2       &kp F3          &kp F4        &kp F5                                     &kp F6 &kp F7     &kp F8       &kp F9  &kp F10
-&kp N1      &kp N2       &kp N3          &kp N4        &kp N5      &kp LG(V)             &kp RALT &kp N6 &kp N7     &kp N8       &kp N9  &kp N0
-&kp KP_PLUS &kp KP_MINUS &kp KP_MULTIPLY &kp KP_DIVIDE &none       &kp LSHFT             &kp RGUI &none  &kp KP_DOT &kp KP_EQUAL &kp F11 &kp F12
-&none       &none        &none           &kp DEL       &lt MAC RET &lt SET BSPC          &none    &none                                  &none
-            >;
-            sensor-bindings = <&move_reun>;
-        };
-
-        MACRO {
-            bindings = <
-&kp LA(F4)        &LCA_TAB           &kp LS(TAB)      &kp TAB        &kp BSPC                           &kp LS(LC(ESC))  &msc LC(SCRL_UP)  &msc LC(SCRL_DOWN)  &LCA_TAB    &LA_TAB
-&kp LG(LS(LEFT))  &kp LG(LS(RIGHT))  &kp LS(LC(TAB))  &kp LC(TAB)    &kp RET     &kp LA(ESC)  &kp RALT  &kp LG(TAB)      &LCG_L            &LCG_R              &LCG_D      &LCG_F4
-&LCG_F4           &LCG_D             &LCG_L           &LCG_R         &kp LG(TAB) &kp LSHFT    &kp RGUI  &kp LG(T)        &kp LG(LA(D))     &none               &none       &none
-&none             &none              &none            &none          &none       &none        &none     &none                                                              &none
-            >;
-            sensor-bindings = <&move_leri>;
-        };
-
-        SETUP {
-            bindings = <
-&kp C_MUTE    &kp C_PP    &none         &none       &none                                        &kp CAPS    &none       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2
-&kp C_VOL_UP  &kp C_NEXT  &kp C_BRI_UP  &none       &none          &none            &none        &kp KP_NUM  &none       &bt BT_SEL 3  &bt BT_SEL 4  &none
-&kp C_VOL_DN  &kp C_PREV  &kp C_BRI_DN  &sys_reset  &bootloader    &bootloader      &bootloader  &kp SLCK    &none       &none         &bt BT_CLR    &bt BT_CLR_ALL
-&none         &none       &none         &none       &none          &none            &none        &none                                               &none
-            >;
-            sensor-bindings = <&scroll_up_down>;
-        };
-
-        SCROLL {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
-            >;
-            sensor-bindings = <&scroll_left_right>;
-        };
-
+    trackball: trackball@0 {
+        status = "okay";
+        compatible = "pixart,pmw3610";
+        reg = <0>;
+        spi-max-frequency = <2000000>;
+        irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
 };
