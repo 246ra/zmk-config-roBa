@@ -5,6 +5,6 @@
 // トラックボールの設定(overlay)
 &trackball {
     automouse-layer = <AMO>;
-    scroll-layers = <RAI2 MAC2 SCR>;
+    scroll-layers = <SCR>;
     // snipe-layers = <3>;
 };
