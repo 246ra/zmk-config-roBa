@@ -357,7 +357,7 @@
             bindings = <
 &kp LS(N1) &kp LBKT  &kp LS(N3)   &kp LS(N4)   &kp LS(N5)                             &kp EQUAL   &kp LS(N6) &kp LS(SQT) &kp LS(N8)   &kp LS(N9)
 &kp LBRC   &kp UNDER &kp MINUS    &kp INT1     &kp FSLH   &kp LCTRL         &kp RALT  &none       &kp LS(N8) &kp RBKT    &kp LS(RBKT) &kp AMPS
-&kp PLUS   &kp COLON &kp LS(INT1) &kp LS(INT3) &kp QMARK  &kp LSHFT         &kp RGUI  &none       &kp LS(N9) &jrbrb      &kp LS(NUHS) &kp AT
+&kp PLUS   &kp COLON &kp LS(INT1) &kp LS(INT3) &kp QMARK  &kp LSHFT         &kp RGUI  &none       &kp LS(N9) &kp NUHS    &kp LS(NUHS) &kp AT
 &none      &none     &none        &kp DEL      &kp RET    &kp BSPC          &none     &none                                           &none
             >;
             sensor-bindings = <&rot_kp  LC(TAB) LS(LC(TAB))>;
