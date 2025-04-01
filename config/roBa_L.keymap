@@ -19,11 +19,9 @@
 #define MOV 6
 #define LOW 7
 #define RAI 8
-#define RAI2 9
-#define MAC 10
-#define MAC2 11
-#define SET 12
-#define SCR 13
+#define MAC 9
+#define SET 10
+#define SCR 11
 
 // keycodeを置き換えるとkeymap editorが利用できないため、基本的に実施しない。
 //#define XXX &none
