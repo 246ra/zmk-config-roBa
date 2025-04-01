@@ -675,27 +675,7 @@
             sensor-bindings = <&move_reun>;
         };
 
-        RAISE2 {
-            bindings = <
-&kp F1        &kp F2         &kp F3          &kp F4        &kp F5                                      &kp F6 &kp F7        &kp F8         &kp F9         &kp F10
-&qhrm LGUI N1 &qhrm LSHFT N2 &qhrm LCTRL N3  &qhrm LALT N4 &kp N5      &kp LG(V)             &kp RALT  &kp N6 &qhrm RALT N7 &qhrm RCTRL N8 &qhrm RSHFT N9 &qhrm RGUI N0
-&kp KP_PLUS   &kp KP_MINUS   &kp KP_MULTIPLY &kp KP_DIVIDE &none       &kp LSHFT             &kp RGUI  &none  &kp KP_DOT    &kp KP_EQUAL   &kp F11        &kp F12
-&none         &none          &none           &kp DEL       &lt MAC RET &lt SET BSPC          &none     &none                                              &none
-            >;
-            sensor-bindings = <&move_reun>;
-        };
-
         MACRO {
-            bindings = <
-&kp LA(F4)        &LCA_TAB           &kp LS(TAB)      &kp TAB        &kp BSPC                           &kp LS(LC(ESC))  &msc LC(SCRL_UP)  &msc LC(SCRL_DOWN)  &LCA_TAB    &LA_TAB
-&kp LG(LS(LEFT))  &kp LG(LS(RIGHT))  &kp LS(LC(TAB))  &kp LC(TAB)    &kp RET     &kp LA(ESC)  &kp RALT  &kp LG(TAB)      &LCG_L            &LCG_R              &LCG_D      &LCG_F4
-&LCG_F4           &LCG_D             &LCG_L           &LCG_R         &kp LG(TAB) &kp LSHFT    &kp RGUI  &kp LG(T)        &kp LG(LA(D))     &none               &none       &none
-&none             &none              &none            &none          &none       &none        &none     &none                                                              &none
-            >;
-            sensor-bindings = <&move_leri>;
-        };
-
-        MACRO2 {
             bindings = <
 &kp LA(F4)        &LCA_TAB           &kp LS(TAB)      &kp TAB        &kp BSPC                           &kp LS(LC(ESC))  &msc LC(SCRL_UP)  &msc LC(SCRL_DOWN)  &LCA_TAB    &LA_TAB
 &kp LG(LS(LEFT))  &kp LG(LS(RIGHT))  &kp LS(LC(TAB))  &kp LC(TAB)    &kp RET     &kp LA(ESC)  &kp RALT  &kp LG(TAB)      &LCG_L            &LCG_R              &LCG_D      &LCG_F4
