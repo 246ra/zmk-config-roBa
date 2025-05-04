@@ -667,10 +667,10 @@
 
         RAISE {
             bindings = <
-&kp F1      &kp F2       &kp F3          &kp F4        &kp F5                                     &kp F6 &kp F7     &kp F8       &kp F9  &kp F10
-&kp N1      &kp N2       &kp N3          &kp N4        &kp N5      &kp LG(V)             &kp RALT &kp N6 &kp N7     &kp N8       &kp N9  &kp N0
-&kp KP_PLUS &kp KP_MINUS &kp KP_MULTIPLY &kp KP_DIVIDE &none       &kp LSHFT             &kp RGUI &none  &kp KP_DOT &kp KP_EQUAL &kp F11 &kp F12
-&none       &none        &none           &kp DEL       &lt MAC RET &lt SET BSPC          &none    &none                                  &none
+&kp F1      &kp F2       &kp F3        &kp F4       &kp F5                                     &kp F6     &kp F7    &kp F8      &kp F9  &kp F10
+&kp N1      &kp N2       &kp N3        &kp N4       &kp N5      &kp LG(V)             &kp RALT &kp N6     &kp N7    &kp N8      &kp N9  &kp N0
+&kp COLON   &kp MINUS    &kp LS(SQT)   &kp FSLH     &kp LS(N5)  &kp LSHFT             &kp RGUI &kp EQUAL  &kp DOT   &kp UNDER   &kp F11 &kp F12
+&none       &none        &none         &kp DEL      &lt MAC RET &lt SET BSPC          &none    &none                                    &none
             >;
             sensor-bindings = <&move_reun>;
         };
