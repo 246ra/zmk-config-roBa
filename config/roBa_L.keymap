@@ -647,10 +647,10 @@
 
         MOVE {
             bindings = <
-&kp ESC        &kp INS           &kp INT5          &kp INT4         &kp CAPS                              &kp K_APP     &kp BSPC  &kp DEL   &kp LC(BSPC) &kp TAB
-&qhrm LGUI TAB &qhrm LSHFT GRAVE &qhrm LCTRL LANG2 &qhrm LALT LANG1 &caps_word &kp C_MUTE     &kp RALT    &kp LEFT      &kp DOWN  &kp UP    &kp RIGHT    &kp RET
-&kp PSCRN      &kp LG(LS(S))     &kp LC(T)         &kp LC(I)        &kp LC(O)  &kp LSHFT      &kp RGUI    &kp HOME      &kp PG_DN &kp PG_UP &kp END      &none
-&none          &none             &none             &none            &none      &none          &lt SET DEL &lt MAC SPACE                                  &none
+&kp ESC        &kp INS             &kp INT5          &kp INT4         &kp CAPS                              &kp K_APP     &kp BSPC  &kp DEL   &kp LC(BSPC) &kp TAB
+&qhrm LGUI TAB &qhrm LSHFT LS(TAB) &qhrm LCTRL GRAVE &qhrm LALT LANG1 &caps_word &kp C_MUTE     &kp RALT    &kp LEFT      &kp DOWN  &kp UP    &kp RIGHT    &kp RET
+&kp PSCRN      &kp LG(LS(S))       &kp LC(T)         &kp LC(I)        &kp LC(O)  &kp LSHFT      &kp RGUI    &kp HOME      &kp PG_DN &kp PG_UP &kp END      &none
+&none          &none               &none             &none            &none      &none          &lt SET DEL &lt MAC SPACE                                  &none
             >;
             sensor-bindings = <&volume_up_down>;
         };
