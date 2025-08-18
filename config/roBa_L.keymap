@@ -99,7 +99,7 @@
             timeout-ms = <30>;
             key-positions = <24 25>;
             bindings = <&to 0>;
-            layers = <QWE ONI>;
+            layers = <QWE WAK ONI>;
         };
 
         // ショートカット
