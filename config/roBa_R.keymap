@@ -4,7 +4,6 @@
 
 // トラックボールの設定(overlay)
 &trackball {
-    compatible = "pixart,pmw3610-alt";
     automouse-layer = <AMO>;
     scroll-layers = <SCR>;
     // snipe-layers = <3>;
