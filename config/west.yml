@@ -2,15 +2,25 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: kumamuk-git
-      url-base: https://github.com/kumamuk-git
+    - name: 246ra
+      url-base: https://github.com/246ra
+    - name: ssbb
+      url-base: https://github.com/ssbb
+    - name: eswai
+      url-base: https://github.com/eswai
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: v0.3-branch
       import: app/west.yml
     - name: zmk-pmw3610-driver
-      remote: kumamuk-git
+      remote: 246ra
+      revision: ball_one_shot
+    - name: zmk-listeners
+      remote: ssbb
+      revision: v1
+    - name: zmk-naginata
+      remote: eswai
       revision: main
   self:
     path: config
