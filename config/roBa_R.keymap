@@ -1,6 +1,6 @@
 
 #include "roBa_L.keymap"
-#include "../boards/shields/roBa/roBa_R.overlay"
+#include "/__w/zmk-config-roBa/zmk-config-roBa/boards/shields/roBa/roBa_R.overlay"
 
 // トラックボールの設定(overlay)
 &trackball {
