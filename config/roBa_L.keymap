@@ -477,10 +477,11 @@
             bindings = <&hrm RGUI SEMI>, <&kp SQT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        wjseco: wakasagi_jis_semi_colon {
+        // 記号の入力
+        jseco: jis_semi_colon {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&klt LOW SEMI>, <&kp SQT>;
+            bindings = <&kp SEMI>, <&kp SQT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         // 記号の入力
