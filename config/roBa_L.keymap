@@ -480,7 +480,7 @@
         wjseco: wakasagi_jis_semi_colon {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&klt LOW SEMI>, <&kp SQT>
+            bindings = <&klt LOW SEMI>, <&kp SQT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         // 記号の入力
