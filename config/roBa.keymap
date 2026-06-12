@@ -65,6 +65,19 @@
 // トラックボール
 &trackball_listener{
     input-processors = <&zip_temp_layer AMO 10000>;
+    snipe {
+        layers = <MOU>;
+        input-processors = 
+            <&zip_temp_layer AMO 10000>,
+            <&zip_xy_scaler 1 3>;
+    };
+    hiscroller_R {
+        layers = <MAC>;
+        input-processors = 
+            <&zip_xy_scaler 1 2>,
+            <&zip_scroll_scaler 1 5>,
+            <&zip_xy_to_scroll_mapper>;
+    }; 
     scroller {
         layers = <SCR>;
         input-processors = 
