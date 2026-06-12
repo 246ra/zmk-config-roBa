@@ -63,7 +63,7 @@
 &sl { release-after-ms = <120>; }; // タイムアウトを指定
 
 // トラックボール
-&trackball_listener_R{
+&trackball_listener{
     input-processors = 
         <&zip_temp_layer AMO 10000>,
         <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT)>,
