@@ -64,8 +64,7 @@
 
 // トラックボール
 &trackball_listener{
-    input-processors = 
-        <&zip_temp_layer AMO 10000>,
+    input-processors = <&zip_temp_layer AMO 10000>;
     snipe {
         layers = <MOU>;
         input-processors = 
