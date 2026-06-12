@@ -80,7 +80,14 @@
             <&zip_xy_scaler 1 2>,
             <&zip_scroll_scaler 1 5>,
             <&zip_xy_to_scroll_mapper>;
-    }; 
+    };
+    scroller {
+        layers = <SCR>;
+        input-processors = 
+            <&zip_xy_transform INPUT_TRANSFORM_XY_SWAP>,
+            <&zip_scroll_scaler 1 5>,
+            <&zip_xy_to_scroll_mapper>;
+    };
 };
 
 / {
