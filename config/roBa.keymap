@@ -71,10 +71,10 @@
             <&zip_temp_layer AMO 10000>,
             <&zip_xy_scaler 1 4>;
     };
-    hiscroller_R {
+    hiscroller {
         layers = <MAC>;
         input-processors = 
-            <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
+            <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
             <&zip_xy_scaler 1 4>,
             <&zip_scroll_scaler 1 5>,
             <&zip_xy_to_scroll_mapper>;
@@ -82,7 +82,7 @@
     scroller {
         layers = <SCR>;
         input-processors = 
-            <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>,
+            <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
             <&zip_xy_scaler 1 16>,
             <&zip_scroll_scaler 1 5>,
             <&zip_xy_to_scroll_mapper>;
