@@ -17,6 +17,11 @@
             ;
 };
 
+// キー入力中のオートマウスレイヤー誤爆防止
+&zip_temp_layer {
+    require-prior-idle-ms = <200>;
+};
+
 / {
     trackball_listener {
         status = "okay";
