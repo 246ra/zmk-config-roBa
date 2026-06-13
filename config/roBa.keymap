@@ -55,8 +55,8 @@
 // layerの設定
 &lt {
     flavor = "tap-preferred"; // タップ優先
-    tapping-term-ms = <150>;  // tap < ms < hold 扱いになる
-    quick-tap-ms = <150>;     // 秒数内にダブルタップすることで連続入力
+    tapping-term-ms = <200>;  // tap < ms < hold 扱いになる
+    quick-tap-ms = <170>;     // 秒数内にダブルタップすることで連続入力
 };
 
 &sl { release-after-ms = <120>; }; // レイヤー継続時間
@@ -379,11 +379,11 @@
             #binding-cells = <2>;
             require-prior-idle-ms = <125>;   // 修飾キー以外のキーと同時に押された場合（動作ではありません）、ホールドタップは常にタップに変換
             quick-tap-ms = <150>;      // 秒数内にダブルタップすることで連続入力
-            tapping-term-ms = <230>;   // tap < ms < hold 扱いになる
+            tapping-term-ms = <200>;   // tap < ms < hold 扱いになる
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33>; // List of keys on the right side of the keyboard
-            //hold-trigger-on-release;
+            hold-trigger-on-release;
         };
         hrmr: homerow_mods_right {
             compatible = "zmk,behavior-hold-tap";
