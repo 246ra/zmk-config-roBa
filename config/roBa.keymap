@@ -54,23 +54,23 @@
 
 // layerの設定
 &lt {
-    flavor = "tap-preferred";
-    tapping-term-ms = <150>;
-    quick-tap-ms = <150>;
+    flavor = "tap-preferred"; // タップ優先
+    tapping-term-ms = <150>;  // tap < ms < hold 扱いになる
+    quick-tap-ms = <150>;     // 秒数内にダブルタップすることで連続入力
 };
 
-&sl { release-after-ms = <120>; }; // タイムアウトを指定
+&sl { release-after-ms = <120>; }; // レイヤー継続時間
 
 // トラックボール
 &trackball_listener{
-    input-processors = <&zip_temp_layer AMO 10000>;
-    snipe { 
+    input-processors = <&zip_temp_layer AMO 10000>;  // オートマウスレイヤーを10秒間有効化
+    snipe {     // マウス移動(LOW)
         layers = <LMO>;
         input-processors = 
             <&zip_temp_layer AMO 10000>,
-            <&zip_xy_scaler 1 3>;
+            <&zip_xy_scaler 1 3>;  // 移動量に倍率つける(0に近いほど小さくなる)
     };
-    hiscroller {
+    hiscroller {   // 高速スクロール
         layers = <MAC>;
         input-processors = 
             <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
@@ -78,7 +78,7 @@
             <&zip_scroll_scaler 1 5>,
             <&zip_xy_to_scroll_mapper>;
     }; 
-    scroller {
+    scroller {   //  スクロール
         layers = <SCR>;
         input-processors = 
             <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
@@ -91,34 +91,35 @@
 / {
     combos {
         compatible = "zmk,combos";
-        // 薙刀式
+        // 薙刀式起動
         combo_ng_on {
             timeout-ms = <30>;
             key-positions = <17 18>;
             bindings = <&ng_on>;
             layers = <QWE>;
         };
+        // 薙刀式終了
         combo_ng_off {
             timeout-ms = <30>;
             key-positions = <13 14>;
             bindings = <&ng_off>;
             layers = <QWE NAG>;
         };
-        // work
+        // work(会社PC用)
         combo_work_on {
             timeout-ms = <30>;
             key-positions = <29 30>;
             bindings = <&to 1>;
             layers = <QWE>;
         };
-        // oonishi
+        // 大西式
         combo_oonishi_on {
             timeout-ms = <30>;
             key-positions = <30 31>;
             bindings = <&to 2>;
             layers = <QWE>;
         };
-        // デフォルトに移動
+        // デフォルトに戻す
         combo_qwerty_on {
             timeout-ms = <30>;
             key-positions = <24 25>;
@@ -126,30 +127,35 @@
             layers = <QWE WOR ONI>;
         };
         // ショートカット
+        // ()
         combo_prn {
             timeout-ms = <40>;
             key-positions = <18 19>;
             bindings = <&JPRN2>;
             layers = <LOW>;
         };
+        // []
         combo_brc {
             timeout-ms = <40>;
             key-positions = <19 20>;
             bindings = <&JBRC2>;
             layers = <LOW>;
         };
+        // {}
         combo_cbr {
             timeout-ms = <40>;
             key-positions = <20 21>;
             bindings = <&JCBR2>;
             layers = <LOW>;
         };
+        // <-
         combo_law {
             timeout-ms = <40>;
             key-positions = <30 31>;
             bindings = <&LAW>;
             layers = <LOW>;
         };
+        // ->
         combo_raw {
             timeout-ms = <40>;
             key-positions = <31 32>;
@@ -368,13 +374,27 @@
             toggle-mode = "off";
         };
         // HRMの設定
-        hrm: homerow_mods {
+        hrml: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            tapping-term-ms = <230>;
-            quick-tap-ms = <150>;
+            require-prior-idle-ms = <125>;   // 修飾キー以外のキーと同時に押された場合（動作ではありません）、ホールドタップは常にタップに変換
+            quick-tap-ms = <150>;      // 秒数内にダブルタップすることで連続入力
+            tapping-term-ms = <230>;   // tap < ms < hold 扱いになる
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <5,6,7,8,9,16,17,18,19.20,21,28,29,30,31,32,33>; // List of keys on the right side of the keyboard
+            hold-trigger-on-release;
+        };
+        hrmr: homerow_mods_right {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            require-prior-idle-ms = <125>;
+            quick-tap-ms = <150>;
+            tapping-term-ms = <230>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <0,1,2,3,4,10,11,12,13,14,15,22,23,24,25,26,27>;
+            hold-trigger-on-release;
         };
         // タップ&ホールド
         qhrm: qickly_homerow_mods {
@@ -413,23 +433,51 @@
             bindings = <&mo>, <&mkp>;
         };
         //mod-tap(薙刀式)の設定
-        nlt: nagi_layer_tap {
+        nltl: nagi_layer_tap_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            tapping-term-ms = <150>;
+            require-prior-idle-ms = <125>;
+            tapping-term-ms = <230>;
             quick-tap-ms = <150>;
             flavor = "tap-preferred";
             bindings = <&mo>, <&ng>;
+            hold-trigger-key-positions = <5,6,7,8,9,16,17,18,19.20,21,28,29,30,31,32,33>;
+            hold-trigger-on-release;
         };
-        // layerの設定(文字を入力する場合)
-        klt: key_layer_tap {
+        nltr: nagi_layer_tap_right {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
+            require-prior-idle-ms = <125>;
+            tapping-term-ms = <230>;
+            quick-tap-ms = <150>;
+            flavor = "tap-preferred";
+            bindings = <&mo>, <&ng>;
+            hold-trigger-key-positions = <0,1,2,3,4,10,11,12,13,14,15,22,23,24,25,26,27>;
+            hold-trigger-on-release;
+        };
+        // layerの設定(文字を入力する場合)
+        kltl: key_layer_tap_left {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            require-prior-idle-ms = <125>;
             tapping-term-ms = <230>;
             quick-tap-ms = <150>;
             flavor = "tap-preferred";
             bindings = <&mo>, <&kp>;
+            hold-trigger-key-positions = <5,6,7,8,9,16,17,18,19.20,21,28,29,30,31,32,33>;
+            hold-trigger-on-release;
         };
+        kltr: key_layer_tap_right {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            require-prior-idle-ms = <125>;
+            tapping-term-ms = <230>;
+            quick-tap-ms = <150>;
+            flavor = "tap-preferred";
+            bindings = <&mo>, <&kp>;
+            hold-trigger-key-positions = <0,1,2,3,4,10,11,12,13,14,15,22,23,24,25,26,27>;
+            hold-trigger-on-release;
+        }; 
 
         // ロータリーエンコーダの設定
         // スクロール動作の追加
@@ -440,7 +488,7 @@
             // 追加: スクロールのタップ時間を設定 (20ms)
             tap-ms = <20>;
         };
-        scroll_left_right: sensor_rotate_mouse_wheel_left_rightxo {
+        scroll_left_right: sensor_rotate_mouse_wheel_left_right {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_LEFT>, <&msc SCRL_RIGHT>;
@@ -499,7 +547,7 @@
         hjseco: homerow_mods_jis_semi_colon {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&hrm RGUI SEMI>, <&kp SQT>;
+            bindings = <&hrmr RGUI SEMI>, <&kp SQT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         // 記号の入力
@@ -545,40 +593,40 @@
 
         DEFAULT {
             bindings = <
-&kp Q        &kp W        &kp E         &kp R         &kp T                                                      &kp Y        &kp U         &kp I          &kp O         &kp P
-&hrm LGUI A  &hrm LSHFT S &hrm LCTRL D  &hrm LALT F   &kp G             &kp LCTRL                 &kp RALT       &kp H        &hrm RALT J   &hrm RCTRL K   &hrm RSHFT L  &hjseco
-&klt MOU Z   &klt MAC X   &klt LOW C    &klt MOV V    &kp B             &lt SCR LEFT              &lt SCR RIGHT  &kp N        &klt MOV M    &klt LOW COMMA &klt MAC DOT  &klt MOU FSLH
-&kp LALT     &kp LCTRL    &kp LSHFT     &lt SET LANG2 &lt MOV SPACE     &qhrm LSHFT LANG1         &lt LOW BSPC   &lt RAI RET                                             &mo MOU
+&kp Q         &kp W          &kp E          &kp R         &kp T                                               &kp Y        &kp U         &kp I            &kp O          &kp P
+&hrml LGUI A  &hrml LSHFT S  &hrml LCTRL D  &hrml LALT F  &kp G          &kp LCTRL             &kp RALT       &kp H        &hrmr RALT J  &hrmr RCTRL K    &hrmr RSHFT L  &hjseco
+&kltl MOU Z   &kltl MAC X    &kltl LOW C    &kltl MOV V   &kp B          &lt SCR LEFT          &lt SCR RIGHT  &kp N        &kltr MOV M   &kltr LOW COMMA  &kltr MAC DOT  &kltr MOU FSLH
+&kp LALT      &kp LCTRL      &kp LSHFT      &lt SET LANG2 &lt MOV SPACE  &qhrm LSHFT LANG1     &lt LOW BSPC   &lt RAI RET                                                &mo MOU
             >;
             sensor-bindings = <&scroll_up_down>;
         };
 
         WORK {
             bindings = <
-&kp Q        &kp W        &kp E         &kp R         &kp T                                                      &kp Y        &kp U         &kp I          &kp O         &kp P
-&hrm LGUI A  &hrm LSHFT S &hrm LCTRL D  &hrm LALT F   &kp G             &kp LCTRL                 &kp RALT       &kp H        &hrm RALT J   &hrm RCTRL K   &hrm RSHFT L  &hjseco
-&klt MOU Z   &klt MAC X   &klt LOW C    &klt MOV V    &kp B             &lt SCR LEFT              &lt SCR RIGHT  &kp N        &klt MOV M    &klt LOW COMMA &klt MAC DOT  &klt MOU FSLH
-&kp LALT     &kp LCTRL    &kp LSHFT     &lt SET INT5  &lt MOV SPACE     &qhrm LSHFT INT4          &lt LOW BSPC   &lt RAI RET                                             &mo MOU
+&kp Q         &kp W          &kp E          &kp R         &kp T                                              &kp Y        &kp U         &kp I            &kp O          &kp P
+&hrml LGUI A  &hrml LSHFT S  &hrml LCTRL D  &hrml LALT F  &kp G          &kp LCTRL            &kp RALT       &kp H        &hrmr RALT J  &hrmr RCTRL K    &hrmr RSHFT L  &hjseco
+&kltl MOU Z   &kltl MAC X    &kltl LOW C    &kltl MOV V   &kp B          &lt SCR LEFT         &lt SCR RIGHT  &kp N        &kltr MOV M   &kltr LOW COMMA  &kltr MAC DOT  &klt MOU FSLH
+&kp LALT      &kp LCTRL      &kp LSHFT      &lt SET INT5  &lt MOV SPACE  &qhrm LSHFT INT4     &lt LOW BSPC   &lt RAI RET                                                &mo MOU
             >;
             sensor-bindings = <&scroll_up_down>;
         };
 
         OONISHI {
             bindings = <
-&kp Q        &kp L        &kp U         &kp COMMA     &kp DOT                                                  &kp F        &kp W         &kp R         &kp Y        &kp P
-&hrm LGUI E  &hrm LSHFT I &hrm LCTRL A  &hrm LALT O   &kp MINUS       &kp LCTRL                 &kp RALT       &kp K        &hrm RALT T   &hrm RCTRL N  &hrm RSHFT S &hrm RGUI H
-&klt MOU Z   &klt MAC X   &klt LOW C    &klt MOV V    &jseco          &lt SCR LEFT              &lt SCR RIGHT  &kp G        &klt MOV D    &klt LOW M    &klt MAC J   &klt MOU B
-&kp LALT     &kp LCTRL    &kp LSHFT     &lt SET LANG2 &lt MOV SPACE   &qhrm LSHFT LANG1         &lt LOW BSPC   &lt RAI RET                                           &mo MOU
+&kp Q         &kp L          &kp U          &kp COMMA      &kp DOT                                             &kp F        &kp W         &kp R          &kp Y          &kp P
+&hrml LGUI E  &hrml LSHFT I  &hrml LCTRL A  &hrml LALT O   &kp MINUS      &kp LCTRL             &kp RALT       &kp K        &hrmr RALT T  &hrmr RCTRL N  &hrmr RSHFT S  &hrmr RGUI H
+&kltl MOU Z   &kltl MAC X    &kltl LOW C    &kltl MOV V    &jseco         &lt SCR LEFT          &lt SCR RIGHT  &kp G        &kltr MOV D   &kltr LOW M    &kltr MAC J    &kltr MOU B
+&kp LALT      &kp LCTRL      &kp LSHFT      &lt SET LANG2  &lt MOV SPACE  &qhrm LSHFT LANG1     &lt LOW BSPC   &lt RAI RET                                              &mo MOU
             >;
             sensor-bindings = <&scroll_up_down>;
         };
 
         NAGINATA {
             bindings = <
-&ng Q      &ng W      &ng E      &ng R         &ng T                                        &ng Y      &ng U      &ng I           &ng O         &ng P
-&ng A      &ng S      &ng D      &ng F         &ng G           &kp LCTRL      &kp RALT      &ng H      &ng J      &ng K           &ng L         &ng SEMI
-&nlt MOU Z &nlt MAC X &nlt LOW C &nlt MOV V    &ng B           &lt SCR LEFT   &lt SCR RIGHT &ng N      &nlt MOV M &nlt LOW COMMA  &nlt MAC DOT  &nlt MOU FSLH
-&none      &none      &none      &mo MOU       &ng SPACE       &mo RAI        &lt LOW BSPC  &ng ENTER                                           &mo MOU
+&ng Q        &ng W        &ng E        &ng R        &ng T                                      &ng Y      &ng U        &ng I            &ng O          &ng P
+&ng A        &ng S        &ng D        &ng F        &ng G      &kp LCTRL        &kp RALT       &ng H      &ng J        &ng K            &ng L          &ng SEMI
+&nltl MOU Z  &nltl MAC X  &nltl LOW C  &nltl MOV V  &ng B      &lt SCR LEFT     &lt SCR RIGHT  &ng N      &nltr MOV M  &nltr LOW COMMA  &nltr MAC DOT  &nltr MOU FSLH
+&none        &none        &none        &mo MOU      &ng SPACE  &mo RAI          &lt LOW BSPC   &ng ENTER                                               &mo MOU
             >;
             sensor-bindings = <&scroll_up_down>;
         };
