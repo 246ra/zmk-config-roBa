@@ -325,7 +325,6 @@
             tap-ms = <0>;
             #binding-cells = <0>;
             bindings = <&tog_off AMO>;
-            label = "exit_AML";
         };
         // マウスレイヤーでキー入力後抜ける
         kpea: kp_exit_AML {
@@ -358,7 +357,6 @@
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&mkp>;
-            label = "MKP_on_hold";
         };
         // マウスレイヤーをmtで抜ける
         mtea: mt_exit_AML_on_tap {
@@ -368,7 +366,6 @@
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kpea>;
-            label = "MT_exit_AML_ON_TAP";
         };
         // マウスレイヤーをmoで抜ける
         moea: mo_exit_AML_on_tap {
@@ -378,7 +375,6 @@
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
             bindings = <&mo>, <&kpea>;
-            label = "MT_exit_AML_ON_TAP";
         };
         // HRMの設定
         hrml: homerow_mods_left {
