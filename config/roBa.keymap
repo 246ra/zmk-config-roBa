@@ -75,10 +75,7 @@
 &zip_temp_layer {
     excluded-positions = <2 10 11 12 13 23 24 25 7 18 19 20 21 30 31 32>;
 };
-// マウス入力後、レイヤー継続時間
-&mkp_input_listener {
-    input-processors = <&zip_temp_layer AMO 150>;
-};
+&sl { release-after-ms = <150>; };   // マウスレイヤーにとどまる時間
 
 // トラックボール
 &trackball_listener{
@@ -353,6 +350,19 @@
                 <&macro_param_1to1 &mo MACRO_PLACEHOLDER>,
                 <&macro_tap>;
         };
+        // マウス入力
+        mkpea: mkp_exit_AML {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_press>,
+                <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
+                <&macro_tap>,
+                <&sl AMO>;
+        };
     };
 
     behaviors {
@@ -369,13 +379,13 @@
             toggle-mode = "off";
         };
         // マウス入力にmtをホールドで追加
-        hmkp: mkp_on_hold {
+        hmkpea: mkp_on_hold {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             quick-tap-ms = <140>;
             tapping-term-ms = <150>;
             flavor = "tap-preferred";
-            bindings = <&kp>, <&mkp>;
+            bindings = <&kp>, <&mkpea>;
         };
         // HRMの設定
         hrml: homerow_mods_left {
@@ -611,20 +621,20 @@
 
         AMOUSE {
              bindings = <
-&none      &none     &moea MAC        &none            &none                   &none  &none     &moea MAC        &none            &none
-&moea LMO  &mkp MB1  &moea SCR        &mkp MB2         &none  &none     &none  &none  &mkp MB1  &moea SCR        &mkp MB2         &moea LMO
-&none      &mkp MB4  &hmkp LSHFT MB3  &hmkp LCTRL MB5  &none  &none     &none  &none  &mkp MB4  &hmkp RSHFT MB3  &hmkp RCTRL MB5  &none
-&none      &none     &none            &none            &none  &none     &none  &none                                        &none
+&none      &none       &moea MAC          &none              &none                   &none  &none       &moea MAC          &none              &none
+&moea LMO  &mkpea MB1  &moea SCR          &mkpea MB2         &none  &none     &none  &none  &mkpea MB1  &moea SCR          &mkpea MB2         &moea LMO
+&none      &mkpea MB4  &hmkpea LSHFT MB3  &hmkpea LCTRL MB5  &none  &none     &none  &none  &mkpea MB4  &hmkpea RSHFT MB3  &hmkpea RCTRL MB5  &none
+&none      &none       &none              &none              &none  &none     &none  &none                                                    &none
             >;
             sensor-bindings = <&scroll_up_down>;
         };
 
         LMOUSE {
             bindings = <
-&none  &none     &none     &none     &none                   &none  &none     &none     &none     &none
-&none  &mkp MB1  &none     &mkp MB2  &none  &none     &none  &none  &mkp MB1  &none     &mkp MB2  &none
-&none  &mkp MB4  &mkp MB3  &mkp MB5  &none  &none     &none  &none  &mkp MB4  &mkp MB3  &mkp MB5  &none
-&none  &none     &none     &none     &none  &none     &none  &none                                &none
+&none  &none       &none       &none       &none                   &none  &none       &none       &none       &none
+&none  &mkpea MB1  &none       &mkpea MB2  &none  &none     &none  &none  &mkpea MB1  &none       &mkpea MB2  &none
+&none  &mkpea MB4  &mkpea MB3  &mkpea MB5  &none  &none     &none  &none  &mkpea MB4  &mkpea MB3  &mkpea MB5  &none
+&none  &none       &none       &none       &none  &none     &none  &none                                      &none
             >;
             sensor-bindings = <&scroll_up_down>;
         };
