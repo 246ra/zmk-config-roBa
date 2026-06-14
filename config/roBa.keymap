@@ -72,8 +72,6 @@
     // require-prior-idle-ms = <125>;   // 修飾キー以外のキーと同時に押された場合（動作ではありません）、ホールドタップは常にタップに変換
 };
 
-&sl { release-after-ms = <200>; };   // マウスレイヤーにとどまる時間
-
 // トラックボール
 &trackball_listener{
     input-processors = <&zip_temp_layer AMO 10000>;  // オートマウスレイヤーを10秒間有効化
