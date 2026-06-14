@@ -350,14 +350,14 @@
             toggle-mode = "off";
         };
         // マウス入力にmtをホールドで追加
-        hmkp: mkp_on_hold {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            quick-tap-ms = <170>;
-            tapping-term-ms = <200>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&mkp>;
-        };
+        //hmkp: mkp_on_hold {
+        //    compatible = "zmk,behavior-hold-tap";
+        //    #binding-cells = <2>;
+        //    quick-tap-ms = <170>;
+        //    tapping-term-ms = <200>;
+        //    flavor = "tap-preferred";
+        //    bindings = <&kp>, <&mkp>;
+        //};
         // マウスレイヤーをmtで抜ける
         mtea: mt_exit_AML_on_tap {
             compatible = "zmk,behavior-hold-tap";
