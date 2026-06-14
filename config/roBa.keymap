@@ -371,8 +371,8 @@
         moea: mo_exit_AML_on_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            quick-tap-ms = <170>;
-            tapping-term-ms = <200>;
+            quick-tap-ms = <10>;
+            tapping-term-ms = <10>;
             flavor = "tap-preferred";
             bindings = <&mo>, <&kpea>;
         };
@@ -610,20 +610,20 @@
 
         AMOUSE {
              bindings = <
-&ea          &ea       &moea MAC 0      &ea              &ea                                            &ea  &ea       &moea MAC 0      &ea              &ea
-&moea LMO 0  &mkp MB1  &moea SCR 0      &mkp MB2         &ea            &ea               &ea           &ea  &mkp MB1  &moea SCR 0      &mkp MB2         &moea LMO 0
-&ea          &mkp MB4  &hmkp LSHFT MB3  &hmkp LCTRL MB5  &ea            &ea               &ea           &ea  &mkp MB4  &hmkp RSHFT MB3  &hmkp RCTRL MB5  &ea
-&ea          &ea       &ea              &lt SET LANG2    &lt MOV SPACE  &mt LSHFT LANG1   &lt LOW BSPC  &lt RAI RET                                      &ea
+&none        &none     &moea MAC 0      &none            &none                                            &none  &none     &moea MAC 0      &none            &none
+&moea LMO 0  &mkp MB1  &moea SCR 0      &mkp MB2         &none          &none               &none         &none  &mkp MB1  &moea SCR 0      &mkp MB2         &moea LMO 0
+&none        &mkp MB4  &hmkp LSHFT MB3  &hmkp LCTRL MB5  &none          &none               &none         &none  &mkp MB4  &hmkp RSHFT MB3  &hmkp RCTRL MB5  &none
+&none        &none     &none            &lt SET LANG2    &lt MOV SPACE  &mt LSHFT LANG1     &lt LOW BSPC  &lt RAI RET                                        &none
             >;
             sensor-bindings = <&scroll_up_down>;
         };
 
         LMOUSE {
             bindings = <
-&ea  &ea       &ea              &ea              &ea                                            &ea  &ea       &ea              &ea              &ea
-&ea  &mkp MB1  &ea              &mkp MB2         &ea            &ea               &ea           &ea  &mkp MB1  &ea              &mkp MB2         &ea
-&ea  &mkp MB4  &mkp MB3         &mkp MB5         &ea            &ea               &ea           &ea  &mkp MB4  &mkp MB3         &mkp MB5         &ea
-&ea  &ea       &ea              &lt SET LANG2    &lt MOV SPACE  &mt LSHFT LANG1   &lt LOW BSPC  &lt RAI RET                                      &ea
+&none  &none     &none     &none          &none                                            &none  &none     &none     &none     &none
+&none  &mkp MB1  &none     &mkp MB2       &none          &none               &none         &none  &mkp MB1  &none     &mkp MB2  &none
+&none  &mkp MB4  &mkp MB3  &mkp MB5       &none          &none               &none         &none  &mkp MB4  &mkp MB3  &mkp MB5  &none
+&none  &none     &none     &lt SET LANG2  &lt MOV SPACE  &mt LSHFT LANG1     &lt LOW BSPC  &lt RAI RET                          &none
             >;
             sensor-bindings = <&scroll_up_down>;
         };
