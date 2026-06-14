@@ -608,15 +608,15 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-//        AMOUSE {
-//             bindings = <
-//&ea        &ea       &moea MAC        &ea              &ea                                            &ea  &ea       &moea MAC        &ea              &ea
-//&moea LMO  &mkp MB1  &moea SCR        &mkp MB2         &ea            &ea               &ea           &ea  &mkp MB1  &moea SCR        &mkp MB2         &moea LMO
-//&ea        &mkp MB4  &mkp MB3         &mkp MB5         &ea            &ea               &ea           &ea  &mkp MB4  &mkp MB3         &mkp MB5         &ea
-//&ea        &ea       &ea              &lt SET LANG2    &lt MOV SPACE  &mt LSHFT LANG1   &lt LOW BSPC  &lt RAI RET                                      &ea
-//            >;
-//            sensor-bindings = <&scroll_up_down>;
-//        };
+        AMOUSE {
+             bindings = <
+&ea          &ea       &moea MAC 0      &ea              &ea                                            &ea  &ea       &moea MAC 0      &ea              &ea
+&moea LMO 0  &mkp MB1  &moea SCR 0      &mkp MB2         &ea            &ea               &ea           &ea  &mkp MB1  &moea SCR 0      &mkp MB2         &moea LMO 0
+&ea          &mkp MB4  &mkp MB3         &mkp MB5         &ea            &ea               &ea           &ea  &mkp MB4  &mkp MB3         &mkp MB5         &ea
+&ea          &ea       &ea              &lt SET LANG2    &lt MOV SPACE  &mt LSHFT LANG1   &lt LOW BSPC  &lt RAI RET                                      &ea
+            >;
+            sensor-bindings = <&scroll_up_down>;
+        };
 
         LMOUSE {
             bindings = <
