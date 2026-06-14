@@ -611,20 +611,20 @@
 
         AMOUSE {
              bindings = <
-&none      &none     &moea MAC        &none            &none                                            &none  &none     &moea MAC        &none            &none
-&moea LMO  &mkp MB1  &moea SCR        &mkp MB2         &none          &none               &none         &none  &mkp MB1  &moea SCR        &mkp MB2         &moea LMO
-&none      &mkp MB4  &hmkp LSHFT MB3  &hmkp LCTRL MB5  &none          &none               &none         &none  &mkp MB4  &hmkp RSHFT MB3  &hmkp RCTRL MB5  &none
-&none      &none     &none            &lt SET LANG2    &lt MOV SPACE  &mt LSHFT LANG1     &lt LOW BSPC  &lt RAI RET                                        &none
+&none      &none     &moea MAC        &none            &none                   &none  &none     &moea MAC        &none            &none
+&moea LMO  &mkp MB1  &moea SCR        &mkp MB2         &none  &none     &none  &none  &mkp MB1  &moea SCR        &mkp MB2         &moea LMO
+&none      &mkp MB4  &hmkp LSHFT MB3  &hmkp LCTRL MB5  &none  &none     &none  &none  &mkp MB4  &hmkp RSHFT MB3  &hmkp RCTRL MB5  &none
+&none      &none     &none            &none            &none  &none     &none  &none                                        &none
             >;
             sensor-bindings = <&scroll_up_down>;
         };
 
         LMOUSE {
             bindings = <
-&none  &none     &none     &none          &none                                            &none  &none     &none     &none     &none
-&none  &mkp MB1  &none     &mkp MB2       &none          &none               &none         &none  &mkp MB1  &none     &mkp MB2  &none
-&none  &mkp MB4  &mkp MB3  &mkp MB5       &none          &none               &none         &none  &mkp MB4  &mkp MB3  &mkp MB5  &none
-&none  &none     &none     &lt SET LANG2  &lt MOV SPACE  &mt LSHFT LANG1     &lt LOW BSPC  &lt RAI RET                          &none
+&none  &none     &none     &none     &none                   &none  &none     &none     &none     &none
+&none  &mkp MB1  &none     &mkp MB2  &none  &none     &none  &none  &mkp MB1  &none     &mkp MB2  &none
+&none  &mkp MB4  &mkp MB3  &mkp MB5  &none  &none     &none  &none  &mkp MB4  &mkp MB3  &mkp MB5  &none
+&none  &none     &none     &none     &none  &none     &none  &none                                &none
             >;
             sensor-bindings = <&scroll_up_down>;
         };
