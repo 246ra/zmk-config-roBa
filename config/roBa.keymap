@@ -357,7 +357,7 @@
             quick-tap-ms = <170>;
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
-            bindings = <&kp>, <&kp_exit_AML>;
+            bindings = <&kp>, <&kea>;
             label = "MT_exit_AML_ON_TAP";
         };
         // マウス入力にmoをホールドで追加
@@ -367,7 +367,7 @@
             quick-tap-ms = <170>;
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
-            bindings = <&mo>, <&kp_exit_AML>;
+            bindings = <&mo>, <&kea>;
             label = "MT_exit_AML_ON_TAP";
         };
         // HRMの設定
