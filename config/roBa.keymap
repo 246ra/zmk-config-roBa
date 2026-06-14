@@ -351,7 +351,7 @@
             toggle-mode = "off";
         };
         // マウス入力にmtをホールドで追加
-        moea: mt_exit_AML_on_tap {
+        mtea: mt_exit_AML_on_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             quick-tap-ms = <170>;
@@ -361,7 +361,7 @@
             label = "MT_exit_AML_ON_TAP";
         };
         // マウス入力にmoをホールドで追加
-        mtea: mo_exit_AML_on_tap {
+        moea: mo_exit_AML_on_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             quick-tap-ms = <170>;
@@ -606,7 +606,7 @@
             bindings = <
 &ea      &ea        &mo MAC          &ea              &ea                                            &ea  &ea        &mo MAC          &ea             &ea
 &mo LMO  &kpea MB1  &mo SCR          &kpea MB2        &ea            &ea               &ea           &ea  &kpea MB1  &mo SCR          &kpea MB2       &mo LMO
-&ea      &kpea MB4  &moea LSHFT MB3  &moea LCTRL MB5  &ea            &ea               &ea           &ea  &kpea MB4  &moea RSHFT MB3  &moea RCTRL MB5  &ea
+&ea      &kpea MB4  &mtea LSHFT MB3  &mtea LCTRL MB5  &ea            &ea               &ea           &ea  &kpea MB4  &mtea RSHFT MB3  &mtea RCTRL MB5  &ea
 &ea      &ea        &ea              &lt SET LANG2    &lt MOV SPACE  &mt LSHFT LANG1   &lt LOW BSPC  &lt RAI RET                                      &ea
             >;
             sensor-bindings = <&scroll_up_down>;
