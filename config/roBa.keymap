@@ -660,10 +660,10 @@
 
         DOUBLE {
             bindings = <
-&none  &none       &none  &none  &none                   &none  &none       &none  &none  &none
-&none  &mkpea MB1  &none  &none  &none  &none     &none  &none  &mkpea MB1  &none  &none  &none
-&none  &none       &none  &none  &none  &none     &none  &none  &none       &none  &none  &none
-&none  &none       &none  &none  &none  &none     &none  &none                            &none
+&trans  &trans       &trans  &trans  &trans                   &trans  &trans       &trans  &trans  &trans
+&trans  &mkpea MB1  &trans  &trans  &trans  &trans     &trans  &trans  &mkpea MB1  &trans  &trans  &trans
+&trans  &trans       &trans  &trans  &trans  &trans     &trans  &trans  &trans       &trans  &trans  &trans
+&trans  &trans       &trans  &trans  &trans  &trans     &trans  &trans                            &trans
             >;
             sensor-bindings = <&scroll_up_down>;
         };
