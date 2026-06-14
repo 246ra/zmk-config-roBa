@@ -360,6 +360,7 @@
                 <&macro_release>,
                 <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
                 <&macro_tap>,
+                <&ea>,
                 <&sl_200 DOU>;
         };
         // マウス入力
@@ -373,9 +374,7 @@
                 <&macro_release>,
                 <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
                 <&macro_tap>,
-                <&ea>,
-                <&macro_pause_for_release>,
-                <&macro_release>;
+                <&ea>;
         };
     };
 
