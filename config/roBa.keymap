@@ -358,7 +358,7 @@
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&mkp>;
-            label = "MT_exit_AML_ON_TAP";
+            label = "MKP_on_hold";
         };
         // マウスレイヤーをmtで抜ける
         mtea: mt_exit_AML_on_tap {
