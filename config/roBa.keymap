@@ -75,7 +75,7 @@
 &zip_temp_layer {
     excluded-positions = <2 10 11 12 13 23 24 25 7 18 19 20 21 30 31 32>;
 };
-&sl { release-after-ms = <150>; };   // マウスレイヤーにとどまる時間
+&sl { release-after-ms = <130>; };   // マウスレイヤーにとどまる時間
 
 // トラックボール
 &trackball_listener{
@@ -621,10 +621,10 @@
 
         AMOUSE {
              bindings = <
-&none      &none       &moea MAC          &none              &none                   &none  &none       &moea MAC          &none              &none
-&moea LMO  &mkpea MB1  &moea SCR          &mkpea MB2         &none  &none     &none  &none  &mkpea MB1  &moea SCR          &mkpea MB2         &moea LMO
-&none      &mkpea MB4  &hmkpea LSHFT MB3  &hmkpea LCTRL MB5  &none  &none     &none  &none  &mkpea MB4  &hmkpea RSHFT MB3  &hmkpea RCTRL MB5  &none
-&none      &none       &none              &none              &none  &none     &none  &none                                                    &none
+&none      &none       &moea MAC   &none              &none                   &none  &none       &moea MAC   &none              &none
+&moea LMO  &mkpea MB1  &moea SCR   &hmkpea LSHFT MB2  &none  &none     &none  &none  &mkpea MB1  &moea SCR   &hmkpea RSHFT MB2  &moea LMO
+&none      &mkpea MB4  &mkpea MB3  &hmkpea LCTRL MB5  &none  &none     &none  &none  &mkpea MB4  &mkpea MB3  &hmkpea RCTRL MB5  &none
+&none      &none       &none       &none              &none  &none     &none  &none                                                    &none
             >;
             sensor-bindings = <&scroll_up_down>;
         };
