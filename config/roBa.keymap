@@ -6,6 +6,9 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include <behaviors/naginata.dtsi>
 
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1200
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 100
+
 // 薙刀式のOS設定  (WIN 0, MAC 1, LINUX 2, IOS 3)
 #define HOST_OS 0
 
