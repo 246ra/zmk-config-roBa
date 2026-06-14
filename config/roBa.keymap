@@ -351,6 +351,16 @@
             toggle-mode = "off";
         };
         // マウス入力にmtをホールドで追加
+        hmkp: mkp_on_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            quick-tap-ms = <170>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&mkp>;
+            label = "MT_exit_AML_ON_TAP";
+        };
+        // マウスレイヤーをmtで抜ける
         mtea: mt_exit_AML_on_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -360,7 +370,7 @@
             bindings = <&kp>, <&kpea>;
             label = "MT_exit_AML_ON_TAP";
         };
-        // マウス入力にmoをホールドで追加
+        // マウスレイヤーをmoで抜ける
         moea: mo_exit_AML_on_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -604,20 +614,20 @@
 
         AMOUSE {
             bindings = <
-&ea      &ea        &mo MAC          &ea              &ea                                            &ea  &ea        &mo MAC          &ea             &ea
-&mo LMO  &kpea MB1  &mo SCR          &kpea MB2        &ea            &ea               &ea           &ea  &kpea MB1  &mo SCR          &kpea MB2       &mo LMO
-&ea      &kpea MB4  &mtea LSHFT MB3  &mtea LCTRL MB5  &ea            &ea               &ea           &ea  &kpea MB4  &mtea RSHFT MB3  &mtea RCTRL MB5  &ea
-&ea      &ea        &ea              &lt SET LANG2    &lt MOV SPACE  &mt LSHFT LANG1   &lt LOW BSPC  &lt RAI RET                                      &ea
+&ea        &ea       &moea MAC        &ea              &ea                                            &ea  &ea       &moea MAC        &ea              &ea
+&moea LMO  &mkp MB1  &moea SCR        &mkp MB2         &ea            &ea               &ea           &ea  &mkp MB1  &moea SCR        &mkp MB2         &moea LMO
+&ea        &mkp MB4  &hmkp LSHFT MB3  &hmkp LCTRL MB5  &ea            &ea               &ea           &ea  &mkp MB4  &hmkp RSHFT MB3  &hmkp RCTRL MB5  &ea
+&ea        &ea       &ea              &lt SET LANG2    &lt MOV SPACE  &mt LSHFT LANG1   &lt LOW BSPC  &lt RAI RET                                      &ea
             >;
             sensor-bindings = <&scroll_up_down>;
         };
 
         LMOUSE {
             bindings = <
-&ea  &ea        &ea              &ea              &ea                                            &ea  &ea        &ea              &ea             &ea
-&ea  &kpea MB1  &ea              &kpea MB2        &ea            &ea               &ea           &ea  &kpea MB1  &ea              &kpea MB2       &ea
-&ea  &kpea MB4  &mtea LSHFT MB3  &mtea LCTRL MB5  &ea            &ea               &ea           &ea  &kpea MB4  &mtea RSHFT MB3  &mtea RCTRL MB5  &ea
-&ea  &ea        &ea              &lt SET LANG2    &lt MOV SPACE  &mt LSHFT LANG1   &lt LOW BSPC  &lt RAI RET                                      &ea
+&ea  &ea       &ea              &ea              &ea                                            &ea  &ea       &ea              &ea              &ea
+&ea  &mkp MB1  &ea              &mkp MB2         &ea            &ea               &ea           &ea  &mkp MB1  &ea              &mkp MB2         &ea
+&ea  &mkp MB4  &hmkp LSHFT MB3  &hmkp LCTRL MB5  &ea            &ea               &ea           &ea  &mkp MB4  &hmkp RSHFT MB3  &hmkp RCTRL MB5  &ea
+&ea  &ea       &ea              &lt SET LANG2    &lt MOV SPACE  &mt LSHFT LANG1   &lt LOW BSPC  &lt RAI RET                                      &ea
             >;
             sensor-bindings = <&scroll_up_down>;
         };
