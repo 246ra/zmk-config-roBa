@@ -353,8 +353,8 @@
         hmkp: mkp_on_hold {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            quick-tap-ms = <170>;
-            tapping-term-ms = <200>;
+            quick-tap-ms = <140>;
+            tapping-term-ms = <150>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&mkp>;
         };
