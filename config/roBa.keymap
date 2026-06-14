@@ -70,7 +70,7 @@
 
 // マウスキー指定
 &zip_temp_layer {
-    excluded-positions = <11 13 23 24 25 18 20 30 31 32>;
+    excluded-positions = <2 10 11 12 13 23 24 25 7 18 19 20 21 30 31 32>;
 };
 // マウス入力後、レイヤー継続時間
 &mkp_input_listener {
