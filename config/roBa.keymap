@@ -75,7 +75,7 @@
 &zip_temp_layer {
     excluded-positions = <2 10 11 12 13 23 24 25 7 18 19 20 21 30 31 32>;
 };
-&sl { release-after-ms = <130>; };   // マウスレイヤーにとどまる時間
+&sl { release-after-ms = <200>; };   // マウスレイヤーにとどまる時間
 
 // トラックボール
 &trackball_listener{
