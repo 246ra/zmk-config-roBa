@@ -19,13 +19,14 @@
 #define NAG 3
 #define AMO 4
 #define LMO 5
-#define MOU 6
-#define MOV 7
-#define LOW 8
-#define RAI 9
-#define MAC 10
-#define SET 11
-#define SCR 12
+#define DOU 6
+#define MOU 7
+#define MOV 8
+#define LOW 9
+#define RAI 10
+#define MAC 11
+#define SET 12
+#define SCR 13
 
 // keycodeを置き換えるとkeymap editorが利用できないため、基本的に実施しない。
 //#define XXX &none
@@ -71,10 +72,6 @@
     // require-prior-idle-ms = <125>;   // 修飾キー以外のキーと同時に押された場合（動作ではありません）、ホールドタップは常にタップに変換
 };
 
-// マウスキー指定
-&zip_temp_layer {
-    excluded-positions = <2 10 11 12 13 23 24 25 7 18 19 20 21 30 31 32>;
-};
 &sl { release-after-ms = <200>; };   // マウスレイヤーにとどまる時間
 
 // トラックボール
@@ -351,7 +348,7 @@
                 <&macro_tap>;
         };
         // マウス入力
-        mkpea: mkp_exit_AML {
+        cmkpea: mkp_exit_AML_click {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             bindings =
@@ -361,7 +358,19 @@
                 <&macro_release>,
                 <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
                 <&macro_tap>,
-                <&sl AMO>;
+                <&sl_200 DOU>;
+        };
+        // マウス入力
+        mkpea: mkp_exit_AML {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_press>,
+                <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
+                <&macro_tap>;
         };
     };
 
@@ -378,8 +387,14 @@
             display-name = "Toggle Layer Off";
             toggle-mode = "off";
         };
+        sl_200: sl_200 {   // マウスレイヤーにとどまる時間
+            compatible = "zmk,behavior-sticky-key";
+            bindings = <&mo>;
+            #binding-cells = <1>;
+            release-after-ms = <200>;
+        };
         // マウス入力にmtをホールドで追加
-        hmkpea: mkp_on_hold {
+        hmkpea: mkp_exit_AML_on_hold {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             quick-tap-ms = <140>;
@@ -621,20 +636,30 @@
 
         AMOUSE {
              bindings = <
-&none      &none       &moea MAC   &none              &none                   &none  &none       &moea MAC   &none              &none
-&moea LMO  &mkpea MB1  &moea SCR   &hmkpea LSHFT MB2  &none  &none     &none  &none  &mkpea MB1  &moea SCR   &hmkpea RSHFT MB2  &moea LMO
-&none      &mkpea MB4  &mkpea MB3  &hmkpea LCTRL MB5  &none  &none     &none  &none  &mkpea MB4  &mkpea MB3  &hmkpea RCTRL MB5  &none
-&none      &none       &none       &none              &none  &none     &none  &none                                                    &none
+&none      &none        &moea MAC   &none              &none                   &none  &none        &moea MAC   &none              &none
+&moea LMO  &cmkpea MB1  &moea SCR   &hmkpea LSHFT MB2  &none  &none     &none  &none  &cmkpea MB1  &moea SCR   &hmkpea RSHFT MB2  &moea LMO
+&none      &mkpea MB4   &mkpea MB3  &hmkpea LCTRL MB5  &none  &none     &none  &none  &mkpea MB4   &mkpea MB3  &hmkpea RCTRL MB5  &none
+&none      &none        &none       &none              &none  &none     &none  &none                                              &none
             >;
             sensor-bindings = <&scroll_up_down>;
         };
 
         LMOUSE {
             bindings = <
-&none  &none       &none       &none       &none                   &none  &none       &none       &none       &none
-&none  &mkpea MB1  &none       &mkpea MB2  &none  &none     &none  &none  &mkpea MB1  &none       &mkpea MB2  &none
-&none  &mkpea MB4  &mkpea MB3  &mkpea MB5  &none  &none     &none  &none  &mkpea MB4  &mkpea MB3  &mkpea MB5  &none
-&none  &none       &none       &none       &none  &none     &none  &none                                      &none
+&none  &none        &none       &none       &none                   &none  &none        &none       &none       &none
+&none  &cmkpea MB1  &none       &mkpea MB2  &none  &none     &none  &none  &cmkpea MB1  &none       &mkpea MB2  &none
+&none  &mkpea MB4   &mkpea MB3  &mkpea MB5  &none  &none     &none  &none  &mkpea MB4   &mkpea MB3  &mkpea MB5  &none
+&none  &none        &none       &none       &none  &none     &none  &none                                       &none
+            >;
+            sensor-bindings = <&scroll_up_down>;
+        };
+
+        DOUBLE {
+            bindings = <
+&none  &none       &none  &none  &none                   &none  &none       &none  &none  &none
+&none  &mkpea MB1  &none  &none  &none  &none     &none  &none  &mkpea MB1  &none  &none  &none
+&none  &none       &none  &none  &none  &none     &none  &none  &none       &none  &none  &none
+&none  &none       &none  &none  &none  &none     &none  &none                            &none
             >;
             sensor-bindings = <&scroll_up_down>;
         };
