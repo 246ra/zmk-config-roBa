@@ -596,16 +596,6 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
-        WORK {
-            bindings = <
-&kp Q         &kp W          &kp E          &kp R         &kp T                                              &kp Y        &kp U         &kp I            &kp O          &kp P
-&hrml LGUI A  &hrml LSHFT S  &hrml LCTRL D  &hrml LALT F  &kp G          &kp LCTRL            &kp RALT       &kp H        &hrmr RALT J  &hrmr RCTRL K    &hrmr RSHFT L  &hjseco
-&kltl MOU Z   &kltl MAC X    &kltl LOW C    &kltl RAI V   &kp B          &lt SCR LEFT         &lt SCR RIGHT  &kp N        &kltr RAI M   &kltr LOW COMMA  &kltr MAC DOT  &kltr MOU FSLH
-&kp LALT      &kp LCTRL      &kp LSHFT      &lt SET INT5  &lt MOV SPACE  &mt LSHFT INT4       &lt LOW BSPC   &lt RAI RET                                                &mo MOU
-            >;
-            sensor-bindings = <&scroll_up_down>;
-        };
-
         OONISHI {
             bindings = <
 &kp Q         &kp L          &kp U          &kp COMMA      &kp DOT                                             &kp F        &kp W         &kp R          &kp Y          &kp P
