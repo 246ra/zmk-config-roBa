@@ -321,27 +321,6 @@
             #binding-cells = <0>;
             bindings = <&tog_off AMO>;
         };
-        eal: exit_LMO {
-            compatible = "zmk,behavior-macro";
-            wait-ms = <0>;
-            tap-ms = <0>;
-            #binding-cells = <0>;
-            bindings = <&tog_off LMO>;
-        };
-        eas: exit_SCR {
-            compatible = "zmk,behavior-macro";
-            wait-ms = <0>;
-            tap-ms = <0>;
-            #binding-cells = <0>;
-            bindings = <&tog_off SCR>;
-        };
-        eam: exit_MAC {
-            compatible = "zmk,behavior-macro";
-            wait-ms = <0>;
-            tap-ms = <0>;
-            #binding-cells = <0>;
-            bindings = <&tog_off MAC>;
-        };
         // マウスレイヤーでキー入力後抜ける
         kpea: kp_exit_AML {
             compatible = "zmk,behavior-macro-one-param";
@@ -377,6 +356,7 @@
                 <&macro_release>,
                 <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
                 <&macro_tap>,
+                <&ea>,
                 <&sl_200 DOU>;
         };
         // マウス入力
