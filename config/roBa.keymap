@@ -14,18 +14,19 @@
 
 // レイヤー定義
 #define QWE 0
-#define ONI 1
-#define NAG 2
-#define AMO 3
-#define LMO 4
-#define DOU 5
-#define MOU 6
-#define MOV 7
-#define LOW 8
-#define RAI 9
-#define MAC 10
-#define SET 11
-#define SCR 12
+#define WAK 1
+#define ONI 2
+#define NAG 3
+#define AMO 4
+#define LMO 5
+#define DOU 6
+#define MOU 7
+#define MOV 8
+#define LOW 9
+#define RAI 10
+#define MAC 11
+#define SET 12
+#define SCR 13
 
 // keycodeを置き換えるとkeymap editorが利用できないため、基本的に実施しない。
 //#define XXX &none
@@ -116,6 +117,13 @@
             bindings = <&ng_off>;
             layers = <QWE NAG>;
         };
+        // wakasagi
+        combo_wakasagi_on {
+            timeout-ms = <30>;
+            key-positions = <29 30>;
+            bindings = <&to 1>;
+            layers = <QWE>;
+        };
         // 大西式
         combo_oonishi_on {
             timeout-ms = <30>;
@@ -128,7 +136,7 @@
             timeout-ms = <30>;
             key-positions = <24 25>;
             bindings = <&to 0>;
-            layers = <QWE ONI>;
+            layers = <QWE WAK ONI>;
         };
         // ショートカット
         // ()
@@ -170,25 +178,25 @@
             timeout-ms = <40>;
             key-positions = <32 33>;
             bindings = <&mo RAI>;
-            layers = <QWE ONI NAG>;
+            layers = <QWE WAK ONI NAG>;
         };
         combo_RAI2 {
             timeout-ms = <40>;
             key-positions = <22 23>;
             bindings = <&mo RAI>;
-            layers = <QWE ONI NAG>;
+            layers = <QWE WAK ONI NAG>;
         };
         combo_SET {
             timeout-ms = <40>;
             key-positions = <31 32>;
             bindings = <&mo SET>;
-            layers = <QWE ONI NAG>;
+            layers = <QWE WAK ONI NAG>;
         };
         combo_SET2 {
             timeout-ms = <40>;
             key-positions = <23 24>;
             bindings = <&mo SET>;
-            layers = <QWE ONI NAG>;
+            layers = <QWE WAK ONI NAG>;
         };
     };
 
@@ -596,6 +604,16 @@
             sensor-bindings = <&scroll_up_down>;
         };
 
+        WAKASAGI {
+            bindings = <
+&kp Q          &kp P           &kp R         &kp D         &kp C                                                   &kp B        &kp K         &kp U         &kp Y        &kp X
+&hrm LGUI A    &hrm LSHFT T    &hrm LCTRL N  &hrm LALT S   &kp W           &kp LCTRL                &kp RALT       &kp M        &hrm RALT H   &hrm RCTRL E  &hrm RSHFT I &hrm RGUI O
+&klt MOU FSLH  &klt MAC COMMA  &klt LOW L    &klt MOV G    &kp J           &lt SCR LEFT             &lt SCR RIGHT  &kp F        &klt MOV V    &wjseco       &klt MAC Z   &klt MOU DOT
+&kp LALT       &kp LCTRL       &kp LSHFT     &lt SET LANG2 &lt MOV SPACE   &qhrm LSHFT LANG1        &lt LOW BSPC   &lt RAI RET                                           &mo MOU
+            >;
+            sensor-bindings = <&scroll_up_down>;
+        };
+
         OONISHI {
             bindings = <
 &kp Q         &kp L          &kp U          &kp COMMA      &kp DOT                                             &kp F        &kp W         &kp R          &kp Y          &kp P
@@ -638,10 +656,10 @@
 
         DOUBLE {
             bindings = <
-&trans  &trans       &trans  &trans  &trans                   &trans  &trans       &trans  &trans  &trans
+&trans  &trans      &trans  &trans  &trans                     &trans  &trans      &trans  &trans  &trans
 &trans  &mkpea MB1  &trans  &trans  &trans  &trans     &trans  &trans  &mkpea MB1  &trans  &trans  &trans
-&trans  &trans       &trans  &trans  &trans  &trans     &trans  &trans  &trans       &trans  &trans  &trans
-&trans  &trans       &trans  &trans  &trans  &trans     &trans  &trans                            &trans
+&trans  &trans      &trans  &trans  &trans  &trans     &trans  &trans  &trans      &trans  &trans  &trans
+&trans  &trans      &trans  &trans  &trans  &trans     &trans  &trans                              &trans
             >;
             sensor-bindings = <&scroll_up_down>;
         };
@@ -678,10 +696,10 @@
 
         RAISE {
             bindings = <
-&kp F1      &kp F2       &kp F3        &kp F4       &kp F5                                     &kp F6     &kp F7    &kp F8      &kp F9  &kp F10
-&kp N1      &kp N2       &kp N3        &kp N4       &kp N5      &kp LG(V)             &kp RALT &kp N6     &kp N7    &kp N8      &kp N9  &kp N0
-&kp COLON   &kp MINUS    &kp LS(SQT)   &kp FSLH     &kp LS(N5)  &kp LSHFT             &kp RGUI &kp EQUAL  &kp DOT   &kp UNDER   &kp F11 &kp F12
-&none       &none        &none         &kp DEL      &lt MAC RET &lt SET BSPC          &none    &none                                    &none
+&kp F1     &kp F2     &kp F3       &kp F4    &kp F5                                  &kp F6     &kp F7   &kp F8     &kp F9   &kp F10
+&kp N1     &kp N2     &kp N3       &kp N4    &kp N5       &kp LG(V)        &kp RALT  &kp N6     &kp N7   &kp N8     &kp N9   &kp N0
+&kp COLON  &kp MINUS  &kp LS(SQT)  &kp FSLH  &kp LS(N5)   &kp LSHFT        &kp RGUI  &kp EQUAL  &kp DOT  &kp UNDER  &kp F11  &kp F12
+&none      &none      &none        &kp DEL   &lt MAC RET  &lt SET BSPC     &none     &none                                   &none
             >;
             sensor-bindings = <&move_reun>;
         };
