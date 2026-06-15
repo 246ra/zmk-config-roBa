@@ -321,6 +321,27 @@
             #binding-cells = <0>;
             bindings = <&tog_off AMO>;
         };
+        eal: exit_LMO {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <0>;
+            bindings = <&tog_off LMO>;
+        };
+        eas: exit_SCR {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <0>;
+            bindings = <&tog_off SCR>;
+        };
+        eam: exit_MAC {
+            compatible = "zmk,behavior-macro";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <0>;
+            bindings = <&tog_off MAC>;
+        };
         // マウスレイヤーでキー入力後抜ける
         kpea: kp_exit_AML {
             compatible = "zmk,behavior-macro-one-param";
@@ -356,7 +377,6 @@
                 <&macro_release>,
                 <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
                 <&macro_tap>,
-                <&ea>,
                 <&sl_200 DOU>;
         };
         // マウス入力
@@ -401,6 +421,24 @@
             tapping-term-ms = <150>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&mkpea>;
+        };
+        // レイヤー移動後にAMLを抜ける
+        ltea: lt_exit_AML {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&moea>, <&kpea>;
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <170>;
+            flavor = "tap-preferred";
+        };
+        // レイヤー移動後にAMLを抜け雨r
+        mtea: mt_exit_AML {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&moea>, <&kpea>;
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+            quick-tap-ms = <170>;
         };
         // HRMの設定
         hrml: homerow_mods_left {
@@ -642,10 +680,10 @@
 
         AMOUSE {
              bindings = <
-&none      &none        &moea MAC   &none              &none                   &none  &none        &moea MAC   &none              &none
-&moea LMO  &cmkpea MB1  &moea SCR   &hmkpea LSHFT MB2  &none  &none     &none  &none  &cmkpea MB1  &moea SCR   &hmkpea RSHFT MB2  &moea LMO
-&none      &mkpea MB4   &mkpea MB3  &hmkpea LCTRL MB5  &none  &none     &none  &none  &mkpea MB4   &mkpea MB3  &hmkpea RCTRL MB5  &none
-&none      &none        &none       &none              &none  &none     &none  &none                                              &none
+&ea        &ea          &moea MAC   &ea                &ea                                                   &ea            &ea          &moea MAC   &ea                &ea
+&moea LMO  &cmkpea MB1  &moea SCR   &hmkpea LSHFT MB2  &ea             &ea                   &ea             &ea            &cmkpea MB1  &moea SCR   &hmkpea RSHFT MB2  &moea LMO
+&ea        &mkpea MB4   &mkpea MB3  &hmkpea LCTRL MB5  &ea             &ea                   &ea             &ea            &mkpea MB4   &mkpea MB3  &hmkpea RCTRL MB5  &ea
+&ea        &ea          &ea         &ltea SET LANG2    &ltea MOV SPACE &mtea LSHFT LANG1     &ltea LOW BSPC  &ltea RAI RET                                              &ea
             >;
             sensor-bindings = <&scroll_up_down>;
         };
