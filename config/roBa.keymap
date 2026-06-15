@@ -116,13 +116,6 @@
             bindings = <&ng_off>;
             layers = <QWE NAG>;
         };
-        // work(会社PC用)
-        combo_work_on {
-            timeout-ms = <30>;
-            key-positions = <29 30>;
-            bindings = <&to 1>;
-            layers = <QWE>;
-        };
         // 大西式
         combo_oonishi_on {
             timeout-ms = <30>;
@@ -135,7 +128,7 @@
             timeout-ms = <30>;
             key-positions = <24 25>;
             bindings = <&to 0>;
-            layers = <QWE WOR ONI>;
+            layers = <QWE ONI>;
         };
         // ショートカット
         // ()
