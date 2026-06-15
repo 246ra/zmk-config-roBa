@@ -411,7 +411,7 @@
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33>; // List of keys on the right side of the keyboard
+            hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41>; // List of keys on the right side of the keyboard
             hold-trigger-on-release;
         };
         hrmr: homerow_mods_right {
@@ -422,7 +422,7 @@
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27>;
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 37 38 39>;
             //hold-trigger-on-release;
         };
         // HRMでcaps切替える
@@ -444,7 +444,7 @@
             quick-tap-ms = <170>;
             flavor = "tap-preferred";
             bindings = <&mo>, <&ng>;
-            hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33>;
+            hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41>;
             hold-trigger-on-release;
         };
         nltr: nagi_layer_tap_right {
@@ -455,7 +455,7 @@
             quick-tap-ms = <170>;
             flavor = "tap-preferred";
             bindings = <&mo>, <&ng>;
-            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27>;
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 37 38 39>;
             hold-trigger-on-release;
         };
         // layerの設定(文字を入力する場合)
@@ -467,7 +467,7 @@
             quick-tap-ms = <170>;
             flavor = "tap-preferred";
             bindings = <&mo>, <&kp>;
-            hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33>;
+            hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41>;
             hold-trigger-on-release;
         };
         kltr: key_layer_tap_right {
@@ -478,7 +478,7 @@
             quick-tap-ms = <170>;
             flavor = "tap-preferred";
             bindings = <&mo>, <&kp>;
-            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27>;
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 37 38 39>;
             hold-trigger-on-release;
         }; 
 
