@@ -19,14 +19,13 @@
 #define NAG 3
 #define AMO 4
 #define LMO 5
-#define DOU 6
-#define MOU 7
-#define MOV 8
-#define LOW 9
-#define RAI 10
-#define MAC 11
-#define SET 12
-#define SCR 13
+#define MOU 6
+#define MOV 7
+#define LOW 8
+#define RAI 9
+#define MAC 10
+#define SET 11
+#define SCR 12
 
 // keycodeを置き換えるとkeymap editorが利用できないため、基本的に実施しない。
 //#define XXX &none
@@ -356,8 +355,7 @@
                 <&macro_release>,
                 <&macro_param_1to1 &mkp MACRO_PLACEHOLDER>,
                 <&macro_tap>,
-                <&ea>,
-                <&sl_200 DOU>;
+                <&sl_150 AMO>;
         };
         // マウス入力
         mkpea: mkp_exit_AML {
@@ -387,11 +385,11 @@
             display-name = "Toggle Layer Off";
             toggle-mode = "off";
         };
-        sl_200: sl_200 {   // マウスレイヤーにとどまる時間
+        sl_150: sl_150 {   // マウスレイヤーにとどまる時間
             compatible = "zmk,behavior-sticky-key";
             bindings = <&mo>;
             #binding-cells = <1>;
-            release-after-ms = <200>;
+            release-after-ms = <150>;
         };
         // マウス入力にmtをホールドで追加
         hmkpea: mkp_exit_AML_on_hold {
@@ -656,16 +654,6 @@
 &none  &cmkpea MB1  &none       &mkpea MB2  &none  &none     &none  &none  &cmkpea MB1  &none       &mkpea MB2  &none
 &none  &mkpea MB4   &mkpea MB3  &mkpea MB5  &none  &none     &none  &none  &mkpea MB4   &mkpea MB3  &mkpea MB5  &none
 &none  &none        &none       &none       &none  &none     &none  &none                                       &none
-            >;
-            sensor-bindings = <&scroll_up_down>;
-        };
-
-        DOUBLE {
-            bindings = <
-&trans  &trans      &trans  &trans  &trans                     &trans  &trans      &trans  &trans  &trans
-&trans  &mkpea MB1  &trans  &trans  &trans  &trans     &trans  &trans  &mkpea MB1  &trans  &trans  &trans
-&trans  &trans      &trans  &trans  &trans  &trans     &trans  &trans  &trans      &trans  &trans  &trans
-&trans  &trans      &trans  &trans  &trans  &trans     &trans  &trans                              &trans
             >;
             sensor-bindings = <&scroll_up_down>;
         };
