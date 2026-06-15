@@ -6,7 +6,7 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include <behaviors/naginata.dtsi>
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1800
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 2000
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 
 // 薙刀式のOS設定  (WIN 0, MAC 1, LINUX 2, IOS 3)
@@ -14,19 +14,18 @@
 
 // レイヤー定義
 #define QWE 0
-#define WOR 1
-#define ONI 2
-#define NAG 3
-#define AMO 4
-#define LMO 5
-#define DOU 6
-#define MOU 7
-#define MOV 8
-#define LOW 9
-#define RAI 10
-#define MAC 11
-#define SET 12
-#define SCR 13
+#define ONI 1
+#define NAG 2
+#define AMO 3
+#define LMO 4
+#define DOU 5
+#define MOU 6
+#define MOV 7
+#define LOW 8
+#define RAI 9
+#define MAC 10
+#define SET 11
+#define SCR 12
 
 // keycodeを置き換えるとkeymap editorが利用できないため、基本的に実施しない。
 //#define XXX &none
@@ -319,9 +318,7 @@
             wait-ms = <0>;
             tap-ms = <0>;
             #binding-cells = <0>;
-            bindings = <&tog_off AMO>,
-                       <&tog_off LMO>,
-                       <&tog_off DOU>;
+            bindings = <&tog_off AMO>;
         };
         // マウスレイヤーでキー入力後抜ける
         kpea: kp_exit_AML {
