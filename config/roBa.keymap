@@ -411,7 +411,7 @@
             quick-tap-ms = <170>;
             flavor = "tap-preferred";
         };
-        // レイヤー移動後にAMLを抜け雨r
+        // レイヤー移動後にAMLを抜ける
         mtea: mt_exit_AML {
             compatible = "zmk,behavior-hold-tap";
             bindings = <&moea>, <&kpea>;
