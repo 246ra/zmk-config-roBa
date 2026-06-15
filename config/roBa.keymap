@@ -170,25 +170,25 @@
             timeout-ms = <40>;
             key-positions = <32 33>;
             bindings = <&mo RAI>;
-            layers = <QWE WOR ONI NAG>;
+            layers = <QWE ONI NAG>;
         };
         combo_RAI2 {
             timeout-ms = <40>;
             key-positions = <22 23>;
             bindings = <&mo RAI>;
-            layers = <QWE WOR ONI NAG>;
+            layers = <QWE ONI NAG>;
         };
         combo_SET {
             timeout-ms = <40>;
             key-positions = <31 32>;
             bindings = <&mo SET>;
-            layers = <QWE WOR ONI NAG>;
+            layers = <QWE ONI NAG>;
         };
         combo_SET2 {
             timeout-ms = <40>;
             key-positions = <23 24>;
             bindings = <&mo SET>;
-            layers = <QWE WOR ONI NAG>;
+            layers = <QWE ONI NAG>;
         };
     };
 
