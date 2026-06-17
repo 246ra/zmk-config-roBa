@@ -6,7 +6,7 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include <behaviors/naginata.dtsi>
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 2000
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 2200
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 
 // 薙刀式のOS設定  (WIN 0, MAC 1, LINUX 2, IOS 3)
@@ -574,7 +574,7 @@
         wjseco: wakasagi_jis_semi_colon {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kltr LOW SEMI>, <&kp SQT>;
+            bindings = <&kltr RAI SEMI>, <&kp SQT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         // 記号の入力
@@ -622,8 +622,8 @@
             bindings = <
 &kp Q         &kp W          &kp E          &kp R         &kp T                                               &kp Y        &kp U         &kp I            &kp O          &kp P
 &hrml LGUI A  &hrml LSHFT S  &hrml LCTRL D  &hrml LALT F  &kp G          &kp LCTRL             &kp RALT       &kp H        &hrmr RALT J  &hrmr RCTRL K    &hrmr RSHFT L  &hjseco
-&kltl MOU Z   &kltl MAC X    &kltl LOW C    &kltl RAI V   &kp B          &lt SCR LEFT          &lt SCR RIGHT  &kp N        &kltr RAI M   &kltr LOW COMMA  &kltr MAC DOT  &kltr MOU FSLH
-&kp LALT      &kp LCTRL      &kp LSHFT      &lt SET LANG2 &lt MOV SPACE  &mt LSHFT LANG1       &lt LOW BSPC   &lt RAI RET                                                &mo MOU
+&kltl MOU Z   &kltl MAC X    &kltl RAI C    &kltl LOW V   &kp B          &lt SET LEFT          &lt SET RIGHT  &kp N        &kltr LOW M   &kltr RAI COMMA  &kltr MAC DOT  &kltr MOU FSLH
+&mo MOU       &kp LCTRL      &kp LSHFT      &lt SET LANG2 &lt MOV SPACE  &mt LSHFT LANG1       &lt LOW BSPC   &lt RAI RET                                                &mo MOU
             >;
             sensor-bindings = <&scroll_up_down>;
         };
@@ -632,8 +632,8 @@
             bindings = <
 &kp Q           &kp P            &kp R          &kp D          &kp C                                             &kp B        &kp K         &kp U          &kp Y          &kp X
 &hrml LGUI A    &hrml LSHFT T    &hrml LCTRL N  &hrml LALT S   &kp W          &kp LCTRL           &kp RALT       &kp M        &hrmr RALT H  &hrmr RCTRL E  &hrmr RSHFT I  &hrmr RGUI O
-&kltl MOU FSLH  &kltl MAC COMMA  &kltl LOW L    &kltl MOV G    &kp J          &lt SCR LEFT        &lt SCR RIGHT  &kp F        &kltr MOV V   &wjseco        &kltr MAC Z    &kltr MOU DOT
-&kp LALT        &kp LCTRL        &kp LSHFT      &lt SET LANG2  &lt MOV SPACE  &mt LSHFT LANG1     &lt LOW BSPC   &lt RAI RET                                              &mo MOU
+&kltl MOU FSLH  &kltl MAC COMMA  &kltl RAI L    &kltl LOW G    &kp J          &lt SET LEFT        &lt SET RIGHT  &kp F        &kltr LOW V   &wjseco        &kltr MAC Z    &kltr MOU DOT
+&mo MOU         &kp LCTRL        &kp LSHFT      &lt SET LANG2  &lt MOV SPACE  &mt LSHFT LANG1     &lt LOW BSPC   &lt RAI RET                                              &mo MOU
             >;
             sensor-bindings = <&scroll_up_down>;
         };
@@ -642,8 +642,8 @@
             bindings = <
 &kp Q         &kp L          &kp U          &kp COMMA      &kp DOT                                             &kp F        &kp W         &kp R          &kp Y          &kp P
 &hrml LGUI E  &hrml LSHFT I  &hrml LCTRL A  &hrml LALT O   &kp MINUS      &kp LCTRL             &kp RALT       &kp K        &hrmr RALT T  &hrmr RCTRL N  &hrmr RSHFT S  &hrmr RGUI H
-&kltl MOU Z   &kltl MAC X    &kltl LOW C    &kltl RAI V    &jseco         &lt SCR LEFT          &lt SCR RIGHT  &kp G        &kltr RAI D   &kltr LOW M    &kltr MAC J    &kltr MOU B
-&kp LALT      &kp LCTRL      &kp LSHFT      &lt SET LANG2  &lt MOV SPACE  &mt LSHFT LANG1       &lt LOW BSPC   &lt RAI RET                                              &mo MOU
+&kltl MOU Z   &kltl MAC X    &kltl RAI C    &kltl LOW V    &jseco         &lt SET LEFT          &lt SET RIGHT  &kp G        &kltr LOW D   &kltr RAI M    &kltr MAC J    &kltr MOU B
+&mo MOU       &kp LCTRL      &kp LSHFT      &lt SET LANG2  &lt MOV SPACE  &mt LSHFT LANG1       &lt LOW BSPC   &lt RAI RET                                              &mo MOU
             >;
             sensor-bindings = <&scroll_up_down>;
         };
@@ -652,8 +652,8 @@
             bindings = <
 &ng Q        &ng W        &ng E        &ng R        &ng T                                      &ng Y      &ng U        &ng I            &ng O          &ng P
 &ng A        &ng S        &ng D        &ng F        &ng G      &kp LCTRL        &kp RALT       &ng H      &ng J        &ng K            &ng L          &ng SEMI
-&nltl MOU Z  &nltl MAC X  &nltl LOW C  &nltl RAI V  &ng B      &lt SCR LEFT     &lt SCR RIGHT  &ng N      &nltr RAI M  &nltr LOW COMMA  &nltr MAC DOT  &nltr MOU FSLH
-&none        &none        &none        &mo RAI      &ng SPACE  &mo MOV          &lt LOW BSPC   &ng ENTER                                               &mo MOU
+&nltl MOU Z  &nltl MAC X  &nltl RAI C  &nltl LOW V  &ng B      &lt SET LEFT     &lt SET RIGHT  &ng N      &nltr LOW M  &nltr RAI COMMA  &nltr MAC DOT  &nltr MOU FSLH
+&mo MOU      &none        &none        &mo RAI      &ng SPACE  &mo MOV          &lt LOW BSPC   &ng ENTER                                               &mo MOU
             >;
             sensor-bindings = <&scroll_up_down>;
         };
