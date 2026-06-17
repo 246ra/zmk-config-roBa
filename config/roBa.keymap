@@ -6,7 +6,7 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include <behaviors/naginata.dtsi>
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 2000
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 2200
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 
 // 薙刀式のOS設定  (WIN 0, MAC 1, LINUX 2, IOS 3)
@@ -77,7 +77,6 @@
     snipe {     // マウス移動(LOW)
         layers = <LMO>;
         input-processors = <
-            &zip_temp_layer AMO 10000
             &zip_xy_scaler 1 3  // 移動量に倍率つける(0に近いほど小さくなる)
         >;
     };
@@ -400,6 +399,24 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&mkpea>;
         };
+        // レイヤー移動後にAMLを抜ける
+        ltea: lt_exit_AML {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&moea>, <&kpea>;
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <170>;
+            flavor = "tap-preferred";
+        };
+        // レイヤー移動後にAMLを抜ける
+        mtea: mt_exit_AML {
+            compatible = "zmk,behavior-hold-tap";
+            bindings = <&moea>, <&kpea>;
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+            quick-tap-ms = <170>;
+        };
         // HRMの設定
         hrml: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
@@ -640,10 +657,10 @@
 
         AMOUSE {
              bindings = <
-&none      &none        &moea MAC   &none              &none                   &none  &none        &moea MAC   &none              &none
-&moea LMO  &cmkpea MB1  &moea SCR   &hmkpea LSHFT MB2  &none  &none     &none  &none  &cmkpea MB1  &moea SCR   &hmkpea RSHFT MB2  &moea LMO
-&none      &mkpea MB4   &mkpea MB3  &hmkpea LCTRL MB5  &none  &none     &none  &none  &mkpea MB4   &mkpea MB3  &hmkpea RCTRL MB5  &none
-&none      &none        &none       &none              &none  &none     &none  &none                                              &none
+&ea        &ea          &moea MAC   &ea                &ea                                                   &ea            &ea          &moea MAC   &ea                &ea
+&moea LMO  &cmkpea MB1  &moea SCR   &hmkpea LSHFT MB2  &ea             &ea                   &ea             &ea            &cmkpea MB1  &moea SCR   &hmkpea RSHFT MB2  &moea LMO
+&ea        &mkpea MB4   &mkpea MB3  &hmkpea LCTRL MB5  &ea             &ea                   &ea             &ea            &mkpea MB4   &mkpea MB3  &hmkpea RCTRL MB5  &ea
+&ea        &ea          &ea         &ltea SET LANG2    &ltea MOV SPACE &mtea LSHFT LANG1     &ltea LOW BSPC  &ltea RAI RET                                              &ea
             >;
             sensor-bindings = <&scroll_up_down>;
         };
