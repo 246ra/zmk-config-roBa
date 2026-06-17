@@ -6,8 +6,6 @@ manifest:
       url-base: https://github.com/badjeff
     - name: eswai
       url-base: https://github.com/eswai
-    - name: caksoylar
-      url-base: https://github.com/caksoylar
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -19,8 +17,5 @@ manifest:
     - name: zmk-naginata
       remote: eswai
       revision: main
-    - name: zmk-rgbled-widget
-      remote: caksoylar
-      revision: v0.3-branch
   self:
     path: config
