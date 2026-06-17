@@ -659,7 +659,7 @@
         AMOUSE {
              bindings = <
 &ea        &ea          &moea SET   &ea                &ea                                                   &ea            &ea          &moea SET   &ea                &ea
-&moea LMO  &cmkpea MB1  &moea MAC   &hmkpea LSHFT MB2  &ea             &ea                   &ea             &ea            &cmkpea MB1  &moea MAC   &hmkpea RSHFT MB2  &moea LMO
+&ea        &cmkpea MB1  &moea MAC   &hmkpea LSHFT MB2  &ea             &ea                   &ea             &ea            &cmkpea MB1  &moea MAC   &hmkpea RSHFT MB2  &ea
 &ea        &mkpea MB4   &mkpea MB3  &hmkpea LCTRL MB5  &ea             &ea                   &ea             &ea            &mkpea MB4   &mkpea MB3  &hmkpea RCTRL MB5  &ea
 &ea        &ea          &ea         &ltea SET LANG2    &ltea MOV SPACE &mtea LSHFT LANG1     &ltea LOW BSPC  &ltea RAI RET                                              &ea
             >;
