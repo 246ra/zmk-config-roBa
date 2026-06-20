@@ -326,6 +326,22 @@
             #binding-cells = <1>;
             bindings = <&macro_param_1to1 &kp MACRO_PLACEHOLDER &ea>;
         };
+        // マウスレイヤーでmod入力後抜ける
+        mdea: mod_exit_AML {
+            compatible = "zmk,behavior-macro-one-param";
+            wait-ms = <0>;
+            tap-ms = <0>;
+            #binding-cells = <1>;
+            bindings =
+                <&macro_press>,
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER>,
+                <&macro_tap>,
+                <&ea>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER>,
+                <&macro_tap>;
+        };
         // マウスレイヤーでmo入力後抜ける
         moea: mo_exit_AML {
             compatible = "zmk,behavior-macro-one-param";
@@ -658,8 +674,8 @@
         AMOUSE {
              bindings = < 
 &ea          &ea          &moea SET   &ea              &ea                                                    &ea            &ea          &moea SET   &ea        &ea
-&kpea LSHFT  &cmkpea MB1  &moea MAC   &mkpea MB2       &ea              &ea                   &ea             &ea            &cmkpea MB1  &moea MAC   &kpea MB2  &kpea RSHFT
-&kpea LCTRL  &mkpea MB4   &mkpea MB3  &mkpea MB5       &ea              &ea                   &ea             &ea            &mkpea MB4   &mkpea MB3  &kpea MB5  &kpea RCTRL
+&mdea LSHFT  &cmkpea MB1  &moea MAC   &mkpea MB2       &ea              &ea                   &ea             &ea            &cmkpea MB1  &moea MAC   &kpea MB2  &mdea RSHFT
+&mdea LCTRL  &mkpea MB4   &mkpea MB3  &mkpea MB5       &ea              &ea                   &ea             &ea            &mkpea MB4   &mkpea MB3  &kpea MB5  &mdea RCTRL
 &ea          &ea          &ea         &ltea SET LANG2  &ltea MOV SPACE  &mtea LSHFT LANG1     &ltea LOW BSPC  &ltea RAI RET                                      &ea
             >;
             sensor-bindings = <&scroll_up_down>;
