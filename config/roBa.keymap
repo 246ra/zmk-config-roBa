@@ -659,7 +659,7 @@
              bindings = < 
 &ea          &ea          &moea SET   &ea              &ea                                                    &ea            &ea          &moea SET   &ea        &ea
 &kpea LSHFT  &cmkpea MB1  &moea MAC   &mkpea MB2       &ea              &ea                   &ea             &ea            &cmkpea MB1  &moea MAC   &kpea MB2  &kpea RSHFT
-&kpwa LCTRL  &mkpea MB4   &mkpea MB3  &mkpea MB5       &ea              &ea                   &ea             &ea            &mkpea MB4   &mkpea MB3  &kpea MB5  &kpea RCTRL
+&kpea LCTRL  &mkpea MB4   &mkpea MB3  &mkpea MB5       &ea              &ea                   &ea             &ea            &mkpea MB4   &mkpea MB3  &kpea MB5  &kpea RCTRL
 &ea          &ea          &ea         &ltea SET LANG2  &ltea MOV SPACE  &mtea LSHFT LANG1     &ltea LOW BSPC  &ltea RAI RET                                      &ea
             >;
             sensor-bindings = <&scroll_up_down>;
