@@ -625,40 +625,40 @@
 
         DEFAULT {
             bindings = <
-&kp Q         &kp W          &kp E          &kp R         &kp T                                               &kp Y        &kp U         &kp I            &kp O          &kp P
-&hrml LGUI A  &hrml LSHFT S  &hrml LCTRL D  &hrml LALT F  &kp G          &kp LCTRL             &kp RALT       &kp H        &hrmr RALT J  &hrmr RCTRL K    &hrmr RSHFT L  &hjseco
-&kltl MOU Z   &kltl MAC X    &kltl RAI C    &kltl LOW V   &kp B          &lt SET LEFT          &lt SET RIGHT  &kp N        &kltr LOW M   &kltr RAI COMMA  &kltr MAC DOT  &kltr MOU FSLH
-&mo MOU       &kp LCTRL      &kp LSHFT      &lt SET LANG2 &lt MOV SPACE  &mt LSHFT LANG1       &lt LOW BSPC   &lt RAI RET                                                &mo MOU
+&kp Q         &kp W          &kp E          &kp R         &kp T                                              &kp Y        &kp U         &kp I            &kp O          &kp P
+&hrml LGUI A  &hrml LSHFT S  &hrml LCTRL D  &hrml LALT F  &kp G          &kp KC_NO             &kp RSHFT     &kp H        &hrmr RALT J  &hrmr RCTRL K    &hrmr RSHFT L  &hjseco
+&kltl MOU Z   &kltl MAC X    &kltl RAI C    &kltl LOW V   &kp B          &kp LANG2             &kp SQT       &kp N        &kltr LOW M   &kltr RAI COMMA  &kltr MAC DOT  &kltr MOU FSLH
+&mo MOU       &kp LCTRL      &kp LSHFT      &lt SET LANG2 &lt MOV SPACE  &mt LSHFT LANG1       &lt LOW BSPC  &lt RAI RET                                                &mo MOU
             >;
             sensor-bindings = <&scroll_up_down>;
         };
 
         WAKASAGI {
             bindings = <
-&kp Q           &kp P            &kp R          &kp D          &kp C                                             &kp B        &kp K         &kp U          &kp Y          &kp X
-&hrml LGUI A    &hrml LSHFT T    &hrml LCTRL N  &hrml LALT S   &kp W          &kp LCTRL           &kp RALT       &kp M        &hrmr RALT H  &hrmr RCTRL E  &hrmr RSHFT I  &hrmr RGUI O
-&kltl MOU FSLH  &kltl MAC COMMA  &kltl RAI L    &kltl LOW G    &kp J          &lt SET LEFT        &lt SET RIGHT  &kp F        &kltr LOW V   &wjseco        &kltr MAC Z    &kltr MOU DOT
-&mo MOU         &kp LCTRL        &kp LSHFT      &lt SET LANG2  &lt MOV SPACE  &mt LSHFT LANG1     &lt LOW BSPC   &lt RAI RET                                              &mo MOU
+&kp Q           &kp P            &kp R          &kp D          &kp C                                            &kp B        &kp K         &kp U          &kp Y          &kp X
+&hrml LGUI A    &hrml LSHFT T    &hrml LCTRL N  &hrml LALT S   &kp W          &kp KC_NO           &kp RSHFT     &kp M        &hrmr RALT H  &hrmr RCTRL E  &hrmr RSHFT I  &hrmr RGUI O
+&kltl MOU FSLH  &kltl MAC COMMA  &kltl RAI L    &kltl LOW G    &kp J          &kp LANG2           &kp SQT       &kp F        &kltr LOW V   &wjseco        &kltr MAC Z    &kltr MOU DOT
+&mo MOU         &kp LCTRL        &kp LSHFT      &lt SET LANG2  &lt MOV SPACE  &mt LSHFT LANG1     &lt LOW BSPC  &lt RAI RET                                              &mo MOU
             >;
             sensor-bindings = <&scroll_up_down>;
         };
 
         OONISHI {
             bindings = <
-&kp Q         &kp L          &kp U          &kp COMMA      &kp DOT                                             &kp F        &kp W         &kp R          &kp Y          &kp P
-&hrml LGUI E  &hrml LSHFT I  &hrml LCTRL A  &hrml LALT O   &kp MINUS      &kp LCTRL             &kp RALT       &kp K        &hrmr RALT T  &hrmr RCTRL N  &hrmr RSHFT S  &hrmr RGUI H
-&kltl MOU Z   &kltl MAC X    &kltl RAI C    &kltl LOW V    &jseco         &lt SET LEFT          &lt SET RIGHT  &kp G        &kltr LOW D   &kltr RAI M    &kltr MAC J    &kltr MOU B
-&mo MOU       &kp LCTRL      &kp LSHFT      &lt SET LANG2  &lt MOV SPACE  &mt LSHFT LANG1       &lt LOW BSPC   &lt RAI RET                                              &mo MOU
+&kp Q         &kp L          &kp U          &kp COMMA      &kp DOT                                            &kp F        &kp W         &kp R          &kp Y          &kp P
+&hrml LGUI E  &hrml LSHFT I  &hrml LCTRL A  &hrml LALT O   &kp MINUS      &kp KC_NO             &kp RSHFT     &kp K        &hrmr RALT T  &hrmr RCTRL N  &hrmr RSHFT S  &hrmr RGUI H
+&kltl MOU Z   &kltl MAC X    &kltl RAI C    &kltl LOW V    &jseco         &kp LANG2             &kp SQT       &kp G        &kltr LOW D   &kltr RAI M    &kltr MAC J    &kltr MOU B
+&mo MOU       &kp LCTRL      &kp LSHFT      &lt SET LANG2  &lt MOV SPACE  &mt LSHFT LANG1       &lt LOW BSPC  &lt RAI RET                                              &mo MOU
             >;
             sensor-bindings = <&scroll_up_down>;
         };
 
         NAGINATA {
             bindings = <
-&ng Q        &ng W        &ng E        &ng R        &ng T                                      &ng Y      &ng U        &ng I            &ng O          &ng P
-&ng A        &ng S        &ng D        &ng F        &ng G      &kp LCTRL        &kp RALT       &ng H      &ng J        &ng K            &ng L          &ng SEMI
-&nltl MOU Z  &nltl MAC X  &nltl RAI C  &nltl MOU V  &ng B      &lt SET LEFT     &lt SET RIGHT  &ng N      &nltr LOW M  &nltr RAI COMMA  &nltr MAC DOT  &nltr MOU FSLH
-&mo MOU      &none        &none        &mo RAI      &ng SPACE  &mo MOV          &lt LOW BSPC   &ng ENTER                                               &mo MOU
+&ng Q        &ng W        &ng E        &ng R        &ng T                                     &ng Y      &ng U        &ng I            &ng O          &ng P
+&ng A        &ng S        &ng D        &ng F        &ng G      &kp KC_NO        &kp RSHFT     &ng H      &ng J        &ng K            &ng L          &ng SEMI
+&nltl MOU Z  &nltl MAC X  &nltl RAI C  &nltl MOU V  &ng B      &kp LANG2        &kp SQT       &ng N      &nltr LOW M  &nltr RAI COMMA  &nltr MAC DOT  &nltr MOU FSLH
+&mo MOU      &none        &none        &mo RAI      &ng SPACE  &mo MOV          &lt LOW BSPC  &ng ENTER                                               &mo MOU
             >;
             sensor-bindings = <&scroll_up_down>;
         };
@@ -735,9 +735,9 @@
 
         SETUP {
             bindings = <
-&kp C_MUTE    &kp C_PP    &none         &none       &none                                        &kp CAPS    &none       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2
-&kp C_VOL_UP  &kp C_NEXT  &kp C_BRI_UP  &none       &none          &none            &none        &kp KP_NUM  &none       &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5
-&kp C_VOL_DN  &kp C_PREV  &kp C_BRI_DN  &none       &sys_reset     &bootloader      &bootloader  &kp SLCK    &none       &none         &bt BT_CLR    &bt BT_CLR_ALL
+&kp C_MUTE    &kp C_PP    &none         &none       &none                                        &none　　　  &kp CAPS    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2
+&kp C_VOL_UP  &kp C_NEXT  &kp C_BRI_UP  &none       &none          &none            &none        &none　　　  &kp KP_NUM  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5
+&kp C_VOL_DN  &kp C_PREV  &kp C_BRI_DN  &none       &sys_reset     &bootloader      &bootloader  &sys_reset  &kp SLCK    &none         &bt BT_CLR    &bt BT_CLR_ALL
 &none         &none       &none         &none       &none          &none            &none        &none                                               &none
             >;
             sensor-bindings = <&scroll_up_down>;
