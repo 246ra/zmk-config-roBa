@@ -507,8 +507,8 @@
             quick-tap-ms = <170>;
             flavor = "balanced";
             bindings = <&mo>, <&kp>;
-            hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41>;
-            hold-trigger-on-release;
+            //hold-trigger-key-positions = <5 6 7 8 9 16 17 18 19 20 21 28 29 30 31 32 33 40 41>;
+            //hold-trigger-on-release;
         };
         kltr: key_layer_tap_right {
             compatible = "zmk,behavior-hold-tap";
@@ -518,8 +518,8 @@
             quick-tap-ms = <170>;
             flavor = "balanced";
             bindings = <&mo>, <&kp>;
-            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 37 38 39>;
-            hold-trigger-on-release;
+            //hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 15 22 23 24 25 26 27 37 38 39>;
+            //hold-trigger-on-release;
         }; 
 
         // ロータリーエンコーダの設定
@@ -645,7 +645,7 @@
 &kp Q         &kp W          &kp E          &kp R         &kp T                                              &kp Y        &kp U         &kp I            &kp O          &kp P
 &hrml LGUI A  &hrml LSHFT S  &hrml LCTRL D  &hrml LALT F  &kp G          &none                 &kp RSHFT     &kp H        &hrmr RALT J  &hrmr RCTRL K    &hrmr RSHFT L  &hjseco
 &kltl MOU Z   &kltl MAC X    &kltl RAI C    &kltl LOW V   &kp B          &kp LANG2             &kp SQT       &kp N        &kltr LOW M   &kltr RAI COMMA  &kltr MAC DOT  &kltr MOU FSLH
-&mo MOU       &kp LCTRL      &kp LSHFT      &lt SET LANG2 &lt MOV SPACE  &mt LSHFT LANG1       &lt LOW BSPC  &lt RAI RET                                                &mo MOU
+&mo MOU       &kp LCTRL      &kp LSHFT      &lt SET LANG2 &lt MOV SPACE  &kp LSHFT LANG1       &lt LOW BSPC  &lt RAI RET                                                &mo MOU
             >;
             sensor-bindings = <&scroll_up_down>;
         };
@@ -722,10 +722,10 @@
 
         MOVE {
             bindings = <
-&kp ESC         &kp INS              &kp INT5           &kp INT4      &kp CAPS                               &kp K_APP      &kp BSPC   &kp DEL    &kp LC(BSPC)  &kp TAB
-&hrml LGUI TAB  &hrml LSHFT LS(TAB)  &hrml LCTRL GRAVE  &hrmc LALT 0  &none      &kp C_MUTE     &kp RALT     &kp LEFT       &kp DOWN   &kp UP     &kp RIGHT     &kp RET
-&kp PSCRN       &kp LG(LS(S))        &kp LC(T)          &kp LC(I)     &kp LC(O)  &kp LSHFT      &kp RGUI     &kp HOME       &kp PG_DN  &kp PG_UP  &kp END       &none
-&none           &none                &none              &none         &none      &none          &lt SET DEL  &lt MAC SPACE                                      &none
+&kp ESC         &kp INS              &kp INT5           &kp INT4          &caps_word                              &kp K_APP      &kp BSPC   &kp DEL    &kp LC(BSPC)  &kp TAB
+&hrml LGUI TAB  &hrml LSHFT LS(TAB)  &hrml LCTRL LANG2  &hrml LALT LANG1  &kp GRAVE   &kp C_MUTE     &kp RALT     &kp LEFT       &kp DOWN   &kp UP     &kp RIGHT     &kp RET
+&kp PSCRN       &kp LG(LS(S))        &kp LC(T)          &kp LC(I)         &kp LC(O)   &kp LSHFT      &kp RGUI     &kp HOME       &kp PG_DN  &kp PG_UP  &kp END       &kp GRAVE
+&none           &none                &none              &none             &none       &none          &lt SET DEL  &lt MAC SPACE                                      &none
             >;
             sensor-bindings = <&volume_up_down>;
         };
@@ -762,10 +762,10 @@
 
         SETUP {
             bindings = <
-&kp C_MUTE    &kp C_PP    &none         &none  &none                                    &none       &kp CAPS    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2
-&kp C_VOL_UP  &kp C_NEXT  &kp C_BRI_UP  &none  &none       &none           &none        &none       &kp KP_NUM  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5
-&kp C_VOL_DN  &kp C_PREV  &kp C_BRI_DN  &none  &sys_reset  &bootloader     &bootloader  &sys_reset  &kp SLCK    &none         &bt BT_CLR    &bt BT_CLR_ALL
-&none         &none       &none         &none  &none       &none           &none        &none                                               &none
+&kp C_MUTE    &kp C_PP    &none         &none  &kp LCAPS                               &kp CAPS    &none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2
+&kp C_VOL_UP  &kp C_NEXT  &kp C_BRI_UP  &none  &kp LNLCK  &none           &none        &kp KP_NUM  &none  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5
+&kp C_VOL_DN  &kp C_PREV  &kp C_BRI_DN  &none  &kp LSLCK  &bootloader     &bootloader  &kp SLCK    &none  &none         &bt BT_CLR    &bt BT_CLR_ALL
+&sys_reset    &none       &none         &none  &none      &none           &none        &none                                               &sys_reset
             >;
             sensor-bindings = <&scroll_up_down>;
         };
