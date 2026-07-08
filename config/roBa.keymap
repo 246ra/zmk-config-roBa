@@ -26,6 +26,7 @@
 #define RAI 10
 #define MAC 11
 #define SET 12
+#define SCL 13
 
 // keycodeを置き換えるとkeymap editorが利用できないため、基本的に実施しない。
 //#define XXX &none
@@ -58,14 +59,7 @@
 
 // layerの設定
 &lt {
-    flavor = "balanced"; // タップ優先
-    tapping-term-ms = <200>;  // tap < ms < hold 扱いになる
-    quick-tap-ms = <170>;     // 秒数内にダブルタップすることで連続入力
-    // require-prior-idle-ms = <125>;   // 修飾キー以外のキーと同時に押された場合（動作ではありません）、ホールドタップは常にタップに変換
-};
-// modの設定
-&mt {
-    flavor = "balanced"; // タップ優先
+    flavor = "hold-preferred"; // タップ優先
     tapping-term-ms = <200>;  // tap < ms < hold 扱いになる
     quick-tap-ms = <170>;     // 秒数内にダブルタップすることで連続入力
     // require-prior-idle-ms = <125>;   // 修飾キー以外のキーと同時に押された場合（動作ではありません）、ホールドタップは常にタップに変換
@@ -81,7 +75,7 @@
         >;
     };
     scroller {      //  スクロール
-        layers = <MAC>;
+        layers = <SCL>;
         input-processors = <
             &zip_xy_to_scroll_mapper
             &zip_scroll_transform INPUT_TRANSFORM_Y_INVERT
@@ -89,7 +83,7 @@
         >;
     };
     hiscroller {    // 高速スクロール
-        layers = <SET>;
+        layers = <MAC>;
         input-processors = <
             &zip_xy_to_scroll_mapper
             &zip_scroll_transform INPUT_TRANSFORM_Y_INVERT
@@ -461,7 +455,7 @@
             tapping-term-ms = <200>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <5 6 7 8 9 17 18 19 20 21 29 30 31 32 33>; // List of keys on the right side of the keyboard
+            hold-trigger-key-positions = <5 6 7 8 9 17 18 19 20 21 29 30 31 32 33 37 38 39 40 41>; // List of keys on the right side of the keyboard
             hold-trigger-on-release;
         };
         hrmr: homerow_mods_right {
@@ -472,7 +466,7 @@
             tapping-term-ms = <200>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 22 23 24 25 26>;
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 22 23 24 25 26 37 38 39 40 41>;
             hold-trigger-on-release;
         };
         // HRMでcaps切替える
@@ -484,7 +478,7 @@
             tapping-term-ms = <200>;
             flavor = "balanced";
             bindings = <&kp>, <&caps_word>;
-            hold-trigger-key-positions = <5 6 7 8 9 17 18 19 20 21 29 30 31 32 33>;
+            hold-trigger-key-positions = <5 6 7 8 9 17 18 19 20 21 29 30 31 32 33 37 38 39 40 41>;
             hold-trigger-on-release;
         };
         //mod-tap(薙刀式)の設定
@@ -496,7 +490,7 @@
             quick-tap-ms = <170>;
             flavor = "balanced";
             bindings = <&mo>, <&ng>;
-            hold-trigger-key-positions = <5 6 7 8 9 17 18 19 20 21 29 30 31 32 33>;
+            hold-trigger-key-positions = <5 6 7 8 9 17 18 19 20 21 29 30 31 32 33 37 38 39 40 41>;
             hold-trigger-on-release;
         };
         nltr: nagi_layer_tap_right {
@@ -507,7 +501,7 @@
             quick-tap-ms = <170>;
             flavor = "balanced";
             bindings = <&mo>, <&ng>;
-            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 22 23 24 25 26>;
+            hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 22 23 24 25 26 37 38 39 40 41>;
             hold-trigger-on-release;
         };
         // layerの設定(文字を入力する場合)
@@ -519,7 +513,7 @@
             quick-tap-ms = <170>;
             flavor = "balanced";
             bindings = <&mo>, <&kp>;
-            //hold-trigger-key-positions = <5 6 7 8 9 17 18 19 20 21 29 30 31 32 33>;
+            //hold-trigger-key-positions = <5 6 7 8 9 17 18 19 20 21 29 30 31 32 33 37 38 39 40 41>;
             //hold-trigger-on-release;
         };
         kltr: key_layer_tap_right {
@@ -530,7 +524,7 @@
             quick-tap-ms = <170>;
             flavor = "balanced";
             bindings = <&mo>, <&kp>;
-            //hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 22 23 24 25 26>;
+            //hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 22 23 24 25 26 37 38 39 40 41>;
             //hold-trigger-on-release;
         }; 
 
@@ -564,7 +558,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&kp C_VOL_UP>, <&kp C_VOL_DN>;
             // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <1>;
+            tap-ms = <0>;
         };
         // タブ移動
         move_tab_lr: sensor_rotate_move_tab_left_right  {
@@ -572,7 +566,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&kp LC(TAB)>, <&kp LS(LC(TAB))>;
             // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <1>;
+            tap-ms = <0>;
         };
         // 進む/戻る
         move_reun: sensor_rotate_move_redo_undo  {
@@ -694,8 +688,8 @@
 
         AMOUSE {
              bindings = < 
-&ea          &ea          &moea SET   &ea              &ea                                                    &ea            &ea          &moea SET   &ea        &ea
-&mdea LSHFT  &cmkpea MB1  &moea MAC   &mkpea MB2       &ea              &ea                   &ea             &ea            &cmkpea MB1  &moea MAC   &kpea MB2  &mdea RSHFT
+&ea          &ea          &moea MAC   &ea              &ea                                                    &ea            &ea          &moea MAC   &ea        &ea
+&mdea LSHFT  &cmkpea MB1  &moea SCL   &mkpea MB2       &ea              &ea                   &ea             &ea            &cmkpea MB1  &moea SCL   &kpea MB2  &mdea RSHFT
 &mdea LCTRL  &mkpea MB4   &mkpea MB3  &mkpea MB5       &ea              &ea                   &ea             &ea            &mkpea MB4   &mkpea MB3  &kpea MB5  &mdea RCTRL
 &ea          &ea          &ea         &ltea SET LANG2  &ltea MOV SPACE  &mtea LSHFT LANG1     &ltea LOW BSPC  &ltea RAI RET                                      &ea
             >;
@@ -714,8 +708,8 @@
 
         FMOUSE {
             bindings = <
-&none  &none  &none  &none  &none                   &none  &none     &mo SET   &none     &none
-&none  &none  &none  &none  &none  &none     &none  &none  &mkp MB1  &mo MAC   &mkp MB2  &none
+&none  &none  &none  &none  &none                   &none  &none     &mo MAC   &none     &none
+&none  &none  &none  &none  &none  &none     &none  &none  &mkp MB1  &mo SCL   &mkp MB2  &none
 &none  &none  &none  &none  &none  &none     &none  &none  &mkp MB4  &mkp MB3  &mkp MB5  &none
 &none  &none  &none  &none  &none  &none     &none  &none                                &none
             >;
@@ -778,6 +772,16 @@
 &kp C_VOL_UP  &kp C_NEXT  &kp C_BRI_UP  &none  &kp LNLCK  &none           &none        &kp KP_NUM  &none  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5
 &kp C_VOL_DN  &kp C_PREV  &kp C_BRI_DN  &none  &kp LSLCK  &bootloader     &bootloader  &kp SLCK    &none  &none         &bt BT_CLR    &bt BT_CLR_ALL
 &sys_reset    &none       &none         &none  &none      &none           &none        &none                                          &sys_reset
+            >;
+            sensor-bindings = <&scroll_up_down>;
+        };
+
+        SCROLL {
+            bindings = <
+&none  &none  &none  &none  &none                   &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none     &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none     &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none     &none  &none                       &none
             >;
             sensor-bindings = <&scroll_up_down>;
         };
