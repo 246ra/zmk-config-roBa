@@ -558,7 +558,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&kp C_VOL_UP>, <&kp C_VOL_DN>;
             // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <0>;
+            tap-ms = <500>;
         };
         // タブ移動
         move_tab_lr: sensor_rotate_move_tab_left_right  {
@@ -566,7 +566,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&kp LC(TAB)>, <&kp LS(LC(TAB))>;
             // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <0>;
+            tap-ms = <100>;
         };
         // 進む/戻る
         move_reun: sensor_rotate_move_redo_undo  {
@@ -582,7 +582,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&kp RIGHT>, <&kp LEFT>;
             // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <1>;
+            tap-ms = <50>;
         };
         // キー入力受付
          rot_kp: sensor_rotate_kp {
