@@ -59,11 +59,18 @@
 
 // layerの設定
 &lt {
-    flavor = "hold-preferred"; // タップ優先
-    tapping-term-ms = <200>;  // tap < ms < hold 扱いになる
-    quick-tap-ms = <170>;     // 秒数内にダブルタップすることで連続入力
+    flavor = "tap-preferred"; // タップ優先
+    tapping-term-ms = <160>;  // tap < ms < hold 扱いになる
+    quick-tap-ms = <160>;     // 秒数内にダブルタップすることで連続入力
     // require-prior-idle-ms = <125>;   // 修飾キー以外のキーと同時に押された場合（動作ではありません）、ホールドタップは常にタップに変換
 };
+&mt {
+    flavor = "tap-preferred"; // タップ優先
+    tapping-term-ms = <160>;  // tap < ms < hold 扱いになる
+    quick-tap-ms = <160>;     // 秒数内にダブルタップすることで連続入力
+    // require-prior-idle-ms = <125>;   // 修飾キー以外のキーと同時に押された場合（動作ではありません）、ホールドタップは常にタップに変換
+};
+
 
 // トラックボール
 &trackball_listener{
@@ -550,7 +557,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&LCG_R>, <&LCG_L>;
             // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <1>;
+            tap-ms = <20>;
         };
         // 音量増減
         volume_up_down: sensor_rotate_volume_up_down  {
@@ -558,7 +565,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&kp C_VOL_UP>, <&kp C_VOL_DN>;
             // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <500>;
+            tap-ms = <20>;
         };
         // タブ移動
         move_tab_lr: sensor_rotate_move_tab_left_right  {
@@ -566,7 +573,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&kp LC(TAB)>, <&kp LS(LC(TAB))>;
             // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <100>;
+            tap-ms = <20>;
         };
         // 進む/戻る
         move_reun: sensor_rotate_move_redo_undo  {
@@ -574,7 +581,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&kp LC(Y)>, <&kp LC(Z)>;
             // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <1>;
+            tap-ms = <20>;
         };
         // 右/左
         move_leri: sensor_rotate_move_left_right  {
@@ -582,7 +589,7 @@
             #sensor-binding-cells = <0>;
             bindings = <&kp RIGHT>, <&kp LEFT>;
             // 追加: スクロールのタップ時間を設定 (20ms)
-            tap-ms = <50>;
+            tap-ms = <20>;
         };
         // キー入力受付
          rot_kp: sensor_rotate_kp {
@@ -651,7 +658,7 @@
 &kp Q         &kp W          &kp E          &kp R         &kp T                                              &kp Y        &kp U         &kp I            &kp O          &kp P
 &hrml LGUI A  &hrml LSHFT S  &hrml LCTRL D  &hrml LALT F  &kp G          &none                 &kp RSHFT     &kp H        &hrmr RALT J  &hrmr RCTRL K    &hrmr RSHFT L  &hjseco
 &kltl MOU Z   &kltl MAC X    &kltl RAI C    &kltl LOW V   &kp B          &kp LANG2             &kp SQT       &kp N        &kltr LOW M   &kltr RAI COMMA  &kltr MAC DOT  &kltr MOU FSLH
-&mo MOU       &kp LCTRL      &kp LSHFT      &lt SET LANG2 &lt MOV SPACE  &lt LSHFT LANG1       &lt LOW BSPC  &lt RAI RET                                                &mo MOU
+&mo MOU       &kp LCTRL      &kp LSHFT      &lt SET LANG2 &lt MOV SPACE  &mt LSHFT LANG1       &lt LOW BSPC  &lt RAI RET                                                &mo MOU
             >;
             sensor-bindings = <&scroll_up_down>;
         };
